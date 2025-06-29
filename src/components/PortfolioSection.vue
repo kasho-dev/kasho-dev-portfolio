@@ -700,26 +700,106 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
-const sections = ref<HTMLElement[]>([])
+// Add smooth scrolling to the entire document
+const setupSmoothScrolling = () => {
+  // Smooth scroll for anchor links
+  const anchorLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+  
+  const handleAnchorClick = (e: Event) => {
+    const target = e.currentTarget as HTMLAnchorElement
+    const targetId = target.getAttribute('href')
+    
+    if (!targetId || targetId === '#') return
+    
+    const targetElement = document.querySelector(targetId)
+    if (targetElement) {
+      e.preventDefault()
+      // Temporarily disable smooth scroll for programmatic scroll
+      document.documentElement.style.scrollBehavior = 'auto'
+      document.body.style.scrollBehavior = 'auto'
+      
+      targetElement.scrollIntoView({
+        behavior: 'auto',
+        block: 'start'
+      })
+      
+      // Re-enable smooth scroll after the jump
+      setTimeout(() => {
+        document.documentElement.style.scrollBehavior = 'smooth'
+        document.body.style.scrollBehavior = 'smooth'
+      }, 100)
+    }
+  }
+
+  anchorLinks.forEach(anchor => {
+    anchor.addEventListener('click', handleAnchorClick)
+  })
+}
 
 onMounted(() => {
-  sections.value = Array.from(document.querySelectorAll('section'))
-
-  sections.value.forEach((section) => {
-    useIntersectionObserver(
-      section,
-      ([{ isIntersecting }]) => {
-        section.style.opacity = isIntersecting ? '1' : '0'
-        section.style.transform = isIntersecting ? 'translateY(0)' : 'translateY(20px)'
-      },
-      {
-        threshold: 0.1,
-      },
-    )
-  })
+  setupSmoothScrolling()
+  
+  // Add smooth scroll behavior to the entire document
+  document.documentElement.style.scrollBehavior = 'smooth'
+  document.body.style.scrollBehavior = 'smooth'
+  
+  // Add a small delay to ensure the DOM is fully loaded
+  setTimeout(() => {
+    const sections = Array.from(document.querySelectorAll('section'))
+    let lastActiveSection: HTMLElement | null = null
+    
+    // First, set up initial styles for all sections
+    sections.forEach((section) => {
+      // Enable hardware acceleration and prevent layout shifts
+      section.style.willChange = 'opacity, transform'
+      section.style.backfaceVisibility = 'hidden'
+      section.style.perspective = '1000px'
+      section.style.transformStyle = 'preserve-3d'
+      
+      // Set initial styles with optimized transitions
+      section.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
+      section.style.opacity = '0'
+      section.style.transform = 'translate3d(0, 30px, 0)'
+      section.style.pointerEvents = 'none'
+    })
+    
+    // Set up intersection observer with optimized settings
+    sections.forEach((section) => {
+      useIntersectionObserver(
+        section,
+        ([{ isIntersecting }]) => {
+          if (isIntersecting) {
+            // Fade out the previously active section
+            if (lastActiveSection && lastActiveSection !== section) {
+              lastActiveSection.style.opacity = '0.3'
+              lastActiveSection.style.transform = 'translate3d(0, 15px, 0)'
+              lastActiveSection.style.pointerEvents = 'none'
+            }
+            // Fade in the current section
+            section.style.opacity = '1'
+            section.style.transform = 'translate3d(0, 0, 0)'
+            section.style.pointerEvents = 'auto'
+            lastActiveSection = section
+          }
+        },
+        {
+          threshold: 0.15,
+          rootMargin: '-10% 0px -10% 0px' // More precise intersection detection
+        }
+      )
+    })
+    
+    // Set the first section as active by default
+    if (sections[0]) {
+      sections[0].style.opacity = '1'
+      sections[0].style.transform = 'translate3d(0, 0, 0)'
+      sections[0].style.pointerEvents = 'auto'
+      lastActiveSection = sections[0]
+    }
+  }, 100)
 })
 </script>
 

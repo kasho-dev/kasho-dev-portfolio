@@ -96,8 +96,8 @@
                 tristique justo. Cras porttitor tincidunt eros, nec tincidunt nulla iaculis nec.
               </p>
               <a
-                href="/documents/Kyle_Arana_CV.pdf"
-                download="Kyle_Arana_Frontend_Developer_CV.pdf"
+                href="/Kyle_Arana_Resume.pdf"
+                download="Kyle_Arana_Resume.pdf"
                 class="border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
               >
                 Download CV

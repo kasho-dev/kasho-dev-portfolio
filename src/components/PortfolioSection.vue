@@ -107,97 +107,89 @@
           </div>
 
           <!-- Projects Grid -->
-          <div class="grid grid-cols-2 gap-6 sm:gap-8">
-            <!-- Project 1 -->
-            <div class="group relative">
-              <div class="relative rounded-lg overflow-hidden aspect-[5/4] sm:aspect-[4/3] mb-0">
-                <img
-                  src="C:\Users\Kyle\myPortfolio\src\components\imgs\tracking-system-dashboard.png"
-                  alt="Document Tracking System Dashboard"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm"
-                />
-                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    View Project
+          <div class="flex justify-center w-full overflow-x-auto pb-6 px-4">
+            <div class="flex gap-8">
+              <!-- Project 1 -->
+              <div class="group relative flex-shrink-0 w-[350px]">
+                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3">
+                  <img
+                    src="C:\Users\Kyle\myPortfolio\src\components\imgs\tracking-system-dashboard.png"
+                    alt="Document Tracking System Dashboard"
+                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                      View Project
+                    </span>
+                  </div>
+                </div>
+                <div class="mb-1">
+                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide">
+                    Full Stack Web Development
                   </span>
                 </div>
+                <h3 class="text-lg sm:text-xl font-semibold text-white">
+                  Document Tracking System
+                </h3>
               </div>
-              <div class="mb-2">
-                <span class="text-green-400 text-xs sm:text-sm uppercase tracking-wide"
-                  >Full Stack Web Development</span
-                >
-              </div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">
-                Document Tracking System
-              </h3>
-            </div>
 
-            <!-- Project 2 -->
-            <div class="group relative">
-              <div class="relative rounded-lg overflow-hidden aspect-[5/4] sm:aspect-[4/3] mb-0">
-                <img
-                  src="C:\Users\Kyle\myPortfolio\src\components\imgs\Presyotect.png"
-                  alt="Presyotect Dashboard"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm"
-                />
-                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    View Project
+              <!-- Project 2 -->
+              <div class="group relative flex-shrink-0 w-[350px]">
+                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3">
+                  <img
+                    src="C:\Users\Kyle\myPortfolio\src\components\imgs\Presyotect.png"
+                    alt="Presyotect Dashboard"
+                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                      View Project
+                    </span>
+                  </div>
+                </div>
+                <div class="mb-1">
+                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide">
+                    Front End Development
                   </span>
                 </div>
+                <h3 class="text-lg sm:text-xl font-semibold text-white">Consumer Access Portal</h3>
               </div>
-              <div class="mb-2">
-                <span class="text-green-400 text-sm uppercase tracking-wide"
-                  >Front End Development</span
-                >
-              </div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">Consumer Access Portal</h3>
-            </div>
 
-            <!-- Project 3 -->
-            <div class="group relative">
-              <div class="relative rounded-lg overflow-hidden aspect-[5/4] sm:aspect-[4/3] mb-0">
-                <img
-                  src="C:\Users\Kyle\myPortfolio\src\components\imgs\eventra-login.png"
-                  alt="Eventra Catering Order & Expenses Tracker"
-                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm"
-                />
-                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    View Project
+              <!-- Project 3 -->
+              <div class="group relative flex-shrink-0 w-[350px]">
+                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3">
+                  <img
+                    src="C:\Users\Kyle\myPortfolio\src\components\imgs\eventra-login.png"
+                    alt="Eventra Catering Order & Expenses Tracker"
+                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+                  >
+                    <span
+                      class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                    >
+                      View Project
+                    </span>
+                  </div>
+                </div>
+                <div class="mb-1">
+                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide">
+                    Software App
                   </span>
                 </div>
+                <h3 class="text-lg sm:text-xl font-semibold text-white">
+                  Eventra Catering Order & Expenses Tracker
+                </h3>
               </div>
-              <div class="mb-2">
-                <span class="text-green-400 text-xs sm:text-sm uppercase tracking-wide"
-                  >Software App</span
-                >
-              </div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">
-                Eventra Catering Order & Expenses Tracker
-              </h3>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="group relative">
-              <div class="relative rounded-lg overflow-hidden aspect-[5/4] sm:aspect-[4/3] mb-0">
-                <div class="w-full h-full bg-[#1f1f1f] flex items-center justify-center">
-                  <span class="text-gray-400">Project Screenshot</span>
-                </div>
-                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    View Project
-                  </span>
-                </div>
-              </div>
-              <div class="mb-2">
-                <span class="text-green-400 text-sm uppercase tracking-wide"
-                  >Full Stack Development</span
-                >
-              </div>
-              <h3 class="text-base sm:text-lg font-semibold text-white">
-                Document Tracking System
-              </h3>
             </div>
           </div>
         </div>
@@ -314,16 +306,14 @@
             <h2 class="text-5xl font-bold text-green-400 mb-12">Techstack</h2>
           </div>
 
-          <!-- First Row of Tech Icons -->
-          <div
-            class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12"
-          >
+          <!-- Tech Stack Icons - 7x7 Grid -->
+          <div class="grid grid-cols-7 gap-4 sm:gap-6">
             <!-- Vue.js -->
             <div class="flex flex-col items-center">
               <div class="w-16 h-16 bg-green-500 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">V</span>
               </div>
-              <span class="text-gray-300 text-sm">Vue.js</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Vue.js</span>
             </div>
 
             <!-- Python -->
@@ -331,7 +321,7 @@
               <div class="w-16 h-16 bg-blue-400 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">Py</span>
               </div>
-              <span class="text-gray-300 text-sm">Python</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Python</span>
             </div>
 
             <!-- Java -->
@@ -339,7 +329,7 @@
               <div class="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">J</span>
               </div>
-              <span class="text-gray-300 text-sm">Java</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Java</span>
             </div>
 
             <!-- HTML -->
@@ -347,7 +337,7 @@
               <div class="w-16 h-16 bg-orange-600 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">5</span>
               </div>
-              <span class="text-gray-300 text-sm">HTML</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">HTML</span>
             </div>
 
             <!-- CSS -->
@@ -355,7 +345,7 @@
               <div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">3</span>
               </div>
-              <span class="text-gray-300 text-sm">CSS</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">CSS</span>
             </div>
 
             <!-- JavaScript -->
@@ -363,34 +353,33 @@
               <div class="w-16 h-16 bg-yellow-400 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-black font-bold">JS</span>
               </div>
-              <span class="text-gray-300 text-sm">JavaScript</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">JavaScript</span>
             </div>
 
             <!-- MongoDB -->
-            <div class="flex flex-col items-center">
+            <!-- <div class="flex flex-col items-center">
               <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">M</span>
               </div>
-              <span class="text-gray-300 text-sm">MongoDB</span>
-            </div>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">MongoDB</span>
+            </div> -->
 
             <!-- MySQL -->
             <div class="flex flex-col items-center">
               <div class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">SQL</span>
               </div>
-              <span class="text-gray-300 text-sm">MySQL</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">MySQL</span>
             </div>
-          </div>
 
-          <!-- Second Row of Tech Icons -->
-          <div class="grid grid-cols-3 md:grid-cols-7 gap-8 justify-center">
             <!-- Tailwind -->
             <div class="flex flex-col items-center">
-              <div class="w-16 h-16 bg-[#2a2a2a] rounded-lg flex items-center justify-center mb-2">
+              <div
+                class="w-14 h-14 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-lg flex items-center justify-center mb-1 sm:mb-2"
+              >
                 <span class="text-white font-bold">TW</span>
               </div>
-              <span class="text-gray-300 text-sm">Tailwind</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Tailwind</span>
             </div>
 
             <!-- Bootstrap -->
@@ -398,7 +387,7 @@
               <div class="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">B</span>
               </div>
-              <span class="text-gray-300 text-sm">Bootstrap</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Bootstrap</span>
             </div>
 
             <!-- TypeScript -->
@@ -406,7 +395,7 @@
               <div class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">TS</span>
               </div>
-              <span class="text-gray-300 text-sm">TypeScript</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">TypeScript</span>
             </div>
 
             <!-- C# -->
@@ -414,7 +403,7 @@
               <div class="w-16 h-16 bg-purple-500 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">C#</span>
               </div>
-              <span class="text-gray-300 text-sm">C#</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">C#</span>
             </div>
 
             <!-- Node.js -->
@@ -422,7 +411,7 @@
               <div class="w-16 h-16 bg-green-500 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">N</span>
               </div>
-              <span class="text-gray-300 text-sm">Node.js</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Node.js</span>
             </div>
 
             <!-- Git -->
@@ -430,7 +419,7 @@
               <div class="w-16 h-16 bg-red-500 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">Git</span>
               </div>
-              <span class="text-gray-300 text-sm">Git</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Git</span>
             </div>
 
             <!-- PocketBase -->
@@ -438,7 +427,7 @@
               <div class="w-16 h-16 bg-[#181818] rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">PB</span>
               </div>
-              <span class="text-gray-300 text-sm">PocketBase</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">PocketBase</span>
             </div>
           </div>
         </div>
@@ -451,16 +440,14 @@
             <h2 class="text-5xl font-bold text-green-400 mb-12">Other expertise</h2>
           </div>
 
-          <!-- Other Expertise Icons -->
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 justify-center"
-          >
+          <!-- Other Expertise Icons - 7x7 Grid -->
+          <div class="grid grid-cols-7 gap-4 sm:gap-6">
             <!-- Canva -->
             <div class="flex flex-col items-center">
               <div class="w-16 h-16 bg-cyan-400 rounded-full flex items-center justify-center mb-2">
                 <span class="text-white font-bold">Ca</span>
               </div>
-              <span class="text-gray-300 text-sm">Canva</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Canva</span>
             </div>
 
             <!-- Figma -->
@@ -470,7 +457,7 @@
               >
                 <span class="text-white font-bold">Fi</span>
               </div>
-              <span class="text-gray-300 text-sm">Figma</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Figma</span>
             </div>
 
             <!-- Word -->
@@ -478,7 +465,7 @@
               <div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">W</span>
               </div>
-              <span class="text-gray-300 text-sm">Word</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Word</span>
             </div>
 
             <!-- Excel -->
@@ -486,7 +473,7 @@
               <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">X</span>
               </div>
-              <span class="text-gray-300 text-sm">Excel</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">Excel</span>
             </div>
 
             <!-- PowerPoint -->
@@ -494,7 +481,7 @@
               <div class="w-16 h-16 bg-orange-600 rounded-lg flex items-center justify-center mb-2">
                 <span class="text-white font-bold">P</span>
               </div>
-              <span class="text-gray-300 text-sm">PowerPoint</span>
+              <span class="text-gray-300 text-xs sm:text-sm text-center">PowerPoint</span>
             </div>
           </div>
         </div>
@@ -687,28 +674,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useIntersectionObserver } from '@vueuse/core';
+import { ref, onMounted } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 
-const sections = ref([]);
+const sections = ref<HTMLElement[]>([])
 
 onMounted(() => {
-  sections.value = document.querySelectorAll('section');
-  
+  sections.value = Array.from(document.querySelectorAll('section'))
+
   sections.value.forEach((section) => {
     useIntersectionObserver(
       section,
       ([{ isIntersecting }]) => {
-        section.style.opacity = isIntersecting ? '1' : '0';
-        section.style.transform = isIntersecting ? 'translateY(0)' : 'translateY(20px)';
+        section.style.opacity = isIntersecting ? '1' : '0'
+        section.style.transform = isIntersecting ? 'translateY(0)' : 'translateY(20px)'
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      }
-    );
-  });
-});
+      },
+    )
+  })
+})
 </script>
 
 <style scoped>
@@ -745,7 +731,9 @@ section {
   overflow-y: auto;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
   will-change: opacity, transform;
 }
 

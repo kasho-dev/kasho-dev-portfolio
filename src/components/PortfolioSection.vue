@@ -8,12 +8,18 @@
         <!-- Logo placeholder -->
       </div>
       <ul class="flex space-x-8">
-        <li><a href="#" class="text-green-400 hover:text-green-300 transition-colors">About</a></li>
         <li>
-          <a href="#" class="text-green-400 hover:text-green-300 transition-colors">Projects</a>
+          <a href="#about" class="text-green-400 hover:text-green-300 transition-colors">About</a>
         </li>
         <li>
-          <a href="#" class="text-green-400 hover:text-green-300 transition-colors">Contact</a>
+          <a href="#projects" class="text-green-400 hover:text-green-300 transition-colors"
+            >Projects</a
+          >
+        </li>
+        <li>
+          <a href="#contact" class="text-green-400 hover:text-green-300 transition-colors"
+            >Contact</a
+          >
         </li>
       </ul>
     </nav>
@@ -31,6 +37,7 @@
     >
       <!-- Hero Section -->
       <section
+        id="home"
         class="snap-start min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 py-16"
       >
         <div class="text-center">
@@ -46,16 +53,20 @@
             Developer
           </h1>
 
-          <button
-            class="border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
+          <a
+            href="#projects"
+            class="inline-block border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
           >
             View my work
-          </button>
+          </a>
         </div>
       </section>
 
       <!-- About Section -->
-      <section class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto">
+      <section
+        id="about"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto"
+      >
         <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
           <div class="flex items-start gap-8 md:gap-12">
             <!-- Profile Image (Left side) -->
@@ -84,18 +95,23 @@
                 egestas quis elementum vel, accumsan id turpis. Nunc a vestibulum augue, at
                 tristique justo. Cras porttitor tincidunt eros, nec tincidunt nulla iaculis nec.
               </p>
-              <button
+              <a
+                href="/documents/Kyle_Arana_CV.pdf"
+                download="Kyle_Arana_Frontend_Developer_CV.pdf"
                 class="border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
               >
                 Download CV
-              </button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Projects Section -->
-      <section class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto">
+      <section
+        id="projects"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto"
+      >
         <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
           <div class="text-center mb-12">
             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-green-400 mb-4">Projects</h2>
@@ -196,7 +212,10 @@
       </section>
 
       <!-- Services Section -->
-      <section class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto">
+      <section
+        id="services"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto"
+      >
         <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
           <div class="text-center mb-12">
             <h2 class="text-5xl font-bold text-green-400 mb-8">Services</h2>
@@ -300,7 +319,10 @@
       </section>
 
       <!-- Techstack Section -->
-      <section class="snap-start min-h-[calc(100vh-4rem)] flex items-center bg-[#181818] py-16">
+      <section
+        id="techstack"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center bg-[#181818] py-16"
+      >
         <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
           <div class="text-center mb-12">
             <h2 class="text-5xl font-bold text-green-400 mb-12">Techstack</h2>
@@ -434,7 +456,10 @@
       </section>
 
       <!-- Other Expertise Section -->
-      <section class="snap-start min-h-[calc(100vh-4rem)] flex items-center bg-[#181818] py-16">
+      <section
+        id="expertise"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center bg-[#181818] py-16"
+      >
         <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
           <div class="text-center mb-12">
             <h2 class="text-5xl font-bold text-green-400 mb-12">Other expertise</h2>
@@ -489,6 +514,7 @@
 
       <!-- Footer -->
       <footer
+        id="contact"
         class="snap-start min-h-[calc(100vh-4rem)] relative bg-[#181818] border-t border-green-400/20 py-8 sm:py-12 md:py-16 flex items-center"
       >
         <div class="w-full">
@@ -577,28 +603,28 @@
                 <ul class="space-y-3">
                   <li>
                     <a
-                      href="#"
+                      href="#about"
                       class="text-gray-300 hover:text-green-400 transition-colors duration-300 hover:translate-x-1 inline-block"
                       >About</a
                     >
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#projects"
                       class="text-gray-300 hover:text-green-400 transition-colors duration-300 hover:translate-x-1 inline-block"
                       >Projects</a
                     >
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#services"
                       class="text-gray-300 hover:text-green-400 transition-colors duration-300 hover:translate-x-1 inline-block"
                       >Services</a
                     >
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="#contact"
                       class="text-gray-300 hover:text-green-400 transition-colors duration-300 hover:translate-x-1 inline-block"
                       >Contact</a
                     >
@@ -646,7 +672,7 @@
               <div
                 class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
               >
-                <p class="text-gray-400 text-sm">© 2025 Kyle Arana. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">2025 Kyle Arana. All rights reserved.</p>
                 <div class="flex space-x-6 text-sm">
                   <a
                     href="#"

@@ -72,7 +72,7 @@
             <!-- Profile Image (Left side) -->
             <div class="flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/3 lg:w-64">
               <img
-                src="C:\Users\Kyle\myPortfolio\src\components\icons\Kyle_Arana_Profile.jpg"
+                :src="KyleProfileImage"
                 alt="Kyle Arana Profile"
                 class="w-full h-56 sm:h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
               />
@@ -135,12 +135,17 @@
           <!-- Projects Grid -->
           <div class="flex justify-center w-full overflow-x-auto pb-6 px-4">
             <div class="flex gap-8">
-              <!-- Project 1 -->
-              <div class="group relative flex-shrink-0 w-[350px]">
+              <!-- Projects List -->
+              <div
+                v-for="project in projects"
+                :key="project.id"
+                class="group relative flex-shrink-0 w-[350px] cursor-pointer"
+                @click="openProject(project)"
+              >
                 <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3">
                   <img
-                    src="C:\Users\Kyle\myPortfolio\src\components\imgs\tracking-system-dashboard.png"
-                    alt="Document Tracking System Dashboard"
+                    :src="project.images[0]"
+                    :alt="project.title"
                     class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
                   />
                   <div
@@ -155,65 +160,11 @@
                 </div>
                 <div class="mb-1">
                   <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide">
-                    Full Stack Web Development
+                    {{ project.techStack[0] }}
                   </span>
                 </div>
                 <h3 class="text-lg sm:text-xl font-semibold text-white">
-                  Document Tracking System
-                </h3>
-              </div>
-
-              <!-- Project 2 -->
-              <div class="group relative flex-shrink-0 w-[350px]">
-                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3">
-                  <img
-                    src="C:\Users\Kyle\myPortfolio\src\components\imgs\Presyotect.png"
-                    alt="Presyotect Dashboard"
-                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
-                  />
-                  <div
-                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                  >
-                    <span
-                      class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                    >
-                      View Project
-                    </span>
-                  </div>
-                </div>
-                <div class="mb-1">
-                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide">
-                    Front End Development
-                  </span>
-                </div>
-                <h3 class="text-lg sm:text-xl font-semibold text-white">Consumer Access Portal</h3>
-              </div>
-
-              <!-- Project 3 -->
-              <div class="group relative flex-shrink-0 w-[350px]">
-                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3">
-                  <img
-                    src="C:\Users\Kyle\myPortfolio\src\components\imgs\eventra-login.png"
-                    alt="Eventra Catering Order & Expenses Tracker"
-                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
-                  />
-                  <div
-                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                  >
-                    <span
-                      class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                    >
-                      View Project
-                    </span>
-                  </div>
-                </div>
-                <div class="mb-1">
-                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide">
-                    Software App
-                  </span>
-                </div>
-                <h3 class="text-lg sm:text-xl font-semibold text-white">
-                  Eventra Catering Order & Expenses Tracker
+                  {{ project.title }}
                 </h3>
               </div>
             </div>
@@ -1047,6 +998,13 @@
         </div>
       </section>
 
+      <!-- Project Overlay -->
+      <ProjectOverlay
+        :is-open="isOverlayOpen"
+        :project="selectedProject"
+        @close="closeProject"
+      />
+
       <!-- Footer -->
       <footer
         id="contact"
@@ -1310,9 +1268,72 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
-import { Monitor, Code, FileCode, Palette, Mail, Phone, Pin } from 'lucide-vue-next'
+import ProjectOverlay from './ProjectOverlay.vue';
+import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg';
+import TrackingSystemDashboard from './icons/tracking-system-dashboard.png';
+import Presyotect from './icons/Presyotect.png';
+import EventraLogin from './icons/eventra-login.png';
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  techStack: string[];
+  images: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+}
+
+// Project overlay state
+const selectedProject = ref<Project | null>(null);
+const isOverlayOpen = ref(false);
+
+// Project data
+const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Document Tracking System',
+    description: 'A comprehensive document tracking system that streamlines the process of managing, tracking, and monitoring documents throughout their lifecycle. The system provides real-time updates, version control, and detailed audit trails for all document activities.',
+    techStack: ['Front End Development', 'Vue.js', 'Node.js', 'PocketBase', 'Tailwind CSS'],
+    images: [TrackingSystemDashboard],
+    githubUrl: '#',
+    liveUrl: '#'
+  },
+  {
+    id: 2,
+    title: 'Consumer Access Portal',
+    description: 'A user-friendly portal that provides consumers with secure access to their accounts, transaction history, and support services. The portal features a responsive design and integrates with various backend services.',
+    techStack: ['Front End Development', 'Alpine JS', 'HTML', 'JavaScript', 'Bootstrap 5'],
+    images: [Presyotect],
+    githubUrl: '#',
+    liveUrl: '#'
+  },
+  {
+    id: 3,
+    title: 'Eventra Catering Order & Expenses Tracker',
+    description: 'An all-in-one solution for managing catering orders and tracking expenses. The application helps businesses streamline their operations, manage inventory, and maintain financial records in one place.',
+    techStack: ['Software Development', 'C#', 'ASP.NET Core', 'SQL Server', 'Entity Framework'],
+    images: [EventraLogin],
+    githubUrl: '#',
+    liveUrl: '#'
+  }
+];
+
+const openProject = (project: Project) => {
+  selectedProject.value = project;
+  isOverlayOpen.value = true;
+  // Disable body scroll when overlay is open
+  document.body.style.overflow = 'hidden';
+};
+
+const closeProject = () => {
+  isOverlayOpen.value = false;
+  // Re-enable body scroll when overlay is closed
+  document.body.style.overflow = '';
+};
+
 
 // Add smooth scrolling to the entire document
 const setupSmoothScrolling = () => {
@@ -1359,11 +1380,12 @@ onMounted(() => {
 
   // Add a small delay to ensure the DOM is fully loaded
   setTimeout(() => {
-    const sections = Array.from(document.querySelectorAll('section'))
+    const sections = Array.from(document.querySelectorAll('section')) as HTMLElement[]
     let lastActiveSection: HTMLElement | null = null
 
     // First, set up initial styles for all sections
     sections.forEach((section) => {
+      if (!(section instanceof HTMLElement)) return;
       // Enable hardware acceleration and prevent layout shifts
       section.style.willChange = 'opacity, transform'
       section.style.backfaceVisibility = 'hidden'

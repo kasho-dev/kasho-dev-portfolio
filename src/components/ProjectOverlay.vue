@@ -19,27 +19,59 @@
 
         <div v-if="project" class="grid grid-cols-1 lg:grid-cols-2 h-full">
           <!-- Left Column - Project Images -->
-          <div class="relative h-64 md:h-auto bg-gray-800">
-            <div v-if="project.images && project.images.length > 0" class="h-full">
-              <img 
-                :src="project.images[currentImageIndex]" 
-                :alt="project.title"
-                class="w-full h-full object-cover"
-              />
+          <div class="relative h-64 md:h-[600px] bg-gray-800 overflow-hidden">
+            <div v-if="project.images && project.images.length > 0" class="h-full relative">
+              <!-- Main Image with Transition -->
+              <transition :name="slideDirection" mode="out-in">
+                <img 
+                  :key="currentImageIndex"
+                  :src="project.images[currentImageIndex]" 
+                  :alt="`${project.title} - Image ${currentImageIndex + 1}`"
+                  class="w-full h-full object-contain bg-black"
+                  @click="nextImage"
+                />
+              </transition>
               
-              <!-- Image Navigation -->
-              <div v-if="project.images.length > 1" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+              <!-- Navigation Arrows -->
+              <template v-if="project.images.length > 1">
+                <button 
+                  @click.stop="prevImage"
+                  class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all z-10"
+                  aria-label="Previous image"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button 
+                  @click.stop="nextImage"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all z-10"
+                  aria-label="Next image"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </template>
+              
+              <!-- Image Navigation Dots -->
+              <div v-if="project.images.length > 1" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
                 <button 
                   v-for="(img, index) in project.images" 
                   :key="index"
-                  @click.stop="currentImageIndex = index"
+                  @click.stop="goToImage(index)"
                   :class="{
-                    'bg-green-400': currentImageIndex === index,
-                    'bg-gray-600': currentImageIndex !== index
+                    'bg-green-400 w-8': currentImageIndex === index,
+                    'bg-gray-600 w-3': currentImageIndex !== index
                   }"
-                  class="w-3 h-3 rounded-full transition-colors"
+                  class="h-3 rounded-full transition-all duration-300 hover:bg-green-400"
                   :aria-label="`View image ${index + 1} of ${project.images.length}`"
                 ></button>
+              </div>
+
+              <!-- Image Counter -->
+              <div class="absolute top-4 right-4 bg-black bg-opacity-50 text-white text-sm px-2 py-1 rounded z-10">
+                {{ currentImageIndex + 1 }} / {{ project.images.length }}
               </div>
             </div>
           </div>
@@ -64,24 +96,42 @@
             </div>
 
             <div class="flex flex-wrap gap-4 mt-8">
-              <a 
-                v-if="project.liveUrl"
-                :href="project.liveUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-6 py-2 bg-green-400 text-gray-900 rounded hover:bg-green-300 transition-colors font-medium"
-              >
-                View Live
-              </a>
-              <a 
-                v-if="project.githubUrl"
-                :href="project.githubUrl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-6 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-gray-900 transition-colors font-medium"
-              >
-                View Code
-              </a>
+              <template v-if="project.id === 2">
+                <!-- Unavailable buttons for project 2 -->
+                <button 
+                  class="px-6 py-2 bg-gray-600 text-gray-400 rounded cursor-not-allowed font-medium"
+                  disabled
+                >
+                  View Live (Unavailable)
+                </button>
+                <button 
+                  class="px-6 py-2 border border-gray-600 text-gray-600 rounded cursor-not-allowed font-medium"
+                  disabled
+                >
+                  View Code (Unavailable)
+                </button>
+              </template>
+              <template v-else>
+                <!-- Normal buttons for other projects -->
+                <a 
+                  v-if="project.liveUrl"
+                  :href="project.liveUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-6 py-2 bg-green-400 text-gray-900 rounded hover:bg-green-300 transition-colors font-medium"
+                >
+                  View Live
+                </a>
+                <a 
+                  v-if="project.githubUrl"
+                  :href="project.githubUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-6 py-2 border border-green-400 text-green-400 rounded hover:bg-green-400 hover:text-gray-900 transition-colors font-medium"
+                >
+                  View Code
+                </a>
+              </template>
             </div>
           </div>
         </div>
@@ -119,6 +169,22 @@ const emit = defineEmits<{
 }>();
 
 const currentImageIndex = ref(0);
+const slideDirection = ref('slide-right');
+
+const nextImage = (): void => {
+  slideDirection.value = 'slide-left';
+  currentImageIndex.value = (currentImageIndex.value + 1) % props.project!.images.length;
+};
+
+const prevImage = (): void => {
+  slideDirection.value = 'slide-right';
+  currentImageIndex.value = (currentImageIndex.value - 1 + props.project!.images.length) % props.project!.images.length;
+};
+
+const goToImage = (index: number): void => {
+  slideDirection.value = index > currentImageIndex.value ? 'slide-left' : 'slide-right';
+  currentImageIndex.value = index;
+};
 
 const close = (): void => {
   emit('close');
@@ -142,5 +208,43 @@ watch(() => props.project, () => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Slide animations */
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-left-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-left-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-right-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-right-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .project-overlay {
+    padding: 1rem;
+  }
 }
 </style>

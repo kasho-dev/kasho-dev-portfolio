@@ -72,7 +72,7 @@
             <!-- Profile Image (Left side) -->
             <div class="flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/3 lg:w-64">
               <img
-                :src="KyleProfileImage"
+                :src="KyleProfileImage2"
                 alt="Kyle Arana Profile"
                 class="w-full h-56 sm:h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
               />
@@ -999,11 +999,7 @@
       </section>
 
       <!-- Project Overlay -->
-      <ProjectOverlay
-        :is-open="isOverlayOpen"
-        :project="selectedProject"
-        @close="closeProject"
-      />
+      <ProjectOverlay :is-open="isOverlayOpen" :project="selectedProject" @close="closeProject" />
 
       <!-- Footer -->
       <footer
@@ -1070,7 +1066,7 @@
 
                   <!--LinkedIn-->
                   <a
-                    href="https://linkedin.com/in/kyle-arana"
+                    href="https://www.linkedin.com/in/kyle-araña-40746436a/"
                     target="_blank"
                     class="group relative p-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg hover:border-green-400 transition-all duration-300 hover:scale-110"
                   >
@@ -1270,70 +1266,156 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
-import ProjectOverlay from './ProjectOverlay.vue';
-import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg';
-import TrackingSystemDashboard from './icons/tracking-system-dashboard.png';
-import Presyotect from './icons/Presyotect.png';
-import EventraLogin from './icons/eventra-login.png';
+import ProjectOverlay from './ProjectOverlay.vue'
+import KyleProfileImage2 from './icons/Kyle_Arana.jpg'
+
+// Project 1 - Document Tracking System Images
+import TrackingSystemDashboard from './icons/project1/trackingsystem-dashboard.png'
+import TrackingSystemAddOrder1 from './icons/project1/trackingsystem-addOrder-1.png'
+import TrackingSystemAddOrder2 from './icons/project1/trackingsystem-addOrder-2.png'
+import TrackingSystemCreateAccount1 from './icons/project1/trackingsystem-createAccount-1.png'
+import TrackingSystemCreateAccount2 from './icons/project1/trackingsystem-createAccount-2.png'
+import TrackingSystemEditOrder from './icons/project1/trackingsystem-editOrder.png'
+import TrackingSystemForgetPassword from './icons/project1/trackingsystem-forgetPassword.png'
+import TrackingSystemNotifications from './icons/project1/trackingsystem-notifications.png'
+import TrackingSystemOrderDetails1 from './icons/project1/trackingsystem-orderDetails-1.png'
+import TrackingSystemOrderDetails2 from './icons/project1/trackingsystem-orderDetails-2.png'
+import TrackingSystemSettings1 from './icons/project1/trackingsystem-settings-1.png'
+import TrackingSystemSettings2 from './icons/project1/trackingsystem-settings-2.png'
+import TrackingSystemSignIn from './icons/project1/trackingsystem-signIn.png'
+
+// Project 2 - Eventra Images
+import EventraLogin from './icons/project2/eventra-login.png'
+import EventraAddNew1 from './icons/project2/eventra-addNew-1.png'
+import EventraAddNew2 from './icons/project2/eventra-addNew-2.png'
+import EventraAddNew3 from './icons/project2/eventra-addNew-3.png'
+import EventraCalendar from './icons/project2/eventra-calendar.png'
+import EventraDashboard from './icons/project2/eventra-dashboard.png'
+import EventraEventDetails1 from './icons/project2/eventra-event-details-1.png'
+import EventraEventDetails2 from './icons/project2/eventra-event-details-2.png'
+import EventraEvents from './icons/project2/eventra-events.png'
+import EventraExpenses from './icons/project2/eventra-expenses.png'
+import EventraPaymentDetails from './icons/project2/eventra-payment-details.png'
+import EventraSpreadsheet from './icons/project2/eventra-spreadsheet.png'
+import EventraTransactionLog from './icons/project2/eventra-transactionLog.png'
+
+// Project 3 - Presyotect Images
+import Presyotect from './icons/project3/Presyotect.png'
+import PresyotectCategories from './icons/project3/Presyotect-categories.png'
+import PresyotectDashboard2 from './icons/project3/Presyotect-dashboard-2.png'
+import PresyotectProductDetails from './icons/project3/Presyotect-productDetails.jpg'
+import PresyotectAnnouncements1 from './icons/project3/presyotect-announcemnets-1.jpg'
+import PresyotectAnnouncements2 from './icons/project3/presyotect-announcemnets-2.jpg'
+import PresyotectAskBot from './icons/project3/presyotect-askBot.jpg'
+import PresyotectCategoriesJpg from './icons/project3/presyotect-categories.jpg'
+import PresyotectDashboard1 from './icons/project3/presyotect-dashboard-1.jpg'
+import PresyotectMobileView from './icons/project3/presyotect-mobileView.jpg'
+import PresyotectPolicies from './icons/project3/presyotect-policies.jpg'
+import PresyotectReportComplaint from './icons/project3/presyotect-reportComplaint.jpg'
+import PresyotectSearch from './icons/project3/presyotect-search.jpg'
 
 interface Project {
-  id: number;
-  title: string;
-  description: string;
-  techStack: string[];
-  images: string[];
-  githubUrl?: string;
-  liveUrl?: string;
+  id: number
+  title: string
+  description: string
+  techStack: string[]
+  images: string[]
+  githubUrl?: string
+  liveUrl?: string
 }
 
 // Project overlay state
-const selectedProject = ref<Project | null>(null);
-const isOverlayOpen = ref(false);
+const selectedProject = ref<Project | null>(null)
+const isOverlayOpen = ref(false)
 
 // Project data
 const projects: Project[] = [
   {
     id: 1,
     title: 'Document Tracking System',
-    description: 'A comprehensive document tracking system that streamlines the process of managing, tracking, and monitoring documents throughout their lifecycle. The system provides real-time updates, version control, and detailed audit trails for all document activities.',
+    description:
+      'A comprehensive document tracking system that streamlines the process of managing, tracking, and monitoring documents throughout their lifecycle. The system provides real-time updates, version control, and detailed audit trails for all document activities.',
     techStack: ['Front End Development', 'Vue.js', 'Node.js', 'PocketBase', 'Tailwind CSS'],
-    images: [TrackingSystemDashboard],
-    githubUrl: '#',
-    liveUrl: '#'
+    images: [
+      TrackingSystemSignIn,
+      TrackingSystemDashboard,
+      TrackingSystemAddOrder1,
+      TrackingSystemAddOrder2,
+      TrackingSystemCreateAccount1,
+      TrackingSystemCreateAccount2,
+      TrackingSystemEditOrder,
+      TrackingSystemForgetPassword,
+      TrackingSystemNotifications,
+      TrackingSystemOrderDetails1,
+      TrackingSystemOrderDetails2,
+      TrackingSystemSettings1,
+      TrackingSystemSettings2
+    ],
+    githubUrl: 'https://github.com/kasho-dev/tracking-system',
+    liveUrl: '/videos/TrackingSystem-LiveDemo.mkv',
   },
   {
     id: 2,
-    title: 'Consumer Access Portal',
-    description: 'A user-friendly portal that provides consumers with secure access to their accounts, transaction history, and support services. The portal features a responsive design and integrates with various backend services.',
+    title: 'Presyotect Consumer Portal',
+    description:
+      'A user-friendly portal that provides consumers with secure access to their accounts, transaction history, and support services. The portal features a responsive design and integrates with various backend services.',
     techStack: ['Front End Development', 'Alpine JS', 'HTML', 'JavaScript', 'Bootstrap 5'],
-    images: [Presyotect],
+    images: [
+      Presyotect,
+      PresyotectDashboard2,
+      PresyotectCategories,
+      PresyotectAskBot,
+      PresyotectDashboard1,
+      PresyotectProductDetails,
+      PresyotectAnnouncements1,
+      PresyotectAnnouncements2,
+      PresyotectCategoriesJpg,
+      PresyotectMobileView,
+      PresyotectPolicies,
+      PresyotectReportComplaint,
+      PresyotectSearch
+    ],
     githubUrl: '#',
-    liveUrl: '#'
+    liveUrl: '#',
   },
   {
     id: 3,
-    title: 'Eventra Catering Order & Expenses Tracker',
-    description: 'An all-in-one solution for managing catering orders and tracking expenses. The application helps businesses streamline their operations, manage inventory, and maintain financial records in one place.',
+    title: 'Eventra - Catering Management System',
+    description:
+      'An all-in-one solution for managing catering orders and tracking expenses. The application helps businesses streamline their operations, manage inventory, and maintain financial records in one place.',
     techStack: ['Software Development', 'C#', 'ASP.NET Core', 'SQL Server', 'Entity Framework'],
-    images: [EventraLogin],
-    githubUrl: '#',
-    liveUrl: '#'
-  }
-];
+    images: [
+      EventraLogin,
+      EventraDashboard,
+      EventraAddNew1,
+      EventraAddNew2,
+      EventraAddNew3,
+      EventraCalendar,
+      EventraEventDetails1,
+      EventraEventDetails2,
+      EventraEvents,
+      EventraExpenses,
+      EventraPaymentDetails,
+      EventraSpreadsheet,
+      EventraTransactionLog
+    ],
+    githubUrl: 'https://github.com/aesilee/Event-Catering-Order-Expense-Tracker',
+    liveUrl: '/videos/Eventra-LiveDemo.mkv',
+  },
+]
 
 const openProject = (project: Project) => {
-  selectedProject.value = project;
-  isOverlayOpen.value = true;
+  selectedProject.value = project
+  isOverlayOpen.value = true
   // Disable body scroll when overlay is open
-  document.body.style.overflow = 'hidden';
-};
+  document.body.style.overflow = 'hidden'
+}
 
 const closeProject = () => {
-  isOverlayOpen.value = false;
+  isOverlayOpen.value = false
   // Re-enable body scroll when overlay is closed
-  document.body.style.overflow = '';
-};
-
+  document.body.style.overflow = ''
+}
 
 // Add smooth scrolling to the entire document
 const setupSmoothScrolling = () => {
@@ -1385,7 +1467,7 @@ onMounted(() => {
 
     // First, set up initial styles for all sections
     sections.forEach((section) => {
-      if (!(section instanceof HTMLElement)) return;
+      if (!(section instanceof HTMLElement)) return
       // Enable hardware acceleration and prevent layout shifts
       section.style.willChange = 'opacity, transform'
       section.style.backfaceVisibility = 'hidden'

@@ -120,29 +120,35 @@
       <!-- Projects Section -->
       <section
         id="projects"
-        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-4 sm:py-6 md:py-8 overflow-hidden"
       >
-        <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-green-400 mb-4">Projects</h2>
-            <p class="text-gray-300">
+        <div class="w-full px-4 sm:px-6 md:px-8 max-w-6xl mx-auto my-auto">
+          <div class="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-3 sm:mb-4"
+            >
+              Projects
+            </h2>
+            <p class="text-sm sm:text-base text-gray-300">
               I'm currently looking to join a
-              <span class="text-green-400 underline">cross-functional</span> team<br />
-              that values improving people's lives through accessible design.
+              <span class="text-green-400 underline">cross-functional</span> team that values
+              improving people's lives through accessible design.
             </p>
           </div>
 
           <!-- Projects Grid -->
-          <div class="flex justify-center w-full overflow-x-auto pb-6 px-4">
-            <div class="flex gap-8">
+          <div
+            class="w-full overflow-x-auto pb-6 px-1 sm:px-2 md:px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            <div class="flex gap-4 sm:gap-6 md:gap-8 w-max mx-auto">
               <!-- Projects List -->
               <div
                 v-for="project in projects"
                 :key="project.id"
-                class="group relative flex-shrink-0 w-[350px] cursor-pointer"
+                class="group relative flex-shrink-0 w-[280px] sm:w-[300px] md:w-[320px] lg:w-[350px] cursor-pointer transition-transform hover:scale-[1.02]"
                 @click="openProject(project)"
               >
-                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3">
+                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-2 sm:mb-3">
                   <img
                     :src="project.images[0]"
                     :alt="project.title"
@@ -152,18 +158,20 @@
                     class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                   >
                     <span
-                      class="text-white text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                      class="text-white text-sm sm:text-base md:text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 px-2 text-center"
                     >
                       View Project
                     </span>
                   </div>
                 </div>
                 <div class="mb-1">
-                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide">
+                  <span
+                    class="text-green-400 text-xs sm:text-sm md:text-base uppercase tracking-wide"
+                  >
                     {{ project.techStack[0] }}
                   </span>
                 </div>
-                <h3 class="text-lg sm:text-xl font-semibold text-white">
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-white">
                   {{ project.title }}
                 </h3>
               </div>
@@ -175,22 +183,26 @@
       <!-- Services Section -->
       <section
         id="services"
-        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-8 overflow-auto"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-6 sm:py-8 overflow-auto"
       >
-        <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
-          <div class="text-center mb-12">
-            <h2 class="text-5xl font-bold text-green-400 mb-8">Services</h2>
+        <div class="w-full px-4 sm:px-6 md:px-8 lg:px-8 max-w-6xl mx-auto my-auto">
+          <div class="text-center mb-8 sm:mb-12">
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-400 mb-4 sm:mb-6 lg:mb-8"
+            >
+              Services
+            </h2>
           </div>
 
           <!-- Services Grid -->
-          <div class="grid grid-cols-2 gap-6 sm:gap-8">
+          <div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             <!-- Service 1 -->
             <div
-              class="border-2 border-green-400 rounded-lg p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300"
+              class="border-2 border-green-400 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mr-2 ml-4"
             >
-              <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div class="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-2"
+                  class="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-1.5 sm:p-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +214,7 @@
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="lucide lucide-monitor-icon lucide-monitor"
+                    class="lucide lucide-monitor-icon lucide-monitor text-white-400"
                     preserveAspectRatio="xMidYMid meet"
                   >
                     <rect width="20" height="14" x="2" y="3" rx="2" />
@@ -210,13 +222,15 @@
                     <line x1="12" x2="12" y1="17" y2="21" />
                   </svg>
                 </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">
+                <div class="flex-1 min-w-0">
+                  <h3
+                    class="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white mb-1 sm:mb-2 leading-tight"
+                  >
                     Front End Web Development
                   </h3>
                 </div>
               </div>
-              <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+              <p class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed">
                 I create modern, responsive web applications using Vue.js, TypeScript, Tailwind CSS,
                 and other Front End Web Development technologies. From interactive dashboards to
                 complex user interfaces, I focus on delivering seamless user experiences that are
@@ -227,11 +241,11 @@
 
             <!-- Service 2 -->
             <div
-              class="border-2 border-green-400 rounded-lg p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300"
+              class="border-2 border-green-400 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mr-4 ml-2"
             >
-              <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div class="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-2"
+                  class="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-1.5 sm:p-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -243,20 +257,22 @@
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="lucide lucide-code-icon lucide-code"
+                    class="lucide lucide-code-icon lucide-code text-white"
                     preserveAspectRatio="xMidYMid meet"
                   >
                     <path d="m16 18 6-6-6-6" />
                     <path d="m8 6-6 6 6 6" />
                   </svg>
                 </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">
+                <div class="flex-1 min-w-0">
+                  <h3
+                    class="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white mb-1 sm:mb-2 leading-tight"
+                  >
                     Software App Development
                   </h3>
                 </div>
               </div>
-              <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+              <p class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed">
                 I build comprehensive desktop and web applications using C#, .NET, ASP.NET Core, and
                 modern web technologies. Whether you need a robust business management system or a
                 streamlined workflow application, I develop solutions that reduce manual processes
@@ -266,11 +282,11 @@
 
             <!-- Service 3 -->
             <div
-              class="border-2 border-green-400 rounded-lg p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300"
+              class="border-2 border-green-400 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mr-2 ml-4"
             >
-              <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div class="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-2"
+                  class="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-1.5 sm:p-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +298,7 @@
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="lucide lucide-file-code-icon lucide-file-code"
+                    class="lucide lucide-file-code-icon lucide-file-code text-white"
                     preserveAspectRatio="xMidYMid meet"
                   >
                     <path d="M10 12.5 8 15l2 2.5" />
@@ -291,13 +307,15 @@
                     <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" />
                   </svg>
                 </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">
+                <div class="flex-1 min-w-0">
+                  <h3
+                    class="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white mb-1 sm:mb-2 leading-tight"
+                  >
                     Programming Languages
                   </h3>
                 </div>
               </div>
-              <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+              <p class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed">
                 I build comprehensive desktop and web applications using C#, .NET, ASP.NET Core, and
                 modern web technologies. Whether you need a robust business management system or a
                 streamlined workflow application, I develop solutions that reduce manual processes
@@ -307,11 +325,11 @@
 
             <!-- Service 4 -->
             <div
-              class="border-2 border-green-400 rounded-lg p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300"
+              class="border-2 border-green-400 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mr-4 ml-2"
             >
-              <div class="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div class="flex items-start gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
                 <div
-                  class="w-9 h-9 sm:w-10 sm:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-2"
+                  class="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-1.5 sm:p-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -323,7 +341,7 @@
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="lucide lucide-palette-icon lucide-palette"
+                    class="lucide lucide-palette-icon lucide-palette text-white"
                     preserveAspectRatio="xMidYMid meet"
                   >
                     <path
@@ -335,13 +353,15 @@
                     <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
                   </svg>
                 </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-semibold text-white mb-1 sm:mb-2">
+                <div class="flex-1 min-w-0">
+                  <h3
+                    class="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-white mb-1 sm:mb-2 leading-tight"
+                  >
                     User Interface Development
                   </h3>
                 </div>
               </div>
-              <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
+              <p class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed">
                 I design and develop intuitive user interfaces using HTML, CSS, JavaScript,
                 Bootstrap, and modern frameworks like Alpine.js and Blazor. My UI solutions
                 prioritize user experience, creating clean, accessible interfaces that enhance
@@ -362,8 +382,8 @@
             <h2 class="text-5xl font-bold text-green-400 mb-12">Techstack</h2>
           </div>
 
-          <!-- Tech Stack Icons - 7x7 Grid -->
-          <div class="grid grid-cols-7 gap-9 sm:gap-12">
+          <!-- Tech Stack Icons - 3x3 Mobile, 7x7 Desktop -->
+          <div class="grid grid-cols-3 gap-4 lg:grid-cols-7 lg:gap-6">
             <!-- Vue.js -->
             <div class="flex flex-col items-center">
               <svg width="70" height="70" viewBox="0 0 128 128">
@@ -775,8 +795,8 @@
             <h2 class="text-5xl font-bold text-green-400 mb-12">Other expertise</h2>
           </div>
 
-          <!-- Other Expertise Icons - 7x7 Grid -->
-          <div class="grid grid-cols-7 gap-4 sm:gap-6">
+          <!-- Other Expertise Icons - 3x3 Mobile, 7x7 Desktop -->
+          <div class="grid grid-cols-3 gap-4 sm:grid-cols-7 sm:gap-6">
             <!-- Canva -->
             <div class="flex flex-col items-center">
               <svg width="70" height="70" viewBox="0 0 128 128">
@@ -1274,52 +1294,55 @@ gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
   // Clear any existing ScrollTriggers to prevent duplicates
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 
   // Add a resize event to refresh ScrollTrigger
   const refreshScrollTrigger = () => {
-    ScrollTrigger.refresh();
-  };
+    ScrollTrigger.refresh()
+  }
 
   // Debounce the refresh function
-  let resizeTimeout;
+  let resizeTimeout
   window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(refreshScrollTrigger, 250);
-  });
+    clearTimeout(resizeTimeout)
+    resizeTimeout = setTimeout(refreshScrollTrigger, 250)
+  })
 
   // Main animation
-  gsap.fromTo('#about', {
-    clipPath: 'inset(0 100% 0 0)',
-    opacity: 0,
-    x: 50
-  }, {
-    clipPath: 'inset(0 0% 0 0)',
-    opacity: 1,
-    x: 0,
-    duration: 1.2,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '#about',
-      start: 'top 85%',  // Slightly adjusted start point
-      end: 'bottom 15%',
-      toggleActions: 'play none none none', // Changed to only play once
-      markers: true,  // Keep this for now to see the trigger points
-      onEnter: () => console.log('About section entered viewport'),
-      onEnterBack: () => console.log('About section entered back'),
-      onLeave: () => console.log('About section left viewport'),
-      onLeaveBack: () => console.log('About section left back to top'),
-      // Prevent re-animation on resize
-      onRefresh: self => console.log('ScrollTrigger refreshed', self.progress)
-    }
-  });
+  gsap.fromTo(
+    '#about',
+    {
+      clipPath: 'inset(0 100% 0 0)',
+      opacity: 0,
+      x: 50,
+    },
+    {
+      clipPath: 'inset(0 0% 0 0)',
+      opacity: 1,
+      x: 0,
+      duration: 1.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '#about',
+        start: 'top 85%', // Slightly adjusted start point
+        end: 'bottom 15%',
+        toggleActions: 'play none none none', // Changed to only play once
+        markers: true, // Keep this for now to see the trigger points
+        onEnter: () => console.log('About section entered viewport'),
+        onEnterBack: () => console.log('About section entered back'),
+        onLeave: () => console.log('About section left viewport'),
+        onLeaveBack: () => console.log('About section left back to top'),
+        // Prevent re-animation on resize
+        onRefresh: (self) => console.log('ScrollTrigger refreshed', self.progress),
+      },
+    },
+  )
 
   // Manually refresh ScrollTrigger after a short delay
   setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 1500);
-});
-
+    ScrollTrigger.refresh()
+  }, 1500)
+})
 
 // Project 1 - Document Tracking System Images
 import TrackingSystemDashboard from './icons/project1/trackingsystem-dashboard.png'
@@ -1401,7 +1424,7 @@ const projects: Project[] = [
       TrackingSystemOrderDetails1,
       TrackingSystemOrderDetails2,
       TrackingSystemSettings1,
-      TrackingSystemSettings2
+      TrackingSystemSettings2,
     ],
     githubUrl: 'https://github.com/kasho-dev/tracking-system',
     liveUrl: '/videos/TrackingSystem-LiveDemo.mkv',
@@ -1425,7 +1448,7 @@ const projects: Project[] = [
       PresyotectMobileView,
       PresyotectPolicies,
       PresyotectReportComplaint,
-      PresyotectSearch
+      PresyotectSearch,
     ],
     githubUrl: '#',
     liveUrl: '#',
@@ -1449,7 +1472,7 @@ const projects: Project[] = [
       EventraExpenses,
       EventraPaymentDetails,
       EventraSpreadsheet,
-      EventraTransactionLog
+      EventraTransactionLog,
     ],
     githubUrl: 'https://github.com/aesilee/Event-Catering-Order-Expense-Tracker',
     liveUrl: '/videos/Eventra-LiveDemo.mkv',
@@ -1500,7 +1523,7 @@ onMounted(() => {
 
   // Set initial section states
   const sections = Array.from(document.querySelectorAll('section')) as HTMLElement[]
-  sections.forEach(section => {
+  sections.forEach((section) => {
     section.style.opacity = '1'
     section.style.pointerEvents = 'auto'
   })

@@ -72,7 +72,7 @@
             <!-- Profile Image (Left side) -->
             <div class="flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/3 lg:w-64">
               <img
-                :src="KyleProfileImage2"
+                :src="KyleProfileImage"
                 alt="Kyle Arana Profile"
                 class="w-full h-56 sm:h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
               />
@@ -110,7 +110,7 @@
                 download="Kyle_Arana_Resume.pdf"
                 class="border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
               >
-                Download CV
+                Download Resume
               </a>
             </div>
           </div>
@@ -1004,7 +1004,7 @@
       <!-- Footer -->
       <footer
         id="contact"
-        class="snap-start min-h-[calc(100vh-4rem)] relative bg-[#181818] border-t border-green-400/20 py-8 sm:py-12 md:py-16 flex items-center"
+        class="snap-start min-h-[calc(100vh-4rem)] relative bg-[#181818] py-8 sm:py-12 md:py-16 flex items-center"
       >
         <div class="w-full">
           <!-- Background Pattern -->
@@ -1265,9 +1265,61 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
+// import { useIntersectionObserver } from '@vueuse/core'
 import ProjectOverlay from './ProjectOverlay.vue'
-import KyleProfileImage2 from './icons/Kyle_Arana.jpg'
+import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  // Clear any existing ScrollTriggers to prevent duplicates
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+  // Add a resize event to refresh ScrollTrigger
+  const refreshScrollTrigger = () => {
+    ScrollTrigger.refresh();
+  };
+
+  // Debounce the refresh function
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(refreshScrollTrigger, 250);
+  });
+
+  // Main animation
+  gsap.fromTo('#about', {
+    clipPath: 'inset(0 100% 0 0)',
+    opacity: 0,
+    x: 50
+  }, {
+    clipPath: 'inset(0 0% 0 0)',
+    opacity: 1,
+    x: 0,
+    duration: 1.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top 85%',  // Slightly adjusted start point
+      end: 'bottom 15%',
+      toggleActions: 'play none none none', // Changed to only play once
+      markers: true,  // Keep this for now to see the trigger points
+      onEnter: () => console.log('About section entered viewport'),
+      onEnterBack: () => console.log('About section entered back'),
+      onLeave: () => console.log('About section left viewport'),
+      onLeaveBack: () => console.log('About section left back to top'),
+      // Prevent re-animation on resize
+      onRefresh: self => console.log('ScrollTrigger refreshed', self.progress)
+    }
+  });
+
+  // Manually refresh ScrollTrigger after a short delay
+  setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 1500);
+});
+
 
 // Project 1 - Document Tracking System Images
 import TrackingSystemDashboard from './icons/project1/trackingsystem-dashboard.png'
@@ -1417,9 +1469,9 @@ const closeProject = () => {
   document.body.style.overflow = ''
 }
 
-// Add smooth scrolling to the entire document
-const setupSmoothScrolling = () => {
-  // Smooth scroll for anchor links
+// Setup basic scrolling functionality
+const setupScrolling = () => {
+  // Handle anchor links
   const anchorLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
 
   const handleAnchorClick = (e: Event) => {
@@ -1431,20 +1483,10 @@ const setupSmoothScrolling = () => {
     const targetElement = document.querySelector(targetId)
     if (targetElement) {
       e.preventDefault()
-      // Temporarily disable smooth scroll for programmatic scroll
-      document.documentElement.style.scrollBehavior = 'auto'
-      document.body.style.scrollBehavior = 'auto'
-
       targetElement.scrollIntoView({
         behavior: 'auto',
         block: 'start',
       })
-
-      // Re-enable smooth scroll after the jump
-      setTimeout(() => {
-        document.documentElement.style.scrollBehavior = 'smooth'
-        document.body.style.scrollBehavior = 'smooth'
-      }, 100)
     }
   }
 
@@ -1454,68 +1496,14 @@ const setupSmoothScrolling = () => {
 }
 
 onMounted(() => {
-  setupSmoothScrolling()
+  setupScrolling()
 
-  // Add smooth scroll behavior to the entire document
-  document.documentElement.style.scrollBehavior = 'smooth'
-  document.body.style.scrollBehavior = 'smooth'
-
-  // Add a small delay to ensure the DOM is fully loaded
-  setTimeout(() => {
-    const sections = Array.from(document.querySelectorAll('section')) as HTMLElement[]
-    let lastActiveSection: HTMLElement | null = null
-
-    // First, set up initial styles for all sections
-    sections.forEach((section) => {
-      if (!(section instanceof HTMLElement)) return
-      // Enable hardware acceleration and prevent layout shifts
-      section.style.willChange = 'opacity, transform'
-      section.style.backfaceVisibility = 'hidden'
-      section.style.perspective = '1000px'
-      section.style.transformStyle = 'preserve-3d'
-
-      // Set initial styles with optimized transitions
-      section.style.transition =
-        'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
-      section.style.opacity = '0'
-      section.style.transform = 'translate3d(0, 30px, 0)'
-      section.style.pointerEvents = 'none'
-    })
-
-    // Set up intersection observer with optimized settings
-    sections.forEach((section) => {
-      useIntersectionObserver(
-        section,
-        ([{ isIntersecting }]) => {
-          if (isIntersecting) {
-            // Fade out the previously active section
-            if (lastActiveSection && lastActiveSection !== section) {
-              lastActiveSection.style.opacity = '0.3'
-              lastActiveSection.style.transform = 'translate3d(0, 15px, 0)'
-              lastActiveSection.style.pointerEvents = 'none'
-            }
-            // Fade in the current section
-            section.style.opacity = '1'
-            section.style.transform = 'translate3d(0, 0, 0)'
-            section.style.pointerEvents = 'auto'
-            lastActiveSection = section
-          }
-        },
-        {
-          threshold: 0.15,
-          rootMargin: '-10% 0px -10% 0px', // More precise intersection detection
-        },
-      )
-    })
-
-    // Set the first section as active by default
-    if (sections[0]) {
-      sections[0].style.opacity = '1'
-      sections[0].style.transform = 'translate3d(0, 0, 0)'
-      sections[0].style.pointerEvents = 'auto'
-      lastActiveSection = sections[0]
-    }
-  }, 100)
+  // Set initial section states
+  const sections = Array.from(document.querySelectorAll('section')) as HTMLElement[]
+  sections.forEach(section => {
+    section.style.opacity = '1'
+    section.style.pointerEvents = 'auto'
+  })
 })
 </script>
 
@@ -1551,12 +1539,6 @@ section {
   box-sizing: border-box;
   padding: 2rem 0;
   overflow-y: auto;
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-  will-change: opacity, transform;
 }
 
 /* Content container within sections */
@@ -1566,35 +1548,20 @@ section > div {
   padding: 1rem 0;
 }
 
-/* Smooth scrolling for anchor links */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 4rem; /* Account for fixed header */
-}
-
-/* Custom scroll behavior with slower transitions */
-@keyframes smoothScroll {
-  from {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  to {
-    transform: translateY(-100%);
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-/* Add smooth transition for all scrollable elements */
-* {
-  scroll-behavior: smooth;
+/* Smooth scroll behavior */
+.snap-y {
   scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   scroll-snap-stop: always;
-  scroll-padding-top: 4rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
 }
 
-*::-webkit-scrollbar {
+/* Hide scrollbar for Chrome, Safari and Opera */
+.snap-y::-webkit-scrollbar {
   display: none;
 }
 

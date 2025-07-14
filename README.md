@@ -1,6 +1,59 @@
-# myPortfolio
+# kasho-dev-portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, responsive portfolio website built with Vue 3 and Vite, showcasing professional skills, projects, and expertise.
+
+## Features
+
+- 🎨 Responsive design that works on all devices
+- 🚀 Fast loading and smooth animations
+- 🎨 Modern and clean UI with dark theme
+- 📱 Mobile-first approach
+- 📊 Interactive project showcase with overlays
+- 📚 Comprehensive services section with expandable content
+- 🛠️ Showcase of technical skills and expertise
+- 📱 Smooth scrolling and animations using Vue transitions
+
+## Tech Stack
+
+- **Framework**: Vue 3 with Composition API
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide Icons
+- **Animations**: Vue Transitions
+- **TypeScript**: Full TypeScript support
+
+## Project Structure
+
+```
+src/
+├── assets/            # Static assets
+├── components/        # Reusable Vue components
+│   ├── PortfolioSection.vue   # Main portfolio component
+│   └── ProjectOverlay.vue     # Project showcase overlay
+├── icons/             # Project icons and images
+└── App.vue           # Root component
+```
+
+## Key Components
+
+### PortfolioSection.vue
+
+The main portfolio component that includes:
+- Hero section
+- Services section with expandable cards
+- Project showcase with overlays
+- Skills and expertise section
+- Responsive grid layouts
+- Interactive animations and transitions
+
+### ProjectOverlay.vue
+
+A reusable component for displaying project details in an overlay, featuring:
+- Project images
+- Project description
+- Technology stack
+- Interactive close button
+- Smooth animations
 
 ## Recommended IDE Setup
 

@@ -75,7 +75,7 @@
         <div class="w-full px-4 sm:px-8 max-w-6xl mx-auto my-auto">
           <div class="flex items-start gap-8 md:gap-12 mobile-stack">
             <!-- Profile Image (Left side on desktop, top on mobile) -->
-            <div class="flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/3 lg:w-64 mobile-image">
+            <div class="flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/3 lg:w-1/3 mobile-image">
               <img
                 :src="KyleProfileImage"
                 alt="Kyle Arana Profile"
@@ -130,7 +130,7 @@
         <div class="w-full px-4 sm:px-6 md:px-8 max-w-6xl mx-auto my-auto">
           <div class="text-center mb-8 sm:mb-10 md:mb-12">
             <h2
-              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-3 sm:mb-4"
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-3 sm:mb-4 mt-4"
             >
               Projects
             </h2>
@@ -204,7 +204,7 @@
           </div>
         </div>
         <!-- Services Grid -->
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 sm:gap-8">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-1 sm:gap-8">
           <!-- Service 1 -->
           <div
             class="border-2 border-green-400 rounded-xl p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mx-4 sm:mx-6 md:mx-8"

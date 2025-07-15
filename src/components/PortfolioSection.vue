@@ -42,8 +42,11 @@
       >
         <div class="text-center">
           <p class="text-green-400 text-lg mb-4">
-            Hi, I am <span class="font-semibold">Kyle Arana</span> an
-            <span class="underline">aspiring</span>
+            Hi, I am <span class="font-semibold">Kyle Araña</span> an
+            <span
+              ref="typingElement"
+              class="text-xl font-bold text-green-400 animate-pulse min-w-[200px] text-left"
+            ></span>
           </p>
 
           <h1
@@ -201,10 +204,11 @@
           </div>
         </div>
         <!-- Services Grid -->
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 sm:gap-8">
           <!-- Service 1 -->
           <div
             class="border-2 border-green-400 rounded-xl p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mx-4 sm:mx-6 md:mx-8"
+            style="padding-bottom: 10px"
           >
             <div
               class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
@@ -274,6 +278,7 @@
           <!-- Service 2 -->
           <div
             class="border-2 border-green-400 rounded-xl p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mx-4 sm:mx-6 md:mx-8"
+            style="padding-bottom: 10px"
           >
             <div
               class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
@@ -341,6 +346,7 @@
           <!-- Service 3 -->
           <div
             class="border-2 border-green-400 rounded-xl p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mx-4 sm:mx-6 md:mx-8"
+            style="padding-bottom: 10px"
           >
             <div
               class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
@@ -351,26 +357,25 @@
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="100%"
-                  height="100%"
+                  width="24"
+                  height="24"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-file-code-icon lucide-file-code text-white"
-                  preserveAspectRatio="xMidYMid meet"
+                  class="lucide lucide-server-icon lucide-server"
                 >
-                  <path d="M10 12.5 8 15l2 2.5" />
-                  <path d="m14 12.5 2 2.5-2 2.5" />
-                  <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" />
+                  <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+                  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+                  <line x1="6" x2="6.01" y1="6" y2="6" />
+                  <line x1="6" x2="6.01" y1="18" y2="18" />
                 </svg>
               </div>
               <div class="flex-1 min-w-0">
                 <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
-                  Programming Languages
+                  Backend Development
                 </h3>
               </div>
               <!-- Chevron icon -->
@@ -399,10 +404,10 @@
               :class="expandedStates[2] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
             >
               <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
-                I build comprehensive desktop and web applications using C#, .NET, ASP.NET Core, and
-                modern web technologies. Whether you need a robust business management system or a
-                streamlined workflow application, I develop solutions that reduce manual processes
-                and improve operational efficiency by up to 90%.
+                I design and implement robust and scalable backend systems, APIs, and database
+                solutions. Specializing in Node.js, C#, .NET, SQL Server, PocketBase and other
+                technologies, I ensure secure and efficient data management and seamless integration
+                with front-end applications.
               </p>
             </div>
           </div>
@@ -410,6 +415,7 @@
           <!-- Service 4 -->
           <div
             class="border-2 border-green-400 rounded-xl p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mx-4 sm:mx-6 md:mx-8"
+            style="padding-bottom: 10px"
           >
             <div
               class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
@@ -471,7 +477,7 @@
               :class="expandedStates[3] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
             >
               <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
-                I design and develop intuitive user interfaces using HTML, CSS, JavaScript,
+                I design and develop intuitive user interfaces using Figma, HTML, CSS, JavaScript,
                 Bootstrap, and modern frameworks like Alpine.js and Blazor. My UI solutions
                 prioritize user experience, creating clean, accessible interfaces that enhance
                 productivity and reduce learning curves for end users.
@@ -1243,7 +1249,7 @@
               <!-- Brand Section -->
               <div class="lg:col-span-2">
                 <div class="mb-6">
-                  <h3 class="text-3xl font-bold text-white mb-2">Kyle Arana</h3>
+                  <h3 class="text-3xl font-bold text-white mb-2">Kyle Araña</h3>
                   <div
                     class="h-1 w-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full"
                   ></div>
@@ -1401,7 +1407,12 @@
                       <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
                       <rect x="2" y="4" width="20" height="16" rx="2" />
                     </svg>
-                    <span class="text-gray-300">kyle.arana97@gmail.com</span>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=kyle.arana97@gmail.com"
+                      target="_blank"
+                    >
+                      <span class="text-gray-300">kyle.arana97@gmail.com</span>
+                    </a>
                   </div>
 
                   <!--Phone Number-->
@@ -1455,19 +1466,7 @@
               <div
                 class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
               >
-                <p class="text-gray-400 text-sm">2025 Kyle Arana. All rights reserved.</p>
-                <div class="flex space-x-6 text-sm">
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-green-400 transition-colors duration-300"
-                    >Privacy Policy</a
-                  >
-                  <a
-                    href="#"
-                    class="text-gray-400 hover:text-green-400 transition-colors duration-300"
-                    >Terms of Service</a
-                  >
-                </div>
+                <p class="text-gray-400 text-sm">2025 Kyle Araña. All rights reserved.</p>
               </div>
             </div>
           </div>
@@ -1559,7 +1558,7 @@ const projects: Project[] = [
     title: 'Document Tracking System',
     description:
       'A comprehensive document tracking system that streamlines the process of managing, tracking, and monitoring documents throughout their lifecycle. The system provides real-time updates, version control, and detailed audit trails for all document activities.',
-    techStack: ['Front End Development', 'Vue.js', 'Node.js', 'PocketBase', 'Tailwind CSS'],
+    techStack: ['Full Stack Development', 'Vue.js', 'Node.js', 'PocketBase', 'Tailwind CSS'],
     images: [
       TrackingSystemSignIn,
       TrackingSystemDashboard,
@@ -1582,7 +1581,7 @@ const projects: Project[] = [
     id: 2,
     title: 'Presyotect Consumer Portal',
     description:
-      'A user-friendly portal that provides consumers with secure access to their accounts, transaction history, and support services. The portal features a responsive design and integrates with various backend services.',
+      'A user-friendly portal that provides consumers with secure access to their accounts, price history, and support services. The portal features a responsive design and integrates with various backend services.',
     techStack: ['Front End Development', 'Alpine JS', 'HTML', 'JavaScript', 'Bootstrap 5'],
     images: [
       Presyotect,
@@ -1668,9 +1667,13 @@ const setupScrolling = () => {
 }
 
 const aboutSection = ref<HTMLElement | null>(null)
+const typingElement = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   setupScrolling()
+
+  // Start typing animation
+  typeLoop()
 
   // Add viewport detection for about section
   const observer = new IntersectionObserver(
@@ -1697,6 +1700,47 @@ onMounted(() => {
     }
   })
 })
+
+const texts = ['Aspiring ', 'Avid', 'Ambitious', 'Enthusiastic']
+
+const typeLoop = () => {
+  if (!typingElement.value) return
+
+  let textIndex = 0
+  let charIndex = 0
+  let isDeleting = false
+
+  const typeText = () => {
+    const currentText = texts[textIndex]
+
+    if (!typingElement.value) return // Add null check
+
+    if (!isDeleting) {
+      typingElement.value.textContent = currentText.substring(0, charIndex + 1)
+      charIndex++
+
+      if (charIndex === currentText.length) {
+        isDeleting = true
+        setTimeout(typeText, 1000) // Pause before deleting
+        return
+      }
+      setTimeout(typeText, 100)
+    } else {
+      typingElement.value.textContent = currentText.substring(0, charIndex - 1)
+      charIndex--
+
+      if (charIndex === 0) {
+        isDeleting = false
+        textIndex = (textIndex + 1) % texts.length
+        setTimeout(typeText, 500)
+        return
+      }
+      setTimeout(typeText, 50)
+    }
+  }
+
+  typeText()
+}
 </script>
 
 <style scoped>

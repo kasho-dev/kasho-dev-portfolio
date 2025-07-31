@@ -1576,7 +1576,7 @@ const projects: Project[] = [
       TrackingSystemSettings2,
     ],
     githubUrl: 'https://github.com/kasho-dev/tracking-system',
-    liveUrl: '/videos/TrackingSystem-LiveDemo.mkv',
+    liveUrl: 'https://vimeo.com/1105971711',
   },
   {
     id: 2,
@@ -1624,7 +1624,7 @@ const projects: Project[] = [
       EventraTransactionLog,
     ],
     githubUrl: 'https://github.com/aesilee/Event-Catering-Order-Expense-Tracker',
-    liveUrl: '/videos/Eventra-LiveDemo.mkv',
+    liveUrl: 'https://vimeo.com/1105971683?share=copy',
   },
 ]
 

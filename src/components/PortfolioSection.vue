@@ -90,28 +90,27 @@
               </h2>
               <p class="text-gray-300 leading-relaxed mb-6 md:mb-8 text-sm sm:text-base">
                 Hi, I'm <span class="font-semibold text-green-400">Kyle Araña</span>, a passionate
-                <span class="font-semibold text-green-400">Front End Web Developer</span> based in
-                Legazpi City, Philippines. With a strong foundation in Information Systems and
-                hands-on experience in modern web technologies, I specialize in creating efficient,
-                user-friendly applications that solve real-world problems. I transform complex
-                business requirements into streamlined digital solutions, with expertise spanning
-                from crafting intuitive user interfaces with Vue.js and TypeScript to building
-                robust full-stack applications using Node.js and modern frameworks.
+                <span class="font-semibold text-green-400">Front-End Software Engineer</span> and
+                <span class="font-semibold text-green-400">UI/UX Designer</span> from Legazpi City,
+                Philippines. I build intuitive, high-performing applications that turn complex
+                requirements into simple digital solutions.
                 <br />
                 <br />
-                My projects consistently deliver impressive results—I've developed systems that
-                reduce manual processing time by up to 90% and improve workflow efficiency by 60%.
-                My technical toolkit includes Vue.js, TypeScript, Tailwind CSS, Node.js, C#, .NET,
-                and database management, complemented by Oracle certification in Java Foundations
-                and specialized training in Systems Administration. I believe in the power of clean
-                code, thoughtful design, and collaborative development, always focusing on creating
-                solutions that enhance both functionality and user experience.
+                I’ve worked on projects like a CRM system where I boosted performance by 30%,
+                increased engagement by 25%, and improved user satisfaction by 20% through
+                thoughtful UI/UX design. In other projects, I reduced manual work by 90% and
+                improved workflow efficiency by 60%.
+                <br />
+                <br />
+                My toolkit includes React, Vue.js, TypeScript, Tailwind CSS, Node.js, C#, .NET, and
+                database management. I also hold certifications in Java Foundations (Oracle Academy,
+                2022) and Systems Administration (Linux Professional Institute, 2022).
                 <br />
                 <br />
                 Ready to collaborate on your next project? Let's build something amazing together.
               </p>
               <a
-                href="/Kyle_Arana_Resume.pdf"
+                href="/public/Kyle_Arana_Resume.pdf"
                 download="Kyle_Arana_Resume.pdf"
                 class="inline-block border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
               >
@@ -266,11 +265,11 @@
               :class="expandedStates[0] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
             >
               <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
-                I create modern, responsive web applications using Vue.js, TypeScript, Tailwind CSS,
-                and other Front End Web Development technologies. From interactive dashboards to
-                complex user interfaces, I focus on delivering seamless user experiences that are
-                both visually appealing and highly functional. My frontend solutions are optimized
-                for performance and accessibility across all devices.
+                I create modern, responsive web applications using React, Vue.js, TypeScript,
+                Tailwind CSS, and other Front End Web Development technologies. From interactive
+                dashboards to complex user interfaces, I focus on delivering seamless user
+                experiences that are both visually appealing and highly functional. My frontend
+                solutions are optimized for performance and accessibility across all devices.
               </p>
             </div>
           </div>
@@ -335,10 +334,10 @@
               :class="expandedStates[1] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
             >
               <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
-                I build comprehensive desktop and web applications using C#, .NET, ASP.NET Core, and
-                modern web technologies. Whether you need a robust business management system or a
-                streamlined workflow application, I develop solutions that reduce manual processes
-                and improve operational efficiency by up to 90%.
+                I build comprehensive desktop and web applications using C#, .NET, and modern web
+                technologies. Whether you need a robust business management system or a streamlined
+                workflow application, I develop solutions that reduce manual processes and improve
+                operational efficiency by up to 90%.
               </p>
             </div>
           </div>
@@ -477,10 +476,10 @@
               :class="expandedStates[3] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
             >
               <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
-                I design and develop intuitive user interfaces using Figma, HTML, CSS, JavaScript,
-                Bootstrap, and modern frameworks like Alpine.js and Blazor. My UI solutions
-                prioritize user experience, creating clean, accessible interfaces that enhance
-                productivity and reduce learning curves for end users.
+                I craft user-centered designs that balance functionality and aesthetics, using tools
+                like Figma, HTML, CSS, JavaScript, and modern frameworks. My focus is on creating
+                clean, accessible interfaces that enhance usability, improve productivity, and
+                deliver a seamless experience for end users.
               </p>
             </div>
           </div>
@@ -506,6 +505,23 @@
           <div
             class="grid grid-cols-3 gap-6 lg:grid-cols-7 lg:gap-8 max-w-7xl mx-auto px-4 sm:px-8 md:px-12"
           >
+            <!--React-->
+            <div class="flex flex-col items-center">
+              <svg width="70" height="70" viewBox="0 0 128 128">
+                <g fill="#61DAFB">
+                  <circle cx="64" cy="47.5" r="9.3"></circle>
+                  <path
+                    d="M64 81.7C71.3 88.8 78.5 93 84.3 93c1.9 0 3.7-.4 5.2-1.3 5.2-3 7.1-10.5 5.3-21.2-.3-1.9-.7-3.8-1.2-5.8 2-.6 3.8-1.2 5.6-1.8 10.1-3.9 15.7-9.3 15.7-15.2 0-6-5.6-11.4-15.7-15.2-1.8-.7-3.6-1.3-5.6-1.8.5-2 .9-3.9 1.2-5.8 1.7-10.9-.2-18.5-5.4-21.5-1.5-.9-3.3-1.3-5.2-1.3-5.7 0-13 4.2-20.3 11.3C56.7 6.3 49.5 2.1 43.7 2.1c-1.9 0-3.7.4-5.2 1.3-5.2 3-7.1 10.5-5.3 21.2.3 1.9.7 3.8 1.2 5.8-2 .6-3.8 1.2-5.6 1.8-10.1 3.9-15.7 9.3-15.7 15.2 0 6 5.6 11.4 15.7 15.2 1.8.7 3.6 1.3 5.6 1.8-.5 2-.9 3.9-1.2 5.8-1.7 10.7.2 18.3 5.3 21.2 1.5.9 3.3 1.3 5.2 1.3 5.8.2 13-4 20.3-11zm-5.6-13.5c1.8.1 3.7.1 5.6.1 1.9 0 3.8 0 5.6-.1-1.8 2.4-3.7 4.6-5.6 6.7-1.9-2.1-3.8-4.3-5.6-6.7zM46 57.9c1 1.7 1.9 3.3 3 4.9-3.1-.4-6-.9-8.8-1.5.9-2.7 1.9-5.5 3.1-8.3.8 1.6 1.7 3.3 2.7 4.9zm-5.8-24.1c2.8-.6 5.7-1.1 8.8-1.5-1 1.6-2 3.2-3 4.9-1 1.7-1.9 3.3-2.7 5-1.3-2.9-2.3-5.7-3.1-8.4zm5.5 13.7c1.3-2.7 2.7-5.4 4.3-8.1 1.5-2.6 3.2-5.2 4.9-7.8 3-.2 6-.3 9.1-.3 3.2 0 6.2.1 9.1.3 1.8 2.6 3.4 5.2 4.9 7.8 1.6 2.7 3 5.4 4.3 8.1-1.3 2.7-2.7 5.4-4.3 8.1-1.5 2.6-3.2 5.2-4.9 7.8-3 .2-6 .3-9.1.3-3.2 0-6.2-.1-9.1-.3-1.8-2.6-3.4-5.2-4.9-7.8-1.6-2.7-3-5.4-4.3-8.1zm39.1-5.4l-2.7-5c-1-1.7-1.9-3.3-3-4.9 3.1.4 6 .9 8.8 1.5-.9 2.8-1.9 5.6-3.1 8.4zm0 10.8c1.2 2.8 2.2 5.6 3.1 8.3-2.8.6-5.7 1.1-8.8 1.5 1-1.6 2-3.2 3-4.9.9-1.5 1.8-3.2 2.7-4.9zm2.3 34.7c-.8.5-1.8.7-2.9.7-4.9 0-11-4-17-10 2.9-3.1 5.7-6.6 8.5-10.5 4.7-.4 9.2-1.1 13.4-2.1.5 1.8.8 3.6 1.1 5.4 1.4 8.5.3 14.6-3.1 16.5zm5.2-52.7c11.2 3.2 17.9 8.1 17.9 12.6 0 3.9-4.6 7.8-12.7 10.9-1.6.6-3.4 1.2-5.2 1.7-1.3-4.1-2.9-8.3-4.9-12.6 2-4.3 3.7-8.5 4.9-12.6zm-8-28.2c1.1 0 2 .2 2.9.7 3.3 1.9 4.5 7.9 3.1 16.5-.3 1.7-.7 3.5-1.1 5.4-4.2-.9-8.7-1.6-13.4-2.1-2.7-3.9-5.6-7.4-8.5-10.5 6-5.9 12.1-10 17-10zM69.6 26.8c-1.8-.1-3.7-.1-5.6-.1s-3.8 0-5.6.1c1.8-2.4 3.7-4.6 5.6-6.7 1.9 2.1 3.8 4.4 5.6 6.7zM40.9 7.4c.8-.5 1.8-.7 2.9-.7 4.9 0 11 4 17 10-2.9 3.1-5.7 6.6-8.5 10.5-4.7.4-9.2 1.1-13.4 2.1-.5-1.8-.8-3.6-1.1-5.4-1.4-8.5-.3-14.5 3.1-16.5zm-5.2 52.7C24.5 56.9 17.8 52 17.8 47.5c0-3.9 4.6-7.8 12.7-10.9 1.6-.6 3.4-1.2 5.2-1.7 1.3 4.1 2.9 8.3 4.9 12.6-2 4.3-3.7 8.6-4.9 12.6zm2.1 11c.3-1.7.7-3.5 1.1-5.4 4.2.9 8.7 1.6 13.4 2.1 2.7 3.9 5.6 7.4 8.5 10.5-6 5.9-12.1 10-17 10-1.1 0-2-.2-2.9-.7-3.4-1.9-4.5-8-3.1-16.5zm-4.2 41.2c2.2-2.7 2.3-5.7 1.1-8.7-1.2-3-3.7-4.4-6.8-4.5-3.7-.1-7.5 0-11.2 0H16V125h3v-9.8h4.7c.6 0 1.1.2 1.4.7l6 9.3c.1.2.4.5.6.5h3.9c-2.4-3.7-4.7-7.2-7.1-10.8 2.1-.3 3.9-1 5.1-2.6zm-14.6-.2v-9.9h1.1c2.3 0 4.7-.1 7 .1 2.7.1 4.6 2.2 4.6 4.9s-2.2 4.8-4.9 4.9c-2.4.1-4.8 0-7.8 0zm38.7 1.3c-1.6-7-8-8.8-12.9-6.6-3.8 1.7-5.5 5-5.6 9.1-.1 3.1.8 5.9 3.2 8 2.7 2.4 6 2.7 9.4 2.1 1.9-.4 3.6-1.3 4.9-2.7-.5-.7-1-1.4-1.5-2-2.8 2.4-5.9 3.2-9.3 1.6-2.2-1.1-3.3-3.8-3.5-5.8h15.5v-1.3c.1-.9 0-1.7-.2-2.4zM42.6 115c-.3-3 2.7-6.2 6-6.2 3.8-.1 6.2 2.2 6.3 6.2H42.6zm30.7-8.7c-1.5-.3-3.1-.4-4.6-.3-2.4.2-4.5 1.3-6.2 3.1.5.7.9 1.4 1.5 2.2.2-.2.4-.4.6-.5 1.6-1.5 3.5-2.3 5.8-2.1 1.8.1 3.5.7 4 2.5.4 1.4.3 2.9.4 4.4-.3 0-.4-.1-.5-.2-2.4-2-5.1-2.4-8-1.7-2.7.7-4.4 2.8-4.6 5.5-.2 3.1 1.2 5.4 3.9 6.5 1.7.7 3.6.7 5.4.3 1.4-.3 2-1.1 4-2.2v1.3h2.8c0-4 .1-8.9 0-13.5 0-2.9-1.7-4.7-4.5-5.3zm1.4 12.6c-.1.3 0 .6 0 .9 0 2.1-.5 2.8-2.5 3.6-1.4.5-2.9.7-4.4.2-1.7-.5-2.9-2-2.9-3.7-.1-1.7 1-3.4 2.7-3.9 2.3-.8 4.4-.3 6.3 1.1.6.5 1 1 .8 1.8zm15.6-9.9c2.6-.8 5-.3 6.8 1.9l.3.2c.7-.6 1.3-1.2 2.1-1.9-.3-.3-.4-.5-.6-.8-2.9-3.1-8.6-3.5-12.1-1-4.9 3.6-4.8 10.6-2.4 14.3 2.3 3.5 5.6 4.7 9.5 4.2 2.3-.3 4.2-1.4 5.7-3.3-.7-.6-1.4-1.2-2.1-1.9-.2.2-.3.3-.4.5-2.7 3-7.2 2.7-9.6-.5-1.4-1.9-1.7-4.1-1.3-6.3.2-2.5 1.5-4.5 4.1-5.4zm20.8 13.6c-.2.1-.3.2-.3.2-.8.6-1.6.7-2.5.4-.9-.4-1-1.2-1.1-2v-11.4c0-.2 0 .2.1-.8h3.8v-3h-4v-5h-3v5.4h-2.6c-.2 0-.5.2-.5.4-.1.7 0 1.2 0 2.2h3.2v12.8c0 1.6.4 3 1.8 3.8 1.5.9 4.4.7 5.7-.4.2-.1.3-.5.3-.6-.3-.6-.6-1.3-.9-2z"
+                  ></path>
+                </g>
+              </svg>
+              <p
+                class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mt-4 font-medium"
+              >
+                React
+              </p>
+            </div>
+
             <!-- Vue.js -->
             <div class="flex flex-col items-center">
               <svg width="70" height="70" viewBox="0 0 128 128">
@@ -1255,8 +1271,8 @@
                   ></div>
                 </div>
                 <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-md">
-                  Passionate front-end developer creating modern, accessible web experiences that
-                  make a difference.
+                  Passionate front-end software engineer and UI/UX designer creating modern, accessible web experiences
+                  that make a difference.
                 </p>
 
                 <!-- Social Links -->

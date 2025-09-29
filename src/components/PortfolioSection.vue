@@ -111,7 +111,7 @@
               </p>
               <a
                 href="/Kyle_Arana_Resume.pdf"
-                download="Kyle_Arana_Resume"
+                download="Kyle_Arana_Resume.pdf"
                 class="inline-block border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
               >
                 Download Resume
@@ -1271,8 +1271,8 @@
                   ></div>
                 </div>
                 <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-md">
-                  Passionate front-end software engineer and UI/UX designer creating modern, accessible web experiences
-                  that make a difference.
+                  Passionate front-end software engineer and UI/UX designer creating modern,
+                  accessible web experiences that make a difference.
                 </p>
 
                 <!-- Social Links -->

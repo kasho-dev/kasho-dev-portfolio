@@ -1,13 +1,13 @@
 <template>
   <Transition name="fade">
-    <div 
-      v-if="isOpen" 
+    <div
+      v-if="isOpen"
       class="fixed inset-0 bg-black bg-opacity-80 z-50 overflow-y-auto p-4 md:p-8"
       @click.self="close"
     >
       <div class="relative bg-gray-900 rounded-lg max-w-6xl mx-auto my-12 overflow-hidden border border-gray-700">
         <!-- Close Button -->
-        <button 
+        <button
           @click="close"
           class="absolute right-4 top-4 text-gray-400 hover:text-white z-10"
           aria-label="Close"
@@ -23,18 +23,18 @@
             <div v-if="project.images && project.images.length > 0" class="h-full relative">
               <!-- Main Image with Transition -->
               <transition :name="slideDirection" mode="out-in">
-                <img 
+                <img
                   :key="currentImageIndex"
-                  :src="project.images[currentImageIndex]" 
+                  :src="project.images[currentImageIndex]"
                   :alt="`${project.title} - Image ${currentImageIndex + 1}`"
                   class="w-full h-full object-contain bg-black"
                   @click="nextImage"
                 />
               </transition>
-              
+
               <!-- Navigation Arrows -->
               <template v-if="project.images.length > 1">
-                <button 
+                <button
                   @click.stop="prevImage"
                   class="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all z-10"
                   aria-label="Previous image"
@@ -43,7 +43,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
-                <button 
+                <button
                   @click.stop="nextImage"
                   class="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all z-10"
                   aria-label="Next image"
@@ -53,11 +53,11 @@
                   </svg>
                 </button>
               </template>
-              
+
               <!-- Image Navigation Dots -->
               <div v-if="project.images.length > 1" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
-                <button 
-                  v-for="(img, index) in project.images" 
+                <button
+                  v-for="(img, index) in project.images"
                   :key="index"
                   @click.stop="goToImage(index)"
                   :class="{
@@ -70,7 +70,7 @@
               </div>
 
               <!-- Image Counter -->
-              <div class="absolute top-4 right-4 bg-black bg-opacity-50 text-white text-sm px-2 py-1 rounded z-10">
+              <div class="absolute top-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white text-sm px-2 py-1 rounded z-10">
                 {{ currentImageIndex + 1 }} / {{ project.images.length }}
               </div>
             </div>
@@ -79,14 +79,14 @@
           <!-- Right Column - Project Details -->
           <div class="p-6 md:p-8 overflow-y-auto max-h-[80vh]">
             <h2 class="text-3xl font-bold text-green-400 mb-2">{{ project.title }}</h2>
-            
+
             <p class="text-gray-300 mb-6">{{ project.description }}</p>
-            
+
             <div class="mb-6">
               <h3 class="text-lg font-semibold text-green-400 mb-3">Tech Stack</h3>
               <div class="flex flex-wrap gap-2">
-                <span 
-                  v-for="(tech, index) in project.techStack" 
+                <span
+                  v-for="(tech, index) in project.techStack"
                   :key="index"
                   class="px-3 py-1 bg-gray-800 text-gray-200 rounded-full text-sm"
                 >
@@ -98,13 +98,13 @@
             <div class="flex flex-wrap gap-4 mt-8">
               <template v-if="project.id === 2">
                 <!-- Unavailable buttons for project 2 -->
-                <button 
+                <button
                   class="px-6 py-2 bg-gray-600 text-gray-400 rounded cursor-not-allowed font-medium"
                   disabled
                 >
                   View Live (Unavailable)
                 </button>
-                <button 
+                <button
                   class="px-6 py-2 border border-gray-600 text-gray-600 rounded cursor-not-allowed font-medium"
                   disabled
                 >
@@ -113,7 +113,7 @@
               </template>
               <template v-else>
                 <!-- Normal buttons for other projects -->
-                <a 
+                <a
                   v-if="project.liveUrl"
                   :href="project.liveUrl"
                   target="_blank"
@@ -122,7 +122,7 @@
                 >
                   View Live
                 </a>
-                <a 
+                <a
                   v-if="project.githubUrl"
                   :href="project.githubUrl"
                   target="_blank"

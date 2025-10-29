@@ -57,7 +57,7 @@
             href="#projects"
             class="inline-block border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base"
           >
-            View my work
+            View my work1
           </a>
         </div>
       </section>

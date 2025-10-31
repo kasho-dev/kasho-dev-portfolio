@@ -189,60 +189,6 @@
         </div>
       </section>
 
-      <!-- UI/UX Design Section -->
-      <section
-        id="figma-designs"
-        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-4 sm:py-6 md:py-8 overflow-hidden"
-      >
-        <div class="w-full px-4 sm:px-6 md:px-8 max-w-6xl mx-auto my-auto">
-          <div class="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2
-              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-3 sm:mb-4 mt-4"
-            >
-              UI/UX Designs
-            </h2>
-            <p class="text-sm sm:text-base text-gray-300 px-2">
-              Below are designs that I created.
-            </p>
-          </div>
-
-          <!-- Horizontal scrollable cards -->
-          <div
-            class="w-full overflow-x-auto pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          >
-            <div class="flex gap-4 sm:gap-6 md:gap-8 w-max">
-              <div
-                v-for="design in designs"
-                :key="design.id"
-                class="flex-shrink-0 w-[260px] xs:w-[280px] sm:w-[300px] md:w-[320px] lg:w-[340px] bg-[#1f1f1f] rounded-xl border border-[#2a2a2a] p-4 sm:p-5 cursor-pointer hover:border-green-500/60 transition-colors"
-                @click="openDesign(design)"
-              >
-                <div class="mb-3">
-                  <h3 class="text-white font-semibold text-base sm:text-lg">{{ design.title }}</h3>
-                  <p class="text-gray-400 text-xs sm:text-sm leading-snug">{{ design.subtitle }}</p>
-                </div>
-
-                <!-- Phone mockup -->
-                <div class="relative bg-black rounded-[2.2rem] p-3 border border-gray-700/60 shadow-inner">
-                  <div class="absolute left-1/2 -translate-x-1/2 top-2 h-4 w-24 rounded-b-2xl bg-[#0a0a0a]"></div>
-                  <div class="rounded-3xl overflow-hidden aspect-[9/19] bg-[#0a0a0a] flex items-center justify-center">
-                    <img v-if="design.image" :src="design.image" :alt="design.title" class="w-full h-full object-cover" loading="lazy" />
-                    <div v-else class="text-center px-4">
-                      <div class="text-white text-xl sm:text-2xl font-extrabold tracking-wide">
-                        {{ design.logoTextPrimary }}<span class="text-green-400">{{ design.logoTextAccent }}</span>
-                      </div>
-                      <div class="text-[10px] sm:text-xs text-gray-300 mt-2 tracking-widest">{{ design.tagline }}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        </section>
-
       <!-- Services Section -->
       <section
         id="services"
@@ -1553,7 +1499,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { useRouter } from 'vue-router'
 import ProjectOverlay from './ProjectOverlay.vue'
 import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
 
@@ -1561,47 +1506,6 @@ const expandedStates = ref<boolean[]>([false, false, false, false])
 
 const toggleCollapse = (index: number) => {
   expandedStates.value[index] = !expandedStates.value[index]
-}
-
-// Router instance for navigation
-const router = useRouter()
-
-// UI/UX Designs data
-interface DesignItem {
-  id: number
-  title: string
-  subtitle: string
-  image?: string
-  logoTextPrimary?: string
-  logoTextAccent?: string
-  tagline?: string
-}
-
-const designs = ref<DesignItem[]>([
-  {
-    id: 1,
-    title: 'Interactify',
-    subtitle: 'An app about sharing your music taste while socializing',
-    logoTextPrimary: 'INTER',
-    logoTextAccent: 'C TIFY',
-    tagline: 'MUSIC MEETS SOCIAL',
-  },
-  {
-    id: 2,
-    title: 'Eventra',
-    subtitle: 'Catering management system mobile concept',
-    tagline: 'PLAN • COORDINATE • DELIVER',
-  },
-  {
-    id: 3,
-    title: 'Tracker+',
-    subtitle: 'Document tracking mobile redesign',
-    tagline: 'FAST • RELIABLE • SECURE',
-  },
-])
-
-const openDesign = (design: DesignItem) => {
-  router.push({ name: 'design-detail', params: { id: String(design.id) } })
 }
 
 // Project 1 - Document Tracking System Images

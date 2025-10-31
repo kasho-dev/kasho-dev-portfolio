@@ -222,19 +222,16 @@
                   <p class="text-gray-400 text-xs sm:text-sm leading-snug">{{ design.subtitle }}</p>
                 </div>
 
-                <!-- Phone mockup -->
-                <div class="relative bg-black rounded-[2.2rem] p-3 border border-gray-700/60 shadow-inner">
-                  <div class="absolute left-1/2 -translate-x-1/2 top-2 h-4 w-24 rounded-b-2xl bg-[#0a0a0a]"></div>
-                  <div class="rounded-3xl overflow-hidden aspect-[9/19] bg-[#0a0a0a] flex items-center justify-center">
-                    <img v-if="design.image" :src="design.image" :alt="design.title" class="w-full h-full object-cover" loading="lazy" />
-                    <div v-else class="text-center px-4">
-                      <div class="text-white text-xl sm:text-2xl font-extrabold tracking-wide">
-                        {{ design.logoTextPrimary }}<span class="text-green-400">{{ design.logoTextAccent }}</span>
+                <!-- SVG mockup (same size as previous phone frame) -->
+                    <div>
+                      <img v-if="design.image" :src="design.image" :alt="design.title" class="w-full h-full object-contain" loading="lazy" />
+                      <div v-else class="text-center px-4">
+                        <div class="text-white text-xl sm:text-2xl font-extrabold tracking-wide">
+                          {{ design.logoTextPrimary }}<span class="text-green-400">{{ design.logoTextAccent }}</span>
+                        </div>
+                        <div class="text-[10px] sm:text-xs text-gray-300 mt-2 tracking-widest">{{ design.tagline }}</div>
                       </div>
-                      <div class="text-[10px] sm:text-xs text-gray-300 mt-2 tracking-widest">{{ design.tagline }}</div>
                     </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -1554,6 +1551,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
+import InteractifyImage from './icons/interactify/Interactify.svg'
 import ProjectOverlay from './ProjectOverlay.vue'
 import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
 
@@ -1582,8 +1580,9 @@ const designs = ref<DesignItem[]>([
     id: 1,
     title: 'Interactify',
     subtitle: 'An app about sharing your music taste while socializing',
+    image: InteractifyImage,
     logoTextPrimary: 'INTER',
-    logoTextAccent: 'C TIFY',
+    logoTextAccent: 'ACTIFY',
     tagline: 'MUSIC MEETS SOCIAL',
   },
   {

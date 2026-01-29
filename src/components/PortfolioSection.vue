@@ -50,11 +50,19 @@
           </p>
 
           <h1
-            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-green-400 leading-tight mb-8"
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-green-400 leading-tight"
           >
-            Front End<br />
-            Developer
+            UI/UX<br />
+            Designer
           </h1>
+
+          <p class="text-xl font-bold text-green-400 leading-tight mb-4 mt-8">&</p>
+
+          <p
+            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-green-400 leading-tight mb-8"
+          >
+            Front End Developer
+          </p>
 
           <a
             href="#projects"
@@ -89,25 +97,39 @@
                 About me
               </h2>
               <p class="text-gray-300 leading-relaxed mb-6 md:mb-8 text-sm sm:text-base">
-                Hi, I'm <span class="font-semibold text-green-400">Kyle Araña</span>, a passionate
-                <span class="font-semibold text-green-400">Front-End Software Engineer</span> and
-                <span class="font-semibold text-green-400">UI/UX Designer</span> from Legazpi City,
-                Philippines. I build intuitive, high-performing applications that turn complex
-                requirements into simple digital solutions.
+                Hi, I'm <span class="font-semibold text-green-400">Kyle Araña</span>, a dedicated
+                <span class="font-semibold text-green-400">UI/UX Designer</span> and
+                <span class="font-semibold text-green-400">Front End Developer</span> with a passion
+                for crafting intuitive, high-impact digital experiences. I specialize in
+                transforming complex problems into elegant, user-centered solutions that deliver
+                measurable results.
                 <br />
                 <br />
-                I’ve worked on projects like a CRM system where I boosted performance by 30%,
-                increased engagement by 25%, and improved user satisfaction by 20% through
-                thoughtful UI/UX design. In other projects, I reduced manual work by 90% and
-                improved workflow efficiency by 60%.
+                Most recently, as a UI/UX Designer at VIPTutors, I led the redesign of the design
+                system, creating a scalable Figma component library that boosted
+                design-to-development efficiency by <b>40%</b> and unified the product experience. I
+                also own the visual design for 50+ responsive web pages and 20+ marketing campaigns,
+                increasing conversion rates by <b>18%</b> while ensuring flawless brand consistency.
                 <br />
                 <br />
-                My toolkit includes React, Vue.js, TypeScript, Tailwind CSS, Node.js, C#, .NET, and
-                database management. I also hold certifications in Java Foundations (Oracle Academy,
-                2022) and Systems Administration (Linux Professional Institute, 2022).
+                My background in front-end development allows me to bridge the gap between design
+                and implementation seamlessly. At AVICentral, I engineered responsive CRM interfaces
+                that improved cross-platform performance by <b>30%</b> and enhanced user engagement
+                by <b>25%</b> through thoughtful UX workflows. I’ve also built full-stack systems
+                that streamlined operations, reducing manual data handling by up to <b>90%</b> and
+                significantly improving process clarity.
                 <br />
                 <br />
-                Ready to collaborate on your next project? Let's build something amazing together.
+                I bring together expertise in design tools like Figma with strong technical skills
+                in React, Vue.js, TypeScript, Tailwind CSS and Node.js to deliver polished,
+                functional products from concept to code.
+                <br />
+                <br />
+                Let's connect if you're looking for a
+                <span class="font-semibold text-green-400">designer</span> who understands
+                development, or a <span class="font-semibold text-green-400">developer</span> who
+                designs with the user in mind. I'm excited to bring both skill sets to your next
+                project.
               </p>
               <a
                 href="/Kyle_Arana_Resume.pdf"
@@ -211,6 +233,79 @@
           >
             <div
               class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
+              @click="toggleCollapse(3)"
+            >
+              <div
+                class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-1 sm:p-1.5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-palette text-white"
+                  preserveAspectRatio="xMidYMid meet"
+                >
+                  <path
+                    d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
+                  />
+                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
+                  UI/UX Development
+                </h3>
+              </div>
+              <!-- Chevron icon -->
+              <div class="flex-shrink-0 ml-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-green-400 transition-transform duration-300"
+                  :class="{ 'rotate-180': expandedStates[3] }"
+                >
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Collapsible content -->
+            <div
+              class="overflow-hidden transition-all duration-300 ease-in-out"
+              :class="expandedStates[3] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
+            >
+              <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
+                I craft user-centered designs that balance functionality and aesthetics, using tools
+                like Figma, HTML, CSS, JavaScript, and modern frameworks. My focus is on creating
+                clean, accessible interfaces that enhance usability, improve productivity, and
+                deliver a seamless experience for end users.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="border-2 border-green-400 rounded-xl p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mx-4 sm:mx-6 md:mx-8"
+            style="padding-bottom: 10px"
+          >
+            <div
+              class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
               @click="toggleCollapse(0)"
             >
               <div
@@ -270,74 +365,6 @@
                 dashboards to complex user interfaces, I focus on delivering seamless user
                 experiences that are both visually appealing and highly functional. My frontend
                 solutions are optimized for performance and accessibility across all devices.
-              </p>
-            </div>
-          </div>
-
-          <!-- Service 2 -->
-          <div
-            class="border-2 border-green-400 rounded-xl p-6 sm:p-8 bg-[#181818] hover:bg-[#2a2a2a] transition-all duration-300 mx-4 sm:mx-6 md:mx-8"
-            style="padding-bottom: 10px"
-          >
-            <div
-              class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
-              @click="toggleCollapse(1)"
-            >
-              <div
-                class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-1 sm:p-1.5"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-code text-white"
-                  preserveAspectRatio="xMidYMid meet"
-                >
-                  <path d="m16 18 6-6-6-6" />
-                  <path d="m8 6-6 6 6 6" />
-                </svg>
-              </div>
-              <div class="flex-1 min-w-0">
-                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
-                  Software Development
-                </h3>
-              </div>
-              <!-- Chevron icon -->
-              <div class="flex-shrink-0 ml-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="text-green-400 transition-transform duration-300"
-                  :class="{ 'rotate-180': expandedStates[1] }"
-                >
-                  <polyline points="6,9 12,15 18,9"></polyline>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Collapsible content -->
-            <div
-              class="overflow-hidden transition-all duration-300 ease-in-out"
-              :class="expandedStates[1] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
-            >
-              <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
-                I build comprehensive desktop and web applications using C#, .NET, and modern web
-                technologies. Whether you need a robust business management system or a streamlined
-                workflow application, I develop solutions that reduce manual processes and improve
-                operational efficiency by up to 90%.
               </p>
             </div>
           </div>
@@ -418,7 +445,7 @@
           >
             <div
               class="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3 cursor-pointer"
-              @click="toggleCollapse(3)"
+              @click="toggleCollapse(1)"
             >
               <div
                 class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center p-1 sm:p-1.5"
@@ -433,21 +460,16 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-palette text-white"
+                  class="lucide lucide-code text-white"
                   preserveAspectRatio="xMidYMid meet"
                 >
-                  <path
-                    d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
-                  />
-                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
-                  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
-                  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
-                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                  <path d="m16 18 6-6-6-6" />
+                  <path d="m8 6-6 6 6 6" />
                 </svg>
               </div>
               <div class="flex-1 min-w-0">
                 <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
-                  UI/UX Development
+                  Software Development
                 </h3>
               </div>
               <!-- Chevron icon -->
@@ -463,7 +485,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="text-green-400 transition-transform duration-300"
-                  :class="{ 'rotate-180': expandedStates[3] }"
+                  :class="{ 'rotate-180': expandedStates[1] }"
                 >
                   <polyline points="6,9 12,15 18,9"></polyline>
                 </svg>
@@ -473,13 +495,13 @@
             <!-- Collapsible content -->
             <div
               class="overflow-hidden transition-all duration-300 ease-in-out"
-              :class="expandedStates[3] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
+              :class="expandedStates[1] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'"
             >
               <p class="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mt-4">
-                I craft user-centered designs that balance functionality and aesthetics, using tools
-                like Figma, HTML, CSS, JavaScript, and modern frameworks. My focus is on creating
-                clean, accessible interfaces that enhance usability, improve productivity, and
-                deliver a seamless experience for end users.
+                I build comprehensive desktop and web applications using C#, .NET, and modern web
+                technologies. Whether you need a robust business management system or a streamlined
+                workflow application, I develop solutions that reduce manual processes and improve
+                operational efficiency by up to 90%.
               </p>
             </div>
           </div>
@@ -505,6 +527,68 @@
           <div
             class="grid grid-cols-3 gap-6 lg:grid-cols-7 lg:gap-8 max-w-7xl mx-auto px-4 sm:px-8 md:px-12"
           >
+            <!-- Figma -->
+            <div class="flex flex-col items-center">
+              <svg width="70" height="70" viewBox="0 0 128 128">
+                <path
+                  fill="#0acf83"
+                  d="M45.5 129c11.9 0 21.5-9.6 21.5-21.5V86H45.5C33.6 86 24 95.6 24 107.5S33.6 129 45.5 129zm0 0"
+                ></path>
+                <path
+                  fill="#a259ff"
+                  d="M24 64.5C24 52.6 33.6 43 45.5 43H67v43H45.5C33.6 86 24 76.4 24 64.5zm0 0"
+                ></path>
+                <path
+                  fill="#f24e1e"
+                  d="M24 21.5C24 9.6 33.6 0 45.5 0H67v43H45.5C33.6 43 24 33.4 24 21.5zm0 0"
+                ></path>
+                <path
+                  fill="#ff7262"
+                  d="M67 0h21.5C100.4 0 110 9.6 110 21.5S100.4 43 88.5 43H67zm0 0"
+                ></path>
+                <path
+                  fill="#1abcfe"
+                  d="M110 64.5c0 11.9-9.6 21.5-21.5 21.5S67 76.4 67 64.5 76.6 43 88.5 43 110 52.6 110 64.5zm0 0"
+                ></path>
+              </svg>
+
+              <p
+                class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mt-4 font-medium text-center"
+              >
+                Figma
+              </p>
+            </div>
+
+            <!-- Claude-->
+            <div class="flex flex-col items-center">
+              <svg
+                width="70"
+                height="70"
+                xmlns="http://www.w3.org/2000/svg"
+                shape-rendering="geometricPrecision"
+                text-rendering="geometricPrecision"
+                image-rendering="optimizeQuality"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                viewBox="0 0 512 509.64"
+              >
+                <path
+                  fill="#D77655"
+                  d="M115.612 0h280.775C459.974 0 512 52.026 512 115.612v278.415c0 63.587-52.026 115.612-115.613 115.612H115.612C52.026 509.639 0 457.614 0 394.027V115.612C0 52.026 52.026 0 115.612 0z"
+                />
+                <path
+                  fill="#FCF2EE"
+                  fill-rule="nonzero"
+                  d="M142.27 316.619l73.655-41.326 1.238-3.589-1.238-1.996-3.589-.001-12.31-.759-42.084-1.138-36.498-1.516-35.361-1.896-8.897-1.895-8.34-10.995.859-5.484 7.482-5.03 10.717.935 23.683 1.617 35.537 2.452 25.782 1.517 38.193 3.968h6.064l.86-2.451-2.073-1.517-1.618-1.517-36.776-24.922-39.81-26.338-20.852-15.166-11.273-7.683-5.687-7.204-2.451-15.721 10.237-11.273 13.75.935 3.513.936 13.928 10.716 29.749 23.027 38.848 28.612 5.687 4.727 2.275-1.617.278-1.138-2.553-4.271-21.13-38.193-22.546-38.848-10.035-16.101-2.654-9.655c-.935-3.968-1.617-7.304-1.617-11.374l11.652-15.823 6.445-2.073 15.545 2.073 6.547 5.687 9.655 22.092 15.646 34.78 24.265 47.291 7.103 14.028 3.791 12.992 1.416 3.968 2.449-.001v-2.275l1.997-26.641 3.69-32.707 3.589-42.084 1.239-11.854 5.863-14.206 11.652-7.683 9.099 4.348 7.482 10.716-1.036 6.926-4.449 28.915-8.72 45.294-5.687 30.331h3.313l3.792-3.791 15.342-20.372 25.782-32.227 11.374-12.789 13.27-14.129 8.517-6.724 16.1-.001 11.854 17.617-5.307 18.199-16.581 21.029-13.75 17.819-19.716 26.54-12.309 21.231 1.138 1.694 2.932-.278 44.536-9.479 24.062-4.347 28.714-4.928 12.992 6.066 1.416 6.167-5.106 12.613-30.71 7.583-36.018 7.204-53.636 12.689-.657.48.758.935 24.164 2.275 10.337.556h25.301l47.114 3.514 12.309 8.139 7.381 9.959-1.238 7.583-18.957 9.655-25.579-6.066-59.702-14.205-20.474-5.106-2.83-.001v1.694l17.061 16.682 31.266 28.233 39.152 36.397 1.997 8.999-5.03 7.102-5.307-.758-34.401-25.883-13.27-11.651-30.053-25.302-1.996-.001v2.654l6.926 10.136 36.574 54.975 1.895 16.859-2.653 5.485-9.479 3.311-10.414-1.895-21.408-30.054-22.092-33.844-17.819-30.331-2.173 1.238-10.515 113.261-4.929 5.788-11.374 4.348-9.478-7.204-5.03-11.652 5.03-23.027 6.066-30.052 4.928-23.886 4.449-29.674 2.654-9.858-.177-.657-2.173.278-22.37 30.71-34.021 45.977-26.919 28.815-6.445 2.553-11.173-5.789 1.037-10.337 6.243-9.2 37.257-47.392 22.47-29.371 14.508-16.961-.101-2.451h-.859l-98.954 64.251-17.618 2.275-7.583-7.103.936-11.652 3.589-3.791 29.749-20.474-.101.102.024.101z"
+                />
+              </svg>
+              <p
+                class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mt-4 font-medium"
+              >
+                Claude
+              </p>
+            </div>
+
             <!--React-->
             <div class="flex flex-col items-center">
               <svg width="70" height="70" viewBox="0 0 128 128">
@@ -745,86 +829,6 @@
               </p>
             </div>
 
-            <!-- Bootstrap -->
-            <div class="flex flex-col items-center">
-              <svg width="70" height="70" viewBox="0 0 128 128">
-                <path
-                  fill="url(#a)"
-                  d="M14.985 15.15c-.237-6.815 5.072-13.099 12.249-13.099h73.54c7.177 0 12.486 6.284 12.249 13.099-.228 6.546.068 15.026 2.202 21.94 2.141 6.936 5.751 11.319 11.664 11.883v6.387c-5.913.563-9.523 4.947-11.664 11.883-2.134 6.914-2.43 15.394-2.202 21.94.237 6.815-5.072 13.098-12.249 13.098h-73.54c-7.177 0-12.486-6.284-12.249-13.098.228-6.546-.068-15.026-2.203-21.94-2.14-6.935-5.76-11.319-11.673-11.883v-6.387c5.913-.563 9.533-4.947 11.673-11.883 2.135-6.914 2.43-15.394 2.203-21.94Z"
-                ></path>
-                <g filter="url(#b)">
-                  <path
-                    fill="url(#c)"
-                    d="M67.11 79.174c11.619 0 18.62-5.689 18.62-15.072 0-7.093-4.995-12.228-12.413-13.041v-.296c5.45-.886 9.726-5.947 9.726-11.6 0-8.053-6.358-13.299-16.047-13.299h-21.8v53.308H67.11ZM53.674 32.627h11.279c6.13 0 9.613 2.733 9.613 7.684 0 5.282-4.05 8.238-11.392 8.238h-9.5V32.627Zm0 39.787V54.866h11.203c8.023 0 12.186 2.955 12.186 8.718s-4.049 8.83-11.694 8.83H53.674Z"
-                  ></path>
-                  <path
-                    fill="#fff"
-                    d="M67.11 79.174c11.619 0 18.62-5.689 18.62-15.072 0-7.093-4.995-12.228-12.413-13.041v-.296c5.45-.886 9.726-5.947 9.726-11.6 0-8.053-6.358-13.299-16.047-13.299h-21.8v53.308H67.11ZM53.674 32.627h11.279c6.13 0 9.613 2.733 9.613 7.684 0 5.282-4.05 8.238-11.392 8.238h-9.5V32.627Zm0 39.787V54.866h11.203c8.023 0 12.186 2.955 12.186 8.718s-4.049 8.83-11.694 8.83H53.674Z"
-                  ></path>
-                </g>
-                <path
-                  fill="#7952B3"
-                  d="M11.398 121.43v-17.738h5.047c1.533 0 2.75.375 3.649 1.126.899.75 1.348 1.727 1.348 2.931 0 1.007-.272 1.881-.816 2.623-.545.742-1.295 1.27-2.252 1.583v.05c1.196.14 2.153.593 2.87 1.36.717.759 1.076 1.748 1.076 2.969 0 1.517-.544 2.746-1.632 3.686-1.089.94-2.462 1.41-4.12 1.41h-5.17Zm2.078-15.858v5.727h2.128c1.138 0 2.033-.272 2.684-.816.651-.553.977-1.329.977-2.326 0-1.723-1.134-2.585-3.402-2.585h-2.387Zm0 7.595v6.383h2.82c1.22 0 2.165-.289 2.833-.866.676-.577 1.014-1.369 1.014-2.375 0-2.095-1.427-3.142-4.28-3.142h-2.387Zm17.466 8.563c-1.872 0-3.369-.59-4.49-1.769-1.113-1.187-1.67-2.758-1.67-4.713 0-2.127.581-3.789 1.744-4.985 1.163-1.195 2.734-1.793 4.713-1.793 1.888 0 3.36.581 4.416 1.744 1.063 1.163 1.595 2.775 1.595 4.836 0 2.021-.573 3.641-1.72 4.862-1.137 1.212-2.667 1.818-4.588 1.818Zm.148-11.553c-1.303 0-2.333.445-3.092 1.336-.759.882-1.138 2.102-1.138 3.661 0 1.501.383 2.685 1.15 3.55.767.867 1.793 1.3 3.08 1.3 1.311 0 2.318-.425 3.019-1.275.709-.849 1.063-2.057 1.063-3.624 0-1.583-.354-2.804-1.063-3.662-.701-.857-1.708-1.286-3.019-1.286Zm14.696 11.553c-1.872 0-3.369-.59-4.49-1.769-1.113-1.187-1.67-2.758-1.67-4.713 0-2.127.581-3.789 1.744-4.985 1.163-1.195 2.734-1.793 4.713-1.793 1.888 0 3.36.581 4.416 1.744 1.064 1.163 1.596 2.775 1.596 4.836 0 2.021-.573 3.641-1.72 4.862-1.138 1.212-2.668 1.818-4.59 1.818Zm.148-11.553c-1.303 0-2.333.445-3.092 1.336-.759.882-1.138 2.102-1.138 3.661 0 1.501.383 2.685 1.15 3.55.767.867 1.793 1.3 3.08 1.3 1.311 0 2.318-.425 3.019-1.275.709-.849 1.063-2.057 1.063-3.624 0-1.583-.354-2.804-1.063-3.662-.701-.857-1.708-1.286-3.02-1.286ZM61.21 121.31c-.478.264-1.109.396-1.893.396-2.218 0-3.327-1.237-3.327-3.711v-7.496h-2.177v-1.732h2.177v-3.092l2.029-.656v3.748h3.19v1.732h-3.19v7.137c0 .849.144 1.456.433 1.819.288.363.766.544 1.434.544.511 0 .953-.14 1.324-.42v1.731Zm1.942-.34v-2.177c1.105.816 2.321 1.224 3.649 1.224 1.781 0 2.672-.593 2.672-1.78 0-.339-.078-.623-.235-.854a2.138 2.138 0 0 0-.619-.631 4.326 4.326 0 0 0-.915-.482 34.7 34.7 0 0 0-1.126-.458 16.416 16.416 0 0 1-1.484-.668 4.918 4.918 0 0 1-1.064-.767 3.059 3.059 0 0 1-.643-.977c-.14-.363-.21-.787-.21-1.274 0-.593.136-1.117.408-1.571a3.53 3.53 0 0 1 1.088-1.15 5.01 5.01 0 0 1 1.547-.706 6.94 6.94 0 0 1 1.806-.235c1.097 0 2.078.19 2.944.57v2.053c-.932-.611-2.004-.916-3.217-.916-.38 0-.721.045-1.026.136a2.5 2.5 0 0 0-.792.36 1.735 1.735 0 0 0-.507.568 1.493 1.493 0 0 0-.173.718c0 .329.058.605.173.828.123.223.3.421.532.594.23.173.511.33.841.47.33.14.705.293 1.126.458.56.214 1.063.437 1.509.668a4.9 4.9 0 0 1 1.138.767c.313.28.552.606.717.977.173.371.26.812.26 1.323 0 .627-.14 1.171-.42 1.633-.273.462-.64.845-1.102 1.15a5.078 5.078 0 0 1-1.595.681 7.852 7.852 0 0 1-1.893.223c-1.303 0-2.433-.252-3.39-.755h.001Zm17.39.34c-.477.264-1.108.396-1.892.396-2.218 0-3.327-1.237-3.327-3.711v-7.496h-2.177v-1.732h2.177v-3.092l2.029-.656v3.748h3.19v1.732h-3.19v7.137c0 .849.144 1.456.433 1.819.288.363.766.544 1.434.544.511 0 .953-.14 1.324-.42v1.731Zm9.316-10.49c-.355-.272-.866-.408-1.534-.408-.866 0-1.592.408-2.177 1.224-.577.817-.866 1.93-.866 3.34v6.457h-2.028v-12.666h2.028v2.61h.05c.289-.891.73-1.583 1.323-2.078.593-.503 1.257-.755 1.992-.755.527 0 .931.058 1.212.174v2.102Zm11.271 10.61H99.1v-1.98h-.05c-.881 1.518-2.18 2.277-3.894 2.277-1.262 0-2.252-.334-2.97-1.002-.709-.668-1.063-1.555-1.063-2.66 0-2.367 1.393-3.743 4.18-4.13l3.798-.533c0-2.152-.87-3.228-2.61-3.228-1.525 0-2.902.519-4.131 1.558v-2.078c1.245-.791 2.68-1.187 4.305-1.187 2.977 0 4.465 1.575 4.465 4.725v8.238Zm-2.03-6.407-3.054.42c-.94.132-1.65.367-2.128.705-.478.33-.717.92-.717 1.769 0 .619.219 1.126.656 1.522.445.387 1.035.58 1.769.58 1.006 0 1.835-.35 2.486-1.05.66-.709.99-1.604.99-2.685l-.001-1.261Zm7.93 4.577h-.05v7.657h-2.028v-18.493h2.029v2.226h.049c.998-1.682 2.458-2.523 4.379-2.523 1.633 0 2.907.569 3.822 1.707.915 1.129 1.373 2.647 1.373 4.552 0 2.119-.515 3.818-1.546 5.096-1.031 1.27-2.441 1.905-4.23 1.905-1.641 0-2.907-.709-3.798-2.128v.001Zm-.05-5.109v1.77c0 1.047.338 1.937 1.015 2.671.685.726 1.55 1.089 2.597 1.089 1.229 0 2.19-.47 2.883-1.41.7-.94 1.05-2.247 1.05-3.922 0-1.41-.325-2.515-.976-3.315-.651-.8-1.534-1.2-2.647-1.2-1.18 0-2.128.412-2.845 1.237-.718.817-1.077 1.843-1.077 3.08Z"
-                ></path>
-                <defs>
-                  <linearGradient
-                    id="a"
-                    x1="19.8"
-                    x2="129.708"
-                    y1="4.704"
-                    y2="91.95"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stop-color="#9013FE"></stop>
-                    <stop offset="1" stop-color="#6610F2"></stop>
-                  </linearGradient>
-                  <linearGradient
-                    id="c"
-                    x1="49.032"
-                    x2="73.598"
-                    y1="29.374"
-                    y2="70.922"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stop-color="#fff"></stop>
-                    <stop offset="1" stop-color="#F1E5FC"></stop>
-                  </linearGradient>
-                  <filter
-                    id="b"
-                    width="48.641"
-                    height="61.415"
-                    x="41.143"
-                    y="22.795"
-                    color-interpolation-filters="sRGB"
-                    filterUnits="userSpaceOnUse"
-                  >
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                    <feColorMatrix
-                      in="SourceAlpha"
-                      result="hardAlpha"
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                    ></feColorMatrix>
-                    <feOffset dy=".983"></feOffset>
-                    <feGaussianBlur stdDeviation="1.965"></feGaussianBlur>
-                    <feColorMatrix
-                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"
-                    ></feColorMatrix>
-                    <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2_2"></feBlend>
-                    <feBlend
-                      in="SourceGraphic"
-                      in2="effect1_dropShadow_2_2"
-                      result="shape"
-                    ></feBlend>
-                  </filter>
-                </defs>
-              </svg>
-              <p
-                class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mt-4 font-medium"
-              >
-                Bootstrap
-              </p>
-            </div>
-
             <!-- TypeScript -->
             <div class="flex flex-col items-center">
               <svg width="70" height="70" viewBox="0 0 128 128">
@@ -1015,38 +1019,6 @@
                 class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mt-4 font-medium text-center"
               >
                 Canva
-              </p>
-            </div>
-
-            <!-- Figma -->
-            <div class="flex flex-col items-center">
-              <svg width="70" height="70" viewBox="0 0 128 128">
-                <path
-                  fill="#0acf83"
-                  d="M45.5 129c11.9 0 21.5-9.6 21.5-21.5V86H45.5C33.6 86 24 95.6 24 107.5S33.6 129 45.5 129zm0 0"
-                ></path>
-                <path
-                  fill="#a259ff"
-                  d="M24 64.5C24 52.6 33.6 43 45.5 43H67v43H45.5C33.6 86 24 76.4 24 64.5zm0 0"
-                ></path>
-                <path
-                  fill="#f24e1e"
-                  d="M24 21.5C24 9.6 33.6 0 45.5 0H67v43H45.5C33.6 43 24 33.4 24 21.5zm0 0"
-                ></path>
-                <path
-                  fill="#ff7262"
-                  d="M67 0h21.5C100.4 0 110 9.6 110 21.5S100.4 43 88.5 43H67zm0 0"
-                ></path>
-                <path
-                  fill="#1abcfe"
-                  d="M110 64.5c0 11.9-9.6 21.5-21.5 21.5S67 76.4 67 64.5 76.6 43 88.5 43 110 52.6 110 64.5zm0 0"
-                ></path>
-              </svg>
-
-              <p
-                class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed mt-4 font-medium text-center"
-              >
-                Figma
               </p>
             </div>
 
@@ -1271,8 +1243,8 @@
                   ></div>
                 </div>
                 <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-md">
-                  Passionate front-end software engineer and UI/UX designer creating modern,
-                  accessible web experiences that make a difference.
+                  Passionate UI/UX designer and front-end developer creating modern, accessible web
+                  experiences that make a difference.
                 </p>
 
                 <!-- Social Links -->
@@ -1303,6 +1275,11 @@
                     <div
                       class="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                     ></div>
+                    <div
+                      class="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-gray-800 text-gray-100 text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-10 delay-200 border border-gray-700 shadow-lg transform -translate-y-1 group-hover:translate-y-0"
+                    >
+                      GitHub
+                    </div>
                   </a>
 
                   <!--LinkedIn-->
@@ -1332,6 +1309,11 @@
                     <div
                       class="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                     ></div>
+                    <div
+                      class="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-gray-800 text-gray-100 text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-10 delay-200 border border-gray-700 shadow-lg transform -translate-y-1 group-hover:translate-y-0"
+                    >
+                      LinkedIn
+                    </div>
                   </a>
 
                   <!--Facebook-->
@@ -1357,6 +1339,44 @@
                     <div
                       class="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                     ></div>
+                    <div
+                      class="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-gray-800 text-gray-100 text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-10 delay-200 border border-gray-700 shadow-lg transform -translate-y-1 group-hover:translate-y-0"
+                    >
+                      Facebook
+                    </div>
+                  </a>
+
+                  <!--Dribbble-->
+                  <a
+                    href="https://dribbble.com/kashodev"
+                    target="_blank"
+                    class="group relative p-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg hover:border-green-400 transition-all duration-300 hover:scale-110"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-dribbble-icon lucide-dribbble"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" />
+                      <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" />
+                      <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72" />
+                    </svg>
+                    <div
+                      class="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                    ></div>
+                    <div
+                      class="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-gray-800 text-gray-100 text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-10 delay-200 border border-gray-700 shadow-lg transform -translate-y-1 group-hover:translate-y-0"
+                    >
+                      Dribbble
+                    </div>
                   </a>
                 </div>
               </div>
@@ -1482,7 +1502,7 @@
               <div
                 class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
               >
-                <p class="text-gray-400 text-sm">2025 Kyle Araña. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">@ 2025 Kyle Araña. All rights reserved.</p>
               </div>
             </div>
           </div>
@@ -1505,7 +1525,9 @@ import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
 const expandedStates = ref<boolean[]>([false, false, false, false])
 
 const toggleCollapse = (index: number) => {
-  expandedStates.value[index] = !expandedStates.value[index]
+  const wasOpen = expandedStates.value[index]
+  expandedStates.value = expandedStates.value.map(() => false)
+  expandedStates.value[index] = !wasOpen
 }
 
 // Project 1 - Document Tracking System Images

@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.app.json",
+  "include": ["tests/**/*.ts", "src/**/*.ts", "src/**/*.vue"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "types": ["vitest"],
+    "paths": {
+      "@/*": ["../src/*"]
+    }
+  }
+}

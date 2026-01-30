@@ -12,6 +12,9 @@ A modern, responsive portfolio website built with Vue 3 and Vite, showcasing pro
 - 📚 Comprehensive services section with expandable content
 - 🛠️ Showcase of technical skills and expertise
 - 📱 Smooth scrolling and animations using Vue transitions
+- 🎯 Intersection Observer API for viewport detection
+- 📱 Mobile-friendly navigation
+- 🎨 Custom CSS animations and transitions
 
 ## Tech Stack
 
@@ -21,17 +24,26 @@ A modern, responsive portfolio website built with Vue 3 and Vite, showcasing pro
 - **Icons**: Lucide Icons
 - **Animations**: Vue Transitions
 - **TypeScript**: Full TypeScript support
+- **Testing**: Vitest (unit) + Playwright (E2E)
+- **Linting**: ESLint + Prettier
+- **State Management**: Pinia
+- **Animation Utilities**: VueUse Motion
 
 ## Project Structure
 
 ```
 src/
 ├── assets/            # Static assets
+│   └── icons/         # Project icons and images
 ├── components/        # Reusable Vue components
 │   ├── PortfolioSection.vue   # Main portfolio component
+│   │   ├── hero-section       # Hero section with typing animation
+│   │   ├── projects           # Project showcase
+│   │   ├── services           # Services section
+│   │   └── skills             # Skills section
 │   └── ProjectOverlay.vue     # Project showcase overlay
-├── icons/             # Project icons and images
-└── App.vue           # Root component
+├── App.vue           # Root component
+└── main.ts           # Entry point
 ```
 
 ## Key Components
@@ -39,12 +51,24 @@ src/
 ### PortfolioSection.vue
 
 The main portfolio component that includes:
-- Hero section
+- Hero section with typing animation
 - Services section with expandable cards
 - Project showcase with overlays
 - Skills and expertise section
 - Responsive grid layouts
-- Interactive animations and transitions
+- Smooth scrolling behavior
+- Intersection Observer for viewport detection
+
+#### Hero Section
+- Typing animation with Vue refs
+- Responsive design
+
+#### Project Showcase
+- Grid layout with responsive cards
+- Project overlay with modal functionality
+- Image gallery support
+- Technology stack display
+- GitHub and live demo links
 
 ### ProjectOverlay.vue
 
@@ -53,7 +77,63 @@ A reusable component for displaying project details in an overlay, featuring:
 - Project description
 - Technology stack
 - Interactive close button
-- Smooth animations
+- Body scroll management
+- Responsive design
+
+## Testing Setup
+
+The project uses a comprehensive testing setup with both unit and end-to-end testing.
+
+### Unit Testing with Vitest
+
+- **Framework**: Vitest (Vite + Jest)
+- **Testing Utilities**: @vue/test-utils
+- **Test Coverage**: 85%+ code coverage
+- **Test Types**:
+  - Component rendering
+  - Props handling
+  - Event emission
+  - State management
+  - Component interactions
+  - Animation behavior
+  - Overlay functionality
+  - Scroll behavior
+  - Typing animation
+
+To run unit tests:
+```bash
+npm run test:unit
+```
+
+### End-to-End Testing with Playwright
+
+- **Framework**: Playwright
+- **Test Environment**: Multiple browsers support
+- **Test Types**:
+  - UI interactions
+  - Navigation flows
+  - Form submissions
+  - API integrations
+  - Mobile responsiveness
+  - Performance metrics
+
+To run end-to-end tests:
+```bash
+# Install browsers for the first run
+npx playwright install
+
+# Run tests
+npm run test:e2e
+
+# Run specific tests
+npm run test:e2e -- tests/example.spec.ts
+
+# Run on specific browser
+npm run test:e2e -- --project=chromium
+
+# Debug mode
+npm run test:e2e -- --debug
+```
 
 ## Recommended IDE Setup
 

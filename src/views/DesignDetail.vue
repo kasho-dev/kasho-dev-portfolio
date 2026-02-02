@@ -37,8 +37,8 @@
             <p class="text-lg sm:text-xl text-gray-400 italic">
               This case study is currently under development. Thank you for your understanding. <br><br>In the meantime, you're welcome to explore my <a href="/#figma-designs" class="text-green-400 hover:text-green-300 transition-colors">other design projects</a>.
             </p>
-            <a href="/#projects" class="inline-block mt-6 text-green-400 hover:text-green-300 transition-colors text-sm sm:text-base">
-              ← Back to projects
+            <a href="/#" class="inline-block mt-6 text-green-400 hover:text-green-300 transition-colors text-sm sm:text-base">
+              ← Back to home
             </a>
           </div>
 

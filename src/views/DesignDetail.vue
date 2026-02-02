@@ -571,7 +571,7 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
       image: '',
       video: PuckStreamPrototypeVid,
       buttonLabel: 'View prototype',
-      buttonUrl: 'https://www.figma.com/design/FjDM6KLEBulg08BtQydwEi/PuckStream?node-id=1-700&t=2C105UHnz28Vd9T8-1',
+      buttonUrl: 'https://www.figma.com/proto/FjDM6KLEBulg08BtQydwEi/PuckStream?node-id=1-700&t=cvIdWIfmyNTIa6KI-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
     },
     impact: [
       'Achieved full WCAG 2.1 AA compliance across all key components, ensuring clarity and accessibility for all users, including those with visual or motor impairments.',

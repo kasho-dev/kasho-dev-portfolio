@@ -26,10 +26,10 @@
       </li>
       <li>
         <a
-          :href="navBase + '#projects'"
+          :href="navBase + '#figma-designs'"
           class="text-green-400 hover:text-green-300 transition-colors text-sm sm:text-base"
         >
-          Projects
+          Designs
         </a>
       </li>
       <li>

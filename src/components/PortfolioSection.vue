@@ -32,7 +32,7 @@
             Front End Developer
           </p>
 
-          <a href="#projects"
+          <a href="#figma-designs"
             class="inline-block border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base">
             View my work
           </a>
@@ -92,58 +92,7 @@
         </div>
       </section>
 
-      <!-- Projects Section -->
-      <section id="projects"
-        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-4 sm:py-6 md:py-8 overflow-hidden">
-        <div class="w-full px-4 sm:px-6 md:px-8 max-w-6xl mx-auto my-auto">
-          <div class="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-3 sm:mb-4 mt-4">
-              Projects
-            </h2>
-            <p class="text-sm sm:text-base text-gray-300 px-2">
-              I'm currently looking to join a
-              <span class="text-green-400 underline">cross-functional</span> team that values
-              improving people's lives through accessible design.
-            </p>
-          </div>
-
-          <!-- Projects Grid -->
-          <div
-            class="w-full overflow-x-auto pb-6 px-1 sm:px-2 md:px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            <div class="flex gap-4 sm:gap-6 md:gap-8 w-max mx-auto">
-              <!-- Projects List -->
-              <div v-for="project in projects" :key="project.id"
-                class="group relative flex-shrink-0 w-[280px] xs:w-[300px] sm:w-[320px] md:w-[340px] lg:w-[360px] xl:w-[380px] cursor-pointer transition-transform hover:scale-[1.02] touch-manipulation"
-                @click="openProject(project)">
-                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3 sm:mb-4">
-                  <img :src="project.images[0]" :alt="project.title"
-                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
-                    loading="lazy" />
-                  <div
-                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span
-                      class="text-white text-sm sm:text-base md:text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 px-3 text-center">
-                      View Project
-                    </span>
-                  </div>
-                </div>
-
-                <div class="mb-2">
-                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide font-medium">
-                    {{ project.techStack[0] }}
-                  </span>
-                </div>
-
-                <h3 class="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white leading-tight">
-                  {{ project.title }}
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- UI/UX Design Section -->
+      <!-- Featured Designs Section -->
       <section
         id="figma-designs"
         class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-4 sm:py-6 md:py-8 overflow-hidden"
@@ -192,6 +141,57 @@
 
 
         </section>
+
+      <!-- Projects Section -->
+      <section id="projects"
+        class="snap-start min-h-[calc(100vh-4rem)] flex items-center py-4 sm:py-6 md:py-8 overflow-hidden">
+        <div class="w-full px-4 sm:px-6 md:px-8 max-w-6xl mx-auto my-auto">
+          <div class="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-3 sm:mb-4 mt-4">
+              Front End Projects
+            </h2>
+            <p class="text-sm sm:text-base text-gray-300 px-2">
+              I'm currently looking to join a
+              <span class="text-green-400 underline">cross-functional</span> team that values
+              improving people's lives through accessible design.
+            </p>
+          </div>
+
+          <!-- Projects Grid -->
+          <div
+            class="w-full overflow-x-auto pb-6 px-1 sm:px-2 md:px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div class="flex gap-4 sm:gap-6 md:gap-8 w-max mx-auto">
+              <!-- Projects List -->
+              <div v-for="project in projects" :key="project.id"
+                class="group relative flex-shrink-0 w-[280px] xs:w-[300px] sm:w-[320px] md:w-[340px] lg:w-[360px] xl:w-[380px] cursor-pointer transition-transform hover:scale-[1.02] touch-manipulation"
+                @click="openProject(project)">
+                <div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-3 sm:mb-4">
+                  <img :src="project.images[0]" :alt="project.title"
+                    class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm object-center"
+                    loading="lazy" />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span
+                      class="text-white text-sm sm:text-base md:text-lg font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 px-3 text-center">
+                      View Project
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mb-2">
+                  <span class="text-green-400 text-sm sm:text-base uppercase tracking-wide font-medium">
+                    {{ project.techStack[0] }}
+                  </span>
+                </div>
+
+                <h3 class="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-white leading-tight">
+                  {{ project.title }}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Services Section -->
       <section id="services" class="snap-start min-h-[calc(100vh-4rem)] flex items-center bg-[#181818] py-16">
@@ -1072,7 +1072,8 @@ import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
 const expandedStates = ref<boolean[]>([false, false, false, false])
 
 const toggleCollapse = (index: number) => {
-  expandedStates.value[index] = !expandedStates.value[index]
+  const wasOpen = expandedStates.value[index]
+  expandedStates.value = expandedStates.value.map((_, i) => (i === index ? !wasOpen : false))
 }
 
 // Router instance for navigation
@@ -1123,9 +1124,6 @@ const visibleDesigns = computed(() => designs.value.filter((d) => d.id !== 1 && 
 
 const openDesign = (design: DesignItem) => {
   router.push({ name: 'design-detail', params: { id: String(design.id) } })
-  const wasOpen = expandedStates.value[index]
-  expandedStates.value = expandedStates.value.map(() => false)
-  expandedStates.value[index] = !wasOpen
 }
 
 // Project 1 - Document Tracking System Images

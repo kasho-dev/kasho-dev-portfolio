@@ -1,28 +1,6 @@
 <template>
   <div class="bg-[#181818] text-white">
-    <!-- Fixed Navigation -->
-    <nav
-      class="fixed top-0 left-0 right-0 z-50 bg-[#181818]/90 backdrop-blur-sm flex justify-between items-center px-8 py-6"
-    >
-      <div class="text-xl font-semibold">
-        <!-- Logo placeholder -->
-      </div>
-      <ul class="flex space-x-8">
-        <li>
-          <a href="#about" class="text-green-400 hover:text-green-300 transition-colors">About</a>
-        </li>
-        <li>
-          <a href="#projects" class="text-green-400 hover:text-green-300 transition-colors"
-            >Projects</a
-          >
-        </li>
-        <li>
-          <a href="#contact" class="text-green-400 hover:text-green-300 transition-colors"
-            >Contact</a
-          >
-        </li>
-      </ul>
-    </nav>
+    <AppHeader />
 
     <!-- Scroll Container with custom scroll behavior -->
     <div
@@ -199,39 +177,38 @@
             <h2
               class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 mb-3 sm:mb-4 mt-4"
             >
-              UI/UX Designs
+              Featured Designs
             </h2>
             <p class="text-sm sm:text-base text-gray-300 px-2">
-              Below are designs that I created.
+              Here are the final interface designs, which translate our user research and business objectives into a cohesive visual system..
             </p>
           </div>
 
-          <!-- Horizontal scrollable cards -->
+          <!-- Featured design cards (centered, scroll on small screens) -->
           <div
-            class="w-full overflow-x-auto pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            class=" pt-4 w-full overflow-x-auto pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
-            <div class="flex gap-4 sm:gap-6 md:gap-8 w-max">
+            <div class="flex gap-6 sm:gap-8 md:gap-10 justify-center items-stretch min-w-max px-2">
               <div
-                v-for="design in designs"
+                v-for="design in visibleDesigns"
                 :key="design.id"
-                class="flex-shrink-0 w-[260px] xs:w-[280px] sm:w-[300px] md:w-[320px] lg:w-[340px] bg-[#1f1f1f] rounded-xl border border-[#2a2a2a] p-4 sm:p-5 cursor-pointer hover:border-green-500/60 transition-colors"
+                class="group flex-shrink-0 w-[320px] sm:w-[380px] md:w-[420px] lg:w-[460px] bg-[#1f1f1f] rounded-xl border border-[#2a2a2a] p-5 sm:p-6 cursor-pointer flex flex-col transition-all duration-300 ease-out hover:border-green-500/70 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 hover:bg-[#252525]"
                 @click="openDesign(design)"
               >
-                <div class="mb-3">
-                  <h3 class="text-white font-semibold text-base sm:text-lg">{{ design.title }}</h3>
-                  <p class="text-gray-400 text-xs sm:text-sm leading-snug">{{ design.subtitle }}</p>
+                <div class="mb-4">
+                  <h3 class="text-white font-semibold text-lg sm:text-xl transition-colors duration-300 group-hover:text-green-400">{{ design.title }}</h3>
+                  <p class="text-gray-400 text-sm sm:text-base leading-snug transition-colors duration-300 group-hover:text-gray-300">{{ design.subtitle }}</p>
                 </div>
 
-                <!-- SVG mockup (same size as previous phone frame) -->
-                    <div>
-                      <img v-if="design.image" :src="design.image" :alt="design.title" class="w-full h-full object-contain" loading="lazy" />
-                      <div v-else class="text-center px-4">
-                        <div class="text-white text-xl sm:text-2xl font-extrabold tracking-wide">
-                          {{ design.logoTextPrimary }}<span class="text-green-400">{{ design.logoTextAccent }}</span>
-                        </div>
-                        <div class="text-[10px] sm:text-xs text-gray-300 mt-2 tracking-widest">{{ design.tagline }}</div>
-                      </div>
+                <div class="flex-1 flex items-center justify-center min-h-[280px] sm:min-h-[320px] md:min-h-[360px] overflow-hidden rounded-lg">
+                  <img v-if="design.image" :src="design.image" :alt="design.title" class="w-full h-full object-contain max-h-[280px] sm:max-h-[340px] md:max-h-[380px] transition-transform duration-300 ease-out group-hover:scale-105" loading="lazy" />
+                  <div v-else class="text-center px-4">
+                    <div class="text-white text-xl sm:text-2xl font-extrabold tracking-wide">
+                      {{ design.logoTextPrimary }}<span class="text-green-400">{{ design.logoTextAccent }}</span>
                     </div>
+                    <div class="text-[10px] sm:text-xs text-gray-300 mt-2 tracking-widest">{{ design.tagline }}</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1549,9 +1526,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
+import AppHeader from './AppHeader.vue'
 import InteractifyImage from './icons/interactify/Interactify.svg'
+import PuckStreamMockup from './icons/PuckStream/Landing Page.png'
+import CognitaLandingPage from './icons/Cognita/Landing Page.png'
 import ProjectOverlay from './ProjectOverlay.vue'
 import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
 
@@ -1587,17 +1567,25 @@ const designs = ref<DesignItem[]>([
   },
   {
     id: 2,
-    title: 'Eventra',
-    subtitle: 'Catering management system mobile concept',
-    tagline: 'PLAN • COORDINATE • DELIVER',
+    title: 'PuckStream',
+    subtitle: 'A live hockey platform for match schedules, scores, and game details.',
+    image: PuckStreamMockup,
   },
   {
     id: 3,
-    title: 'Tracker+',
-    subtitle: 'Document tracking mobile redesign',
-    tagline: 'FAST • RELIABLE • SECURE',
+    title: 'Cognita',
+    subtitle: 'An EdTech platform for seamless online tutoring and progress tracking.',
+    image: CognitaLandingPage,
+  },
+  {
+    id: 4,
+    title: 'Cognita',
+    subtitle: 'An EdTech platform for seamless online tutoring and progress tracking.',
   },
 ])
+
+/** Hide case studies 1 and 4 from the list for now. */
+const visibleDesigns = computed(() => designs.value.filter((d) => d.id !== 1 && d.id !== 4))
 
 const openDesign = (design: DesignItem) => {
   router.push({ name: 'design-detail', params: { id: String(design.id) } })

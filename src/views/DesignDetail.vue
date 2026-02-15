@@ -35,7 +35,7 @@
           <!-- WIP message for Cognita (temporarily hide full case study) -->
           <div v-if="isWipCase" class="py-12 sm:py-16">
             <p class="text-lg sm:text-xl text-gray-400 italic">
-              This case study is currently under development. Thank you for your understanding. <br><br>In the meantime, you're welcome to explore my <a href="/#figma-designs" class="text-green-400 hover:text-green-300 transition-colors">other design projects</a>.
+              This case study is currently under development but you can view the prototype <a href="https://www.figma.com/proto/7V6kimv3WblaJjYEclJX8q/Cognita?page-id=&node-id=1-501&viewport=797%2C708%2C0.17&t=9luCsFKDc96Rp0Dq-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 transition-colors">here</a>. Thank you for your understanding. <br><br>In the meantime, you're welcome to explore my <a href="/#figma-designs" class="text-green-400 hover:text-green-300 transition-colors">other design projects</a>.
             </p>
             <a href="/#" class="inline-block mt-6 text-green-400 hover:text-green-300 transition-colors text-sm sm:text-base">
               ← Back to home

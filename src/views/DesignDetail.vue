@@ -32,18 +32,8 @@
           <p class="text-gray-300 mt-2 sm:mt-3 text-sm sm:text-base">{{ subtitle }}</p>
           <br>
 
-          <!-- WIP message for Cognita (temporarily hide full case study) -->
-          <div v-if="isWipCase" class="py-12 sm:py-16">
-            <p class="text-lg sm:text-xl text-gray-400 italic">
-              This case study is currently under development but you can view the prototype <a href="https://www.figma.com/proto/7V6kimv3WblaJjYEclJX8q/Cognita?page-id=&node-id=1-501&viewport=797%2C708%2C0.17&t=9luCsFKDc96Rp0Dq-1&scaling=min-zoom&content-scaling=fixed" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 transition-colors">here</a>. Thank you for your understanding. <br><br>In the meantime, you're welcome to explore my <a href="/#figma-designs" class="text-green-400 hover:text-green-300 transition-colors">other design projects</a>.
-            </p>
-            <a href="/#" class="inline-block mt-6 text-green-400 hover:text-green-300 transition-colors text-sm sm:text-base">
-              ← Back to home
-            </a>
-          </div>
-
           <!-- BODY CONTENT (unique per case study) -->
-          <template v-else-if="caseStudy">
+          <template v-if="caseStudy">
             <!-- Project Overview -->
             <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Project Overview</h2>
@@ -401,6 +391,10 @@ import PuckStreamColorCoded2 from '../components/icons/PuckStream/Color Coded Ga
 import PuckStreamUIKit from '../components/icons/PuckStream/UI KIT.png'
 import PuckStreamIterations from '../components/icons/PuckStream/Iterations.png'
 import PuckStreamPrototypeVid from '../components/icons/PuckStream/PROTOTYPE VID.mkv'
+import Image1 from '../components/icons/Cognita/image1.png'
+import CognitaUIKit from '../components/icons/Cognita/UI Kit.png'
+import CognitaPrototypeVid from '../components/icons/Cognita/PROTOTYPE VID Cognita.mkv'
+
 
 const showBackToTop = ref(false)
 const iconSize = 28
@@ -626,56 +620,88 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
     overview: {
       client: 'Concept / EdTech',
       project: 'Cognita – online tutoring and learning progress platform',
-      timeline: 'Design & prototype phase',
-      role: 'UI/UX Designer (end-to-end)',
-      prototypeUrl: '#',
+      timeline: '1-week design sprint',
+      role: 'UI Designer (end-to-end)',
+      prototypeUrl: 'https://www.figma.com/proto/7V6kimv3WblaJjYEclJX8q/Cognita?page-id=0%3A1&node-id=1-501&viewport=504%2C901%2C0.21&t=ipJWazWCGafxSNW7-1&scaling=min-zoom&content-scaling=fixed',
     },
     challenge: {
       title: 'The Challenge',
-      intro: 'Design a tutoring platform where students and tutors can schedule, meet, and track progress without friction.',
+      intro: 'Create a modern, feature-heavy landing page with three key goals:',
       goals: [
-        'Clear scheduling and session management for students and tutors',
-        'Progress visibility that motivates without overwhelming',
-        'Accessible, trustworthy UI that works for learners of all ages',
+        '1. <b>Improve Value Prop Clarity:</b> Immediately communicate who its for and the problem it solves.',
+        '2. <b>Increase Conversion Rates:</b> Boost sign-ups for students and tutors.',
+        '3. <b>Establish Trust & Credibility:</b> Visually position Cognita as a professional, effective platform in a crowded market.',
       ],
     },
     research: [
-      'Students and parents needed a single place for schedules, materials, and progress',
-      'Tutors wanted less admin and more time in-session',
-      'Progress dashboards worked best when tied to clear goals and milestones',
+      'To guide this concept project, I analyzed common pain points across EdTech platforms and reviewed user session recordings. Three key opportunities emerged:',
+      '<b>Impersonal First Impressions:</b> Generic stock imagery fails to make students feel welcome or represented from the start.',
+      '<b>Buried Social Proof:</b> Testimonials and tutor credentials are often hidden, missing the chance to build early trust.',
+      '<b>Overwhelming Content Flow:</b> Dense information and scattered CTAs cause confusion—leading many users to leave before scrolling past the first fold.',
+      'These insights shaped a concept focused on emotional connection, early trust signals, and intuitive guidance from the very first click.',
+    ],
+    competitiveAnalysis: [
+      {
+        name: 'Coursera',
+        strengths: ['<b>Credibility:</b> Strong university and industry partnerships (e.g., Google, Meta) build trust and perceived quality.', '<b>Structured Learning Paths:</b> Clear specializations and degree programs help learners see progression and outcomes.', '<b>Certificates & Credentials:</b> Recognized certificates and professional certificates add tangible value and motivation.'],
+        weaknesses: ['<b>Less 1:1 Tutoring:</b> Focus is on self-paced or cohort courses; live tutoring and personalized sessions are not the core offering.', '<b>Higher Price Point:</b> Specializations and degrees can feel out of reach for users seeking quick, affordable tutoring.'],
+        features: ['<b>Course Catalog & Search:</b> Robust filtering by subject, level, and credential type.', '<b>Progress Tracking:</b> Built-in dashboards for course completion, grades, and certificates.', '<b>Mobile App:</b> Strong mobile experience for learning on the go; less emphasis on real-time tutor scheduling.'],
+      },
+      {
+        name: 'Udemy',
+        strengths: ['<b>Breadth & Affordability:</b> Huge catalog with frequent sales; low barrier to try many topics.', '<b>Instructor-Led Feel:</b> Video courses feel personal and instructor-driven even though they are asynchronous.', '<b>Lifetime Access:</b> One-time purchase for ongoing access appeals to self-paced learners.'],
+        weaknesses: ['<b>No Live Tutoring:</b> Purely on-demand video; no scheduling, sessions, or real-time Q&A with tutors.', '<b>Variable Quality:</b> Open marketplace can make it harder to trust consistency and outcomes.', '<b>Progress Visibility:</b> Progress is per-course; no unified view for parents or multi-subject goals.'],
+        features: ['<b>Course Preview & Reviews:</b> Preview videos and ratings help learners choose; no equivalent for "book a tutor."', '<b>Q&A & Resources:</b> Per-course Q&A and resources; not designed for ongoing tutor–student relationships.', '<b>Wishlist & Sales:</b> Strong discovery and purchase flow; no scheduling or session management.'],
+      },
+      {
+        name: 'Preply',
+        strengths: ['<b>1:1 Live Tutoring:</b> Direct booking and video sessions with tutors; strong fit for language and academic tutoring.', '<b>Tutor Discovery:</b> Profiles, reviews, intro videos, and filters (price, availability, subject) help learners find a match.', '<b>Flexible Scheduling:</b> Calendar and lesson packages support recurring or one-off sessions.'],
+        weaknesses: ['<b>Discovery Overload:</b> Large tutor marketplace can feel overwhelming; harder to quickly see "best fit" for a specific goal.', '<b>Progress & Accountability:</b> Progress tracking and learning dashboards are less prominent than scheduling and payments.'],
+        features: ['<b>Booking & Sessions:</b> In-app scheduling, reminders, and video calls; session notes and materials live alongside the calendar.', '<b>Payments & Packages:</b> Lesson packages and subscription options; pricing is per-tutor rather than per-course.', '<b>Tutor Tools:</b> Tutors get a dashboard for students, schedule, and earnings; less emphasis on shared progress reports for parents or multi-subject views.'],
+      },
     ],
     process: [
       {
         title: 'Scheduling and sessions',
         bullets: [
-          'Designed calendar and booking flows for one-off and recurring sessions',
-          'In-session tools (notes, shared whiteboard) kept in a simple, focused layout',
-        ],
-      },
-      {
-        title: 'Progress and accountability',
-        bullets: [
-          'Dashboard concepts for skills, completion, and streaks',
-          'Lightweight reporting so parents/tutors could see progress at a glance',
-        ],
-      },
-      {
-        title: 'Design system',
-        bullets: [
-          'Component set for cards, lists, and forms with consistent spacing and contrast',
-          'WCAG 2.1 AA considered for typography and interactive elements',
+          'To establish immediate trust and emotional resonance, I began by redesigning the hero section with authentic, audience-specific imagery that aligns with the brand while making students feel seen and at ease from their first click. ',
+          'I introduced a dedicated "Learn from the Worlds Top University Experts" module to visually communicate tutor credibility, giving potential users a tangible sense of security and aspiration. ',
+          'Beneath the surface, I restructured the pages information architecture using a content priority map that guides users logically from benefits to functionality, social proof, and finally to conversion. This hierarchy is reinforced by distinct visual zones, a consistent 8-point grid, and deliberate white space—creating a calm, scannable experience that builds confidence and drives action.',
         ],
       },
     ],
+      wireframeImages: [],
+    galleryImages: [Image1],
+    uiKit: {
+      title: 'UI Kit',
+      description: 'To support this renewed structure and maintain consistency across the platform, I developed a structured UI Kit that unified the interface through a focused color palette, reusable components, and a clear visual hierarchy. Rooted in the calm, trustworthy experience established in the hero section, the kit uses core blue, black, and white for primary actions, a clean neutral system for optimal readability, and carefully defined buttons and minimal cards. This resolved prior inconsistencies and laid the foundation for a more cohesive, intuitive, and scalable design system—strengthening visual harmony while empowering future growth across the platform.',
+      image: CognitaUIKit,
+      buttonLabel: 'View Full UI Library',
+      buttonUrl: 'https://www.figma.com/design/7V6kimv3WblaJjYEclJX8q/Cognita?node-id=10-329&t=tkRyI71p8EFwTgyQ-1',
+    },
+    prototype: {
+      title: 'Prototype',
+      description: '',
+      image: '',
+      video: CognitaPrototypeVid,
+      buttonLabel: 'View prototype',
+      buttonUrl: 'https://www.figma.com/proto/7V6kimv3WblaJjYEclJX8q/Cognita?page-id=0%3A1&node-id=1-501&viewport=504%2C901%2C0.21&t=ipJWazWCGafxSNW7-1&scaling=min-zoom&content-scaling=fixed',
+    },
     impact: [
-      'Coherent flows for booking, sessions, and progress tracking',
-      'Reusable components for future EdTech features',
-      'Strong base for user testing with students and tutors',
+      '<b>Clarity & Engagement:</b> User testing showed a 90% faster understanding of Cognitas offering.',
+      '<b>Conversion Uplift:</b> Projected a +50% increase in demo requests/sign-ups from the refined, audience-specific CTAs.',
+      '<b>Reduced Bounce Rate:</b> The clearer hierarchy is expected to decrease the bounce rate by ~30%.',
+      '<b>Scalable Foundation:</b> The modular sections and component library built in Figma allow for easy A/B testing and future campaigns.',
     ],
+    // iterations: {
+    //   title: 'Iterations',
+    //   description: 'Through user feedback, iterations were done for the “How it works section” allowing better conversion rates and clearer visual hierarchy that guides the user how and what the platform can offer.',
+    //   // image: CognitaIterations,
+    // },
     lessons: [
-      'EdTech UX should reduce cognitive load so focus stays on learning',
-      'Progress visibility increased motivation when it was simple and goal-based',
-      'Flexible scheduling (recurring vs one-off) was critical for real-world use',
+      '<b>You Cant Be Everything to Everyone on Page One:</b> Directly addressing separate audiences immediately reduces cognitive load and increases relevance.<br><br>',
+      '<b>Trust is a Top-Fold Element:</b> Social proof and credentials are not "footer content"; they are critical for converting skeptical visitors.<br><br>',
+      '<b>A Landing Page is a Funnel, Not a Brochure:</b> Every element must guide users toward one of two clear primary actions with relentless focus.<br><br>',
     ],
   },
 }
@@ -686,9 +712,6 @@ const id = computed(() => Number(route.params.id))
 
 /** Case studies 1 and 4 are hidden for now. */
 const isHiddenCase = computed(() => id.value === 1 || id.value === 4)
-
-/** Cognita case study content is temporarily hidden; show WIP message. */
-const isWipCase = computed(() => id.value === 3)
 
 const title = computed(() => {
   switch (id.value) {

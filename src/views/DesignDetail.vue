@@ -27,7 +27,7 @@
         </div>
 
         <!-- Body copy -->
-        <div class="mt-8 max-w-3xl mx-auto text-center text-gray-300">
+        <div ref="caseStudyBodyRef" class="mt-8 max-w-3xl mx-auto text-center text-gray-300">
 
           <p class="text-gray-300 mt-2 sm:mt-3 text-sm sm:text-base">{{ subtitle }}</p>
           <br>
@@ -45,7 +45,7 @@
           <!-- BODY CONTENT (unique per case study) -->
           <template v-else-if="caseStudy">
             <!-- Project Overview -->
-            <div class="text-left mb-8">
+            <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Project Overview</h2>
               <p class="text-sm sm:text-base"><b>Client:</b> <span v-html="caseStudy.overview.client"></span></p>
               <p class="text-sm sm:text-base"><b>Project:</b> <span v-html="caseStudy.overview.project"></span></p>
@@ -60,7 +60,7 @@
             <div class="case-study-section-divider"></div>
 
             <!-- The Challenge -->
-            <div class="text-left mb-8">
+            <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">{{ caseStudy.challenge.title ??
                 'The Challenge' }}</h2>
               <p class="text-sm sm:text-base mb-4" v-html="caseStudy.challenge.intro"></p>
@@ -70,7 +70,7 @@
             <div class="case-study-section-divider"></div>
 
             <!-- My Design Process -->
-            <div class="mb-12 text-center">
+            <div class="case-study-section mb-12 text-center">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-10 text-white">My Design
                 Process</h2>
               <div class="design-process-flow">
@@ -164,7 +164,7 @@
             <div class="case-study-section-divider"></div>
 
             <!-- Research & Insights -->
-            <div class="text-left mb-8">
+            <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Research & Insights</h2>
               <p v-for="(insight, i) in caseStudy.research" :key="i" class="text-sm sm:text-base mb-6 last:mb-0"
                 v-html="insight"></p>
@@ -172,7 +172,7 @@
             <!-- <div class="case-study-section-divider"></div> -->
 
             <!-- Competitive Market Analysis -->
-            <div v-if="caseStudy.competitiveAnalysis?.length" class="mb-8">
+            <div v-if="caseStudy.competitiveAnalysis?.length" class="case-study-section mb-8">
               <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white text-left">Competitive Market
                 Analysis</h2>
               <div class="competitive-analysis-grid">
@@ -217,7 +217,7 @@
             <div v-if="caseStudy.competitiveAnalysis?.length" class="case-study-section-divider"></div>
 
             <!-- Process & Solution -->
-            <div class="text-left mb-8">
+            <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Process & Solution</h2>
               <div v-for="(section, i) in caseStudy.process" :key="i" class="mb-4">
                 <!-- <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">{{ section.title }}</h3> -->
@@ -244,7 +244,7 @@
 
             <!-- Gallery images (after Process & Solution) -->
             <div v-if="caseStudy.galleryImages?.length"
-              class="mb-8 rounded-lg overflow-hidden case-study-media-section">
+                class="case-study-section mb-8 rounded-lg overflow-hidden case-study-media-section">
               <div class="p-4 sm:p-6 flex flex-col gap-4 sm:gap-6">
                 <img v-for="(img, i) in caseStudy.galleryImages" :key="i" :src="img" :alt="`Process image ${i + 1}`"
                   class="w-full h-auto object-contain rounded" loading="lazy" />
@@ -253,7 +253,7 @@
             <div v-if="caseStudy.galleryImages?.length" class="case-study-section-divider"></div>
 
             <!-- UI Kit section -->
-            <div v-if="caseStudy.uiKit" class="mb-8">
+            <div v-if="caseStudy.uiKit" class="case-study-section mb-8">
               <h2 class="text-xl text-left sm:text-2xl md:text-3xl font-bold mb-3 text-white">{{ caseStudy.uiKit.title
               }}</h2>
               <p class="text-sm text-left sm:text-base text-gray-300 mb-6 max-w-3xl"
@@ -274,7 +274,7 @@
             <div v-if="caseStudy.uiKit" class="case-study-section-divider"></div>
 
             <!-- Prototype section -->
-            <div v-if="caseStudy.prototype" class="mb-8">
+            <div v-if="caseStudy.prototype" class="case-study-section mb-8">
               <h2 class="text-xl text-left sm:text-2xl md:text-3xl font-bold mb-3 text-white">{{
                 caseStudy.prototype.title }}</h2>
               <p class="text-sm sm:text-base text-gray-300 mb-6 max-w-3xl" v-html="caseStudy.prototype.description"></p>
@@ -300,7 +300,7 @@
             <div v-if="caseStudy.prototype" class="case-study-section-divider"></div>
 
             <!-- Impact & Results -->
-            <div class="text-left mb-8">
+            <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Impact & Results</h2>
               <ul class="space-y-4 list-none pl-0">
                 <li v-for="(item, i) in caseStudy.impact" :key="i"
@@ -318,7 +318,7 @@
             <div class="case-study-section-divider"></div>
 
             <!-- Iterations -->
-            <div v-if="caseStudy.iterations" class="mb-8">
+            <div v-if="caseStudy.iterations" class="case-study-section mb-8">
               <h2 class="text-lg text-left sm:text-large md:text-large font-bold mb-3 text-white">{{
                 caseStudy.iterations.title }}
               </h2>
@@ -338,11 +338,18 @@
             <div v-if="caseStudy.iterations" class="case-study-section-divider"></div>
 
             <!-- Lessons Learned -->
-            <div class="text-left mb-8">
+            <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Lessons Learned</h2>
               <p class="text-sm sm:text-base" v-html="caseStudy.lessons.join(' ')"></p>
             </div>
             <div class="case-study-section-divider"></div>
+
+            <!-- Explore other designs CTA -->
+            <div class="case-study-section text-center mt-10 mb-8">
+              <p class="text-lg sm:text-xl text-gray-400 italic">
+              Feel free to explore my <a href="/#figma-designs" class="text-green-400 hover:text-green-300 transition-colors">other design projects</a>.
+            </p>
+            </div>
           </template>
 
         </div>
@@ -381,7 +388,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { Search, LineChart, Lightbulb, LayoutTemplate, Eye } from 'lucide-vue-next'
 import AppHeader from '../components/AppHeader.vue'
@@ -397,6 +404,8 @@ import PuckStreamPrototypeVid from '../components/icons/PuckStream/PROTOTYPE VID
 
 const showBackToTop = ref(false)
 const iconSize = 28
+const caseStudyBodyRef = ref<HTMLElement | null>(null)
+let sectionObserver: IntersectionObserver | null = null
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -406,11 +415,35 @@ const onScroll = () => {
   showBackToTop.value = window.scrollY > 300
 }
 
+function setupSectionFadeObserver() {
+  sectionObserver?.disconnect()
+  const el = caseStudyBodyRef.value
+  if (!el) return
+  const sections = el.querySelectorAll<HTMLElement>('.case-study-section')
+  if (!sections.length) return
+  sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('case-study-section-visible')
+        } else {
+          entry.target.classList.remove('case-study-section-visible')
+        }
+      })
+    },
+    { rootMargin: '0px 0px -40px 0px', threshold: 0.1 }
+  )
+  sections.forEach((section) => sectionObserver!.observe(section))
+}
+
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
+  nextTick(setupSectionFadeObserver)
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
+  sectionObserver?.disconnect()
+  sectionObserver = null
 })
 
 interface CompetitorEntry {
@@ -516,9 +549,8 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
       title: 'The Challenge',
       intro: 'When I first encountered SHL.se, it felt like stepping into a hockey arena frozen in time—a relic of the 2010s struggling to connect with the modern fan. The experience was fragmented, visually inconsistent, and inaccessible, leaving fans to navigate a digital obstacle course just to find a score or a stream.<br><br>My mission was clear: to lead a design renaissance that would rebuild trust and utility from the ice up. I anchored this transformation on three pillars:',
       goals: [
-        '1. <b>To build an inclusive foundation</b>, reconstructing the visual hierarchy with WCAG 2.1 AA standards as the non-negotiable baseline, ensuring no fan was left on the sidelines.<br><br>',
-        '2. <b>To design for decisive action</b>, streamlining the critical paths to tickets and live streams to convert passive browsing into confident engagement and direct revenue.<br><br>',
-        '3. <b>To create a legacy of clarity</b>, replacing a patchwork of ad-hoc components with a cohesive, scalable design system—a blueprint not just for SHL.se, but for the future of sports digital experiences.',
+        '1. <b>To design for decisive action</b>, streamlining the critical paths to tickets and live streams to convert passive browsing into confident engagement and direct revenue.<br><br>',
+        '2. <b>To create a legacy of clarity</b>, replacing a patchwork of ad-hoc components with a cohesive, scalable design system—a blueprint not just for SHL.se, but for the future of sports digital experiences.',
       ],
     },
     research: [
@@ -574,7 +606,6 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
       buttonUrl: 'https://www.figma.com/proto/FjDM6KLEBulg08BtQydwEi/PuckStream?node-id=1-700&t=cvIdWIfmyNTIa6KI-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
     },
     impact: [
-      'Achieved full WCAG 2.1 AA compliance across all key components, ensuring clarity and accessibility for all users, including those with visual or motor impairments.',
       'Projected a <b>+65%</b> increase in click-through rates for streaming and ticket purchase links—driving measurable gains in user engagement and revenue.',
       'Scalable design system for other leagues; component library cut design time by ~40%.',
     ],
@@ -586,7 +617,7 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
     lessons: [
       'Each insight from this project reinforced that <b>good design is intentional, human, and forward-looking.</b><br><br>',
       'We learned that for sports fans, <b>immediacy is everything</b>—live scores and streaming access must feel instantaneous, or engagement is lost.<br><br>',
-      'Our focus on accessibility revealed a universal truth: <b>designing for clarity and contrast didn’t just help users with impairments; it created a cleaner, more legible experience for everyone.</b><br><br> ',
+      'Our focus on accessibility revealed a universal truth: <b>designing for clarity and contrast created a cleaner, more legible experience for everyone.</b><br><br> ',
       'And perhaps most powerfully, our investment in a scalable design system proved its worth not just in pixels, but in time—<b>accelerating future projects with consistency and confidence, turning one league’s redesign into a blueprint for many.</b><br><br>',
     ],
   },
@@ -678,6 +709,14 @@ const accent = computed(() => (id.value === 1 ? 'C TIFY' : ''))
 const subtitle = computed(() => CASE_STUDIES[id.value]?.subtitle ?? '')
 
 const caseStudy = computed(() => CASE_STUDIES[id.value] ?? null)
+
+watch(
+  () => caseStudy.value,
+  (val) => {
+    if (val) nextTick(setupSectionFadeObserver)
+  },
+  { immediate: true }
+)
 
 const imageSrc = computed(() => {
   switch (id.value) {
@@ -802,6 +841,18 @@ const imageSrc = computed(() => {
 
 .design-process-arrow-head {
   opacity: 0.8;
+}
+
+/* Fade-in animation for case study sections (triggered when scrolling into view) */
+.case-study-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.case-study-section.case-study-section-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Section divider after every case study section */

@@ -392,8 +392,8 @@ import PuckStreamUIKit from '../components/icons/PuckStream/UI KIT.png'
 import PuckStreamIterations from '../components/icons/PuckStream/Iterations.png'
 import PuckStreamPrototypeVid from '../components/icons/PuckStream/PROTOTYPE VID.mkv'
 import Image1 from '../components/icons/Cognita/Image1.png'
-import CognitaUIKit from '../components/icons/Cognita/UI Kit.png'
-import CognitaPrototypeVid from '../components/icons/Cognita/PROTOTYPE VID Cognita.mkv'
+import CognitaUIKit from '../components/icons/Cognita/UI KIT.png'
+import CognitaPrototypeVid from '../components/icons/Cognita/PROTOTYPE VID COGNITA.mkv'
 
 
 const showBackToTop = ref(false)

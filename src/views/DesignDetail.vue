@@ -618,7 +618,7 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
       project: 'Spendly',
       timeline: '5 Days',
       role: 'UI/UX Designer (end-to-end)',
-      prototypeUrl: 'https://www.figma.com/proto/OPa8p9BTtOCgc77YdiIesk/Spendly---Budget-Smarter--Live-Better?page-id=114%3A1040&node-id=161-16662&viewport=-8950%2C1879%2C0.18&t=6M8H75XbB8rCTzwI-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=161%3A16662',
+      prototypeUrl: 'https://www.figma.com/proto/OPa8p9BTtOCgc77YdiIesk/Spendly---Budget-Smarter--Live-Better?page-id=114%3A1040&node-id=166-8405&viewport=-3569%2C-850%2C0.14&t=0BCiKbfcdjIJxxCo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=166%3A8405',
     },
     challenge: {
       title: 'The Challenge',
@@ -708,7 +708,7 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
       description: 'Prototype covering all screens main flows: Checking card, wallet, savings balance, adding a transaction, and viewing a budget category insights.',
       image: SpendlyMockup2,
       buttonLabel: 'View prototype',
-      buttonUrl: 'https://www.figma.com/proto/OPa8p9BTtOCgc77YdiIesk/Spendly---Budget-Smarter--Live-Better?page-id=114%3A1040&node-id=161-16662&viewport=-8950%2C1879%2C0.18&t=6M8H75XbB8rCTzwI-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=161%3A16662',
+      buttonUrl: 'https://www.figma.com/proto/OPa8p9BTtOCgc77YdiIesk/Spendly---Budget-Smarter--Live-Better?page-id=114%3A1040&node-id=166-8405&viewport=-3569%2C-850%2C0.14&t=0BCiKbfcdjIJxxCo-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=166%3A8405',
     },
     userFeedback: {
       user1: [
@@ -747,7 +747,7 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
       project: 'PuckStream – SHL.se (Swedish Hockey League) modernization',
       timeline: '1-week design sprint',
       role: 'UI/UX Designer (end-to-end)',
-      prototypeUrl: '#',
+      prototypeUrl: 'https://www.figma.com/proto/FjDM6KLEBulg08BtQydwEi/PuckStream?node-id=1-700&t=cvIdWIfmyNTIa6KI-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1',
     },
     challenge: {
       title: 'The Challenge',

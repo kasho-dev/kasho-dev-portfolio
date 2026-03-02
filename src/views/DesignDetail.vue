@@ -20,7 +20,7 @@
             <img v-if="imageSrc" :src="imageSrc" :alt="title" class="w-full h-auto object-contain" loading="lazy" />
             <div v-else class="text-center px-8 py-16">
               <div class="text-2xl sm:text-3xl font-extrabold tracking-wider">
-                {{ primary }}<span class="text-green-400">{{ accent }}</span>
+                <!-- {{ primary }}<span class="text-green-400">{{ accent }}</span> -->
               </div>
             </div>
           </div>
@@ -256,11 +256,11 @@
             <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Design & Development</h2>
               <div class="case-study-section-divider"></div>
-              <div v-for="(section, i) in caseStudy.process" :key="i" class="mb-4">
-                <!-- <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">{{ section.title }}</h3> -->
+              <!--   <div v-for="(section, i) in caseStudy.process" :key="i" class="mb-4">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">{{ section.title }}</h3>
                 <p v-for="(bullet, j) in section.bullets" :key="j" class="text-sm sm:text-base mb-4 last:mb-0 last:mb-4"
                   v-html="bullet"></p>
-              </div>
+              </div>-->
 
             </div>
 
@@ -484,7 +484,7 @@ import { computed, ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { Search, LineChart, Lightbulb, LayoutTemplate, Eye } from 'lucide-vue-next'
 import AppHeader from '../components/AppHeader.vue'
-import SpendlyImage from '../components/icons/Spendly/Intro.png'
+// import SpendlyImage from '../components/icons/Spendly/Intro.png'
 import PuckStreamImage from '../components/icons/PuckStream/Puckstream Mockup 1.png'
 import CognitaMockup from '../components/icons/Cognita/Landing Page.png'
 import PuckStreamCTA from '../components/icons/PuckStream/CTA.png'
@@ -498,10 +498,10 @@ import CognitaUIKit from '../components/icons/Cognita/UI KIT.png'
 import CognitaPrototypeVid from '../components/icons/Cognita/PROTOTYPE VID COGNITA.mkv'
 
 import SpendlyCover from '../components/icons/Spendly/Cover.png'
-import LowMedFidelity from '../components/icons/Spendly/Low-Med Fidelity.png'
-import SpendlyMockup1 from '../components/icons/Spendly/Mockup 1.png'
-import SpendlyMockup2 from '../components/icons/Spendly/Mockup 2.png'
-import SpendlyUIKit from '../components/icons/Spendly/Spendly UI KIT.png'
+import LowMedFidelity from '../components/icons/Spendly/LowMedFidelity.png'
+import SpendlyMockup1 from '../components/icons/Spendly/Mockup1.png'
+import SpendlyMockup2 from '../components/icons/Spendly/Mockup2.png'
+import SpendlyUIKit from '../components/icons/Spendly/SpendlyUIKit.png'
 import SpendlyWireframeIterations from '../components/icons/Spendly/WireframeIteration.png'
 import SpendlyFinalIteration from '../components/icons/Spendly/FinalIterations.png'
 
@@ -598,7 +598,7 @@ interface CaseStudyContent {
   research: string[]
   competitiveAnalysis?: CompetitorEntry[]
   goalsAndFeatures?: GoalsAndFeaturesEntry
-  process: { title: string; bullets: string[] }[]
+  // process: { title: string; bullets: string[] }[]
   wireframeImages?: string[]
   iterationsBelowWireframes?: IterationsBlockEntry
   galleryImages?: string[]
@@ -782,16 +782,16 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
         features: ['<b>Official League Table & Fixtures:</b> The definitive, constantly updated core of the site.', '<b>Fantasy Premier League Integration:</b> Deep promotion and linking to their massively popular fantasy game.', '<b>Comprehensive Player & Manager Profiles:</b> Includes detailed career stats, news, and quotes.'],
       },
     ],
-    process: [
-      {
-        title: 'Visual hierarchy restructure',
-        bullets: [
-          '<b>My mission was to restore structure and clarity to the fan experience.</b> To achieve this, I first restructured the visual hierarchy through wireframes and a content priority matrix, ensuring live scores and streaming CTAs were elevated and unmissable. Next, I created clear visual zoning with deliberate spacing and a purposeful typographic scale, giving each section breathing room and intent. Understanding that fans need instant insight, I introduced color-coded game charts and backgrounds, allowing game status to be understood at a glance. The result was a streamlined interface where fans could focus on the game, not the navigation.',
-          'To scale this clarity and ensure consistency, <b>I engineered a modular design system in Figma</b>. This foundational library of reusable components replaced a patchwork of inconsistent UI. I established an 8-point grid, spacing tokens, and an accessible color palette rigorously tested to WCAG 2.1 AA standards, ensuring every interface would be both cohesive and inclusive.',
-          '<b>On the front end, this systematic approach is projected to translate directly into a better experience.</b> Fans will interact with dynamic game cards that adapt visually to live, upcoming, or final states; streamlined navigation anchored by intuitive top-level CTAs; and responsive layouts optimized for both performance and accessibility. Each decision—from the foundational token to the interactive component—is a deliberate stitch in the fabric of a more intuitive, reliable, and engaging hockey hub.',
-        ],
-      },
-    ],
+    // process: [
+    //   {
+    //     title: 'Visual hierarchy restructure',
+    //     bullets: [
+    //       '<b>My mission was to restore structure and clarity to the fan experience.</b> To achieve this, I first restructured the visual hierarchy through wireframes and a content priority matrix, ensuring live scores and streaming CTAs were elevated and unmissable. Next, I created clear visual zoning with deliberate spacing and a purposeful typographic scale, giving each section breathing room and intent. Understanding that fans need instant insight, I introduced color-coded game charts and backgrounds, allowing game status to be understood at a glance. The result was a streamlined interface where fans could focus on the game, not the navigation.',
+    //       'To scale this clarity and ensure consistency, <b>I engineered a modular design system in Figma</b>. This foundational library of reusable components replaced a patchwork of inconsistent UI. I established an 8-point grid, spacing tokens, and an accessible color palette rigorously tested to WCAG 2.1 AA standards, ensuring every interface would be both cohesive and inclusive.',
+    //       '<b>On the front end, this systematic approach is projected to translate directly into a better experience.</b> Fans will interact with dynamic game cards that adapt visually to live, upcoming, or final states; streamlined navigation anchored by intuitive top-level CTAs; and responsive layouts optimized for both performance and accessibility. Each decision—from the foundational token to the interactive component—is a deliberate stitch in the fabric of a more intuitive, reliable, and engaging hockey hub.',
+    //     ],
+    //   },
+    // ],
     wireframeImages: [],
     galleryImages: [PuckStreamCTA, PuckStreamColorCoded1, PuckStreamColorCoded2],
     uiKit: {
@@ -870,16 +870,16 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
         features: ['<b>Booking & Sessions:</b> In-app scheduling, reminders, and video calls; session notes and materials live alongside the calendar.', '<b>Payments & Packages:</b> Lesson packages and subscription options; pricing is per-tutor rather than per-course.', '<b>Tutor Tools:</b> Tutors get a dashboard for students, schedule, and earnings; less emphasis on shared progress reports for parents or multi-subject views.'],
       },
     ],
-    process: [
-      {
-        title: 'Scheduling and sessions',
-        bullets: [
-          'To establish immediate trust and emotional resonance, I began by redesigning the hero section with authentic, audience-specific imagery that aligns with the brand while making students feel seen and at ease from their first click. ',
-          'I introduced a dedicated "Learn from the Worlds Top University Experts" module to visually communicate tutor credibility, giving potential users a tangible sense of security and aspiration. ',
-          'Beneath the surface, I restructured the pages information architecture using a content priority map that guides users logically from benefits to functionality, social proof, and finally to conversion. This hierarchy is reinforced by distinct visual zones, a consistent 8-point grid, and deliberate white space—creating a calm, scannable experience that builds confidence and drives action.',
-        ],
-      },
-    ],
+    // process: [
+    //   {
+    //     title: 'Scheduling and sessions',
+    //     bullets: [
+    //       'To establish immediate trust and emotional resonance, I began by redesigning the hero section with authentic, audience-specific imagery that aligns with the brand while making students feel seen and at ease from their first click. ',
+    //       'I introduced a dedicated "Learn from the Worlds Top University Experts" module to visually communicate tutor credibility, giving potential users a tangible sense of security and aspiration. ',
+    //       'Beneath the surface, I restructured the pages information architecture using a content priority map that guides users logically from benefits to functionality, social proof, and finally to conversion. This hierarchy is reinforced by distinct visual zones, a consistent 8-point grid, and deliberate white space—creating a calm, scannable experience that builds confidence and drives action.',
+    //     ],
+    //   },
+    // ],
     wireframeImages: [],
     galleryImages: [Image1],
     uiKit: {

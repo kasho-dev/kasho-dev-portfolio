@@ -1067,7 +1067,7 @@ import PuckStreamMockup from './icons/PuckStream/Landing Page.png'
 import CognitaLandingPage from './icons/Cognita/Landing Page.png'
 import ProjectOverlay from './ProjectOverlay.vue'
 import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
-import SpendlyImage from './icons/Spendly/Mockup 2.png'
+import SpendlyImage from './icons/Spendly/Mockup2.png'
 
 const expandedStates = ref<boolean[]>([false, false, false, false])
 

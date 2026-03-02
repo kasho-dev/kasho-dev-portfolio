@@ -1063,11 +1063,11 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import AppHeader from './AppHeader.vue'
-import InteractifyImage from './icons/interactify/Interactify.svg'
 import PuckStreamMockup from './icons/PuckStream/Landing Page.png'
 import CognitaLandingPage from './icons/Cognita/Landing Page.png'
 import ProjectOverlay from './ProjectOverlay.vue'
 import KyleProfileImage from './icons/Kyle_Arana_Profile.jpg'
+import SpendlyImage from './icons/Spendly/Mockup 2.png'
 
 const expandedStates = ref<boolean[]>([false, false, false, false])
 
@@ -1093,12 +1093,9 @@ interface DesignItem {
 const designs = ref<DesignItem[]>([
   {
     id: 1,
-    title: 'Interactify',
-    subtitle: 'An app about sharing your music taste while socializing',
-    image: InteractifyImage,
-    logoTextPrimary: 'INTER',
-    logoTextAccent: 'ACTIFY',
-    tagline: 'MUSIC MEETS SOCIAL',
+    title: 'Spendly',
+    subtitle: 'A budget tracking app for your personal finances.',
+    image: SpendlyImage,
   },
   {
     id: 2,
@@ -1119,8 +1116,8 @@ const designs = ref<DesignItem[]>([
   },
 ])
 
-/** Hide case studies 1 and 4 from the list for now. */
-const visibleDesigns = computed(() => designs.value.filter((d) => d.id !== 1 && d.id !== 4))
+/** Hide case study 4 from the list for now. */
+const visibleDesigns = computed(() => designs.value.filter((d) => d.id !== 4))
 
 const openDesign = (design: DesignItem) => {
   router.push({ name: 'design-detail', params: { id: String(design.id) } })

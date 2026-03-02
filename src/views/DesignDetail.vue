@@ -110,13 +110,23 @@
                     <span class="block -mt-0.5 text-center">Iterate</span>
                   </div>
                 </div>
-                <div class="design-process-arrow" aria-hidden="true">
-                  <svg class="design-process-arrow-svg" viewBox="0 0 40 16" fill="none" stroke="currentColor"
-                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path class="design-process-arrow-line" d="M0 8 L32 8" />
-                    <path class="design-process-arrow-head" d="M32 8 L26 4 L26 12 Z" stroke="none"
-                      fill="currentColor" />
-                  </svg>
+                <div class="design-process-arrow-group">
+                  <div class="design-process-arrow design-process-arrow-back design-process-arrow-curve" aria-hidden="true" title="Iterate back to Ideate">
+                    <span class="design-process-iterate-label">Iterate</span>
+                    <svg class="design-process-arrow-svg design-process-arrow-curve-svg" viewBox="0 -6 48 24" fill="none" stroke="currentColor"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="design-process-arrow-curve-line" d="M48 6 C 32 -6 16 6 0 6" />
+                      <path class="design-process-arrow-head" d="M0 6 L5 3 L5 9 Z" stroke="none" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div class="design-process-arrow" aria-hidden="true">
+                    <svg class="design-process-arrow-svg" viewBox="0 0 40 16" fill="none" stroke="currentColor"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="design-process-arrow-line" d="M0 8 L32 8" />
+                      <path class="design-process-arrow-head" d="M32 8 L26 4 L26 12 Z" stroke="none"
+                        fill="currentColor" />
+                    </svg>
+                  </div>
                 </div>
                 <!-- Prototype -->
                 <div class="design-process-step relative">
@@ -134,13 +144,23 @@
                     <span class="block -mt-0.5 text-center">Iterate</span>
                   </div>
                 </div>
-                <div class="design-process-arrow" aria-hidden="true">
-                  <svg class="design-process-arrow-svg" viewBox="0 0 40 16" fill="none" stroke="currentColor"
-                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path class="design-process-arrow-line" d="M0 8 L32 8" />
-                    <path class="design-process-arrow-head" d="M32 8 L26 4 L26 12 Z" stroke="none"
-                      fill="currentColor" />
-                  </svg>
+                <div class="design-process-arrow-group">
+                  <div class="design-process-arrow design-process-arrow-back design-process-arrow-curve" aria-hidden="true" title="Iterate back to Prototype">
+                    <span class="design-process-iterate-label">Iterate</span>
+                    <svg class="design-process-arrow-svg design-process-arrow-curve-svg" viewBox="0 -6 48 24" fill="none" stroke="currentColor"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="design-process-arrow-curve-line" d="M48 6 C 32 -6 16 6 0 6" />
+                      <path class="design-process-arrow-head" d="M0 6 L5 3 L5 9 Z" stroke="none" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div class="design-process-arrow" aria-hidden="true">
+                    <svg class="design-process-arrow-svg" viewBox="0 0 40 16" fill="none" stroke="currentColor"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="design-process-arrow-line" d="M0 8 L32 8" />
+                      <path class="design-process-arrow-head" d="M32 8 L26 4 L26 12 Z" stroke="none"
+                        fill="currentColor" />
+                    </svg>
+                  </div>
                 </div>
                 <!-- Test -->
                 <div class="design-process-step">
@@ -151,19 +171,22 @@
                 </div>
               </div>
             </div>
-            <div class="case-study-section-divider"></div>
+            <div v-if="caseStudy.prototype" class="case-study-section-divider"></div>
 
             <!-- Research & Insights -->
             <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Research & Insights</h2>
+              <div v-if="caseStudy.prototype" class="case-study-section-divider"></div>
               <p v-for="(insight, i) in caseStudy.research" :key="i" class="text-sm sm:text-base mb-6 last:mb-0"
                 v-html="insight"></p>
             </div>
+
+
             <!-- <div class="case-study-section-divider"></div> -->
 
             <!-- Competitive Market Analysis -->
             <div v-if="caseStudy.competitiveAnalysis?.length" class="case-study-section mb-8">
-              <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white text-left">Competitive Market
+              <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white text-left">Market Competitive
                 Analysis</h2>
               <div class="competitive-analysis-grid">
                 <div v-for="(competitor, colIndex) in caseStudy.competitiveAnalysis" :key="colIndex"
@@ -206,16 +229,40 @@
             </div>
             <div v-if="caseStudy.competitiveAnalysis?.length" class="case-study-section-divider"></div>
 
-            <!-- Process & Solution -->
+            <!-- Goals and Key Features (side-by-side: Goals, Features) -->
+            <div v-if="caseStudy.goalsAndFeatures" class="case-study-section mb-8">
+              <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white text-left">Goals and Key Features
+              </h2>
+              <div class="goals-features-grid">
+                <div class="goals-features-box">
+                  <h3 class="goals-features-box-title">Goals</h3>
+                  <ul class="goals-features-list">
+                    <li v-for="(item, i) in caseStudy.goalsAndFeatures.goals" :key="i" class="goals-features-list-item"
+                      v-html="item"></li>
+                  </ul>
+                </div>
+                <div class="goals-features-box">
+                  <h3 class="goals-features-box-title">Features</h3>
+                  <ul class="goals-features-list">
+                    <li v-for="(item, i) in caseStudy.goalsAndFeatures.features" :key="i"
+                      class="goals-features-list-item" v-html="item"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div v-if="caseStudy.goalsAndFeatures" class="case-study-section-divider"></div>
+
+            <!-- Design & Development -->
             <div class="case-study-section text-left mb-8">
-              <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Process & Solution</h2>
+              <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Design & Development</h2>
+              <div class="case-study-section-divider"></div>
               <div v-for="(section, i) in caseStudy.process" :key="i" class="mb-4">
                 <!-- <h3 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">{{ section.title }}</h3> -->
                 <p v-for="(bullet, j) in section.bullets" :key="j" class="text-sm sm:text-base mb-4 last:mb-0 last:mb-4"
                   v-html="bullet"></p>
               </div>
+
             </div>
-            <div class="case-study-section-divider"></div>
 
             <!-- Wireframes (blank section above gallery – add image URLs to caseStudy.wireframeImages) -->
             <!-- <div v-if="caseStudy.wireframeImages !== undefined"
@@ -232,9 +279,26 @@
 </div>
 <div v-if="caseStudy.wireframeImages !== undefined" class="case-study-section-divider"></div> -->
 
-            <!-- Gallery images (after Process & Solution) -->
+            <!-- Iterations (below Wireframes) – image + description -->
+            <div v-if="caseStudy.iterationsBelowWireframes" class="case-study-section mb-8">
+              <h2 class="text-xl text-left sm:text-2xl md:text-3xl font-bold mb-3 text-white">
+                {{ caseStudy.iterationsBelowWireframes.title ?? 'Iterations' }}
+              </h2>
+              <p class="text-sm sm:text-base text-left text-gray-300 mb-6 max-w-3xl"
+                v-html="caseStudy.iterationsBelowWireframes.description"></p>
+              <div class="rounded-lg overflow-hidden case-study-media-section">
+                <div class="p-4 sm:p-6">
+                  <img :src="caseStudy.iterationsBelowWireframes.image"
+                    :alt="caseStudy.iterationsBelowWireframes.title ?? 'Iterations'"
+                    class="w-full h-auto object-contain rounded" loading="lazy" />
+                </div>
+              </div>
+            </div>
+            <div v-if="caseStudy.iterationsBelowWireframes" class="case-study-section-divider"></div>
+
+            <!-- Gallery images -->
             <div v-if="caseStudy.galleryImages?.length"
-                class="case-study-section mb-8 rounded-lg overflow-hidden case-study-media-section">
+              class="case-study-section mb-8 rounded-lg overflow-hidden case-study-media-section">
               <div class="p-4 sm:p-6 flex flex-col gap-4 sm:gap-6">
                 <img v-for="(img, i) in caseStudy.galleryImages" :key="i" :src="img" :alt="`Process image ${i + 1}`"
                   class="w-full h-auto object-contain rounded" loading="lazy" />
@@ -245,7 +309,7 @@
             <!-- UI Kit section -->
             <div v-if="caseStudy.uiKit" class="case-study-section mb-8">
               <h2 class="text-xl text-left sm:text-2xl md:text-3xl font-bold mb-3 text-white">{{ caseStudy.uiKit.title
-              }}</h2>
+                }}</h2>
               <p class="text-sm text-left sm:text-base text-gray-300 mb-6 max-w-3xl"
                 v-html="caseStudy.uiKit.description"></p>
               <div class="rounded-lg overflow-hidden case-study-media-section">
@@ -267,7 +331,7 @@
             <div v-if="caseStudy.prototype" class="case-study-section mb-8">
               <h2 class="text-xl text-left sm:text-2xl md:text-3xl font-bold mb-3 text-white">{{
                 caseStudy.prototype.title }}</h2>
-              <p class="text-sm sm:text-base text-gray-300 mb-6 max-w-3xl" v-html="caseStudy.prototype.description"></p>
+              <p class="text-sm sm:text-base text-gray-300 mb-6 max-w-3xl text-left" v-html="caseStudy.prototype.description"></p>
               <div class="rounded-lg overflow-hidden case-study-media-section">
                 <div class="p-4 sm:p-6">
                   <video v-if="caseStudy.prototype.video" :src="caseStudy.prototype.video"
@@ -287,11 +351,68 @@
                 </div>
               </div>
             </div>
-            <div v-if="caseStudy.prototype" class="case-study-section-divider"></div>
+
+            <!-- Design Refinements (hidden on case study 3) -->
+            <template v-if="id !== 3">
+              <div v-if="caseStudy.prototype" class="case-study-section-divider"></div>
+
+              <div class="case-study-section text-left mb-8">
+                <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Design Refinements</h2>
+              </div>
+              <div class="case-study-section-divider"></div>
+            </template>
+
+            <!-- User Feedback (two side-by-side boxes: User 1, User 2) -->
+            <div v-if="caseStudy.userFeedback" class="case-study-section mb-8">
+              <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white text-left">User Feedback</h2>
+              <div class="user-feedback-grid">
+                <div class="user-feedback-box">
+                  <h3 class="user-feedback-box-title">User 1</h3>
+                  <ul class="user-feedback-list">
+                    <li v-for="(item, i) in caseStudy.userFeedback.user1" :key="i" class="user-feedback-list-item"
+                      v-html="item">
+                    </li>
+                  </ul>
+                </div>
+                <div class="user-feedback-box">
+                  <h3 class="user-feedback-box-title">User 2</h3>
+                  <ul class="user-feedback-list">
+                    <li v-for="(item, i) in caseStudy.userFeedback.user2" :key="i" class="user-feedback-list-item"
+                      v-html="item">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div v-if="caseStudy.userFeedback" class="case-study-section-divider"></div>
+
+            <!-- Final Iterations & Refinements -->
+            <div v-if="caseStudy.iterations" class="case-study-section mb-8">
+              <h2 class="text-xl text-left sm:text-2xl md:text-3xl font-bold mb-3 text-white">Iterations & Refinements
+              </h2>
+              <p class="text-sm sm:text-base text-left text-gray-300 mb-6 max-w-3xl"
+                v-html="caseStudy.iterations.description"></p>
+              <div class="rounded-lg overflow-hidden case-study-media-section">
+                <div class="p-4 sm:p-6">
+                  <img v-if="caseStudy.iterations.image" :src="caseStudy.iterations.image"
+                    alt="Final Iterations & Refinements" class="w-full h-auto object-contain rounded" loading="lazy" />
+                  <div v-else
+                    class="min-h-[200px] sm:min-h-[280px] flex items-center justify-center text-gray-500 text-sm rounded">
+                    Iterations & Refinements
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="caseStudy.impact" class="case-study-section-divider"></div>
+            <div class="case-study-section text-left mb-8">
+              <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Outcome and Learnings</h2>
+            </div>
+            <div v-if="caseStudy.impact" class="case-study-section-divider"></div>
 
             <!-- Impact & Results -->
             <div class="case-study-section text-left mb-8">
-              <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Impact & Results</h2>
+              <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Results & Impact</h2>
               <ul class="space-y-4 list-none pl-0">
                 <li v-for="(item, i) in caseStudy.impact" :key="i"
                   class="flex gap-3 items-start text-sm sm:text-base text-gray-300">
@@ -307,26 +428,6 @@
             </div>
             <div class="case-study-section-divider"></div>
 
-            <!-- Iterations -->
-            <div v-if="caseStudy.iterations" class="case-study-section mb-8">
-              <h2 class="text-lg text-left sm:text-large md:text-large font-bold mb-3 text-white">{{
-                caseStudy.iterations.title }}
-              </h2>
-              <p class="text-sm sm:text-base text-left text-gray-300 mb-6 max-w-3xl"
-                v-html="caseStudy.iterations.description"></p>
-              <div class="rounded-lg overflow-hidden case-study-media-section">
-                <div class="p-4 sm:p-6">
-                  <img v-if="caseStudy.iterations.image" :src="caseStudy.iterations.image"
-                    :alt="caseStudy.iterations.title" class="w-full h-auto object-contain rounded" loading="lazy" />
-                  <div v-else
-                    class="min-h-[200px] sm:min-h-[280px] flex items-center justify-center text-gray-500 text-sm rounded">
-                    Iterations
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div v-if="caseStudy.iterations" class="case-study-section-divider"></div>
-
             <!-- Lessons Learned -->
             <div class="case-study-section text-left mb-8">
               <h2 class="text-xl text-center sm:text-2xl md:text-3xl font-bold mb-4">Lessons Learned</h2>
@@ -337,8 +438,9 @@
             <!-- Explore other designs CTA -->
             <div class="case-study-section text-center mt-10 mb-8">
               <p class="text-lg sm:text-xl text-gray-400 italic">
-              Feel free to explore my <a href="/#figma-designs" class="text-green-400 hover:text-green-300 transition-colors">other design projects</a>.
-            </p>
+                Feel free to explore my <a href="/#figma-designs"
+                  class="text-green-400 hover:text-green-300 transition-colors">other design projects</a>.
+              </p>
             </div>
           </template>
 
@@ -382,7 +484,7 @@ import { computed, ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { Search, LineChart, Lightbulb, LayoutTemplate, Eye } from 'lucide-vue-next'
 import AppHeader from '../components/AppHeader.vue'
-import InteractifyImage from '../components/icons/interactify/Interactify.svg'
+import SpendlyImage from '../components/icons/Spendly/Intro.png'
 import PuckStreamImage from '../components/icons/PuckStream/Puckstream Mockup 1.png'
 import CognitaMockup from '../components/icons/Cognita/Landing Page.png'
 import PuckStreamCTA from '../components/icons/PuckStream/CTA.png'
@@ -395,6 +497,13 @@ import Image1 from '../components/icons/Cognita/Image1.png'
 import CognitaUIKit from '../components/icons/Cognita/UI KIT.png'
 import CognitaPrototypeVid from '../components/icons/Cognita/PROTOTYPE VID COGNITA.mkv'
 
+import SpendlyCover from '../components/icons/Spendly/Cover.png'
+import LowMedFidelity from '../components/icons/Spendly/Low-Med Fidelity.png'
+import SpendlyMockup1 from '../components/icons/Spendly/Mockup 1.png'
+import SpendlyMockup2 from '../components/icons/Spendly/Mockup 2.png'
+import SpendlyUIKit from '../components/icons/Spendly/Spendly UI KIT.png'
+import SpendlyWireframeIterations from '../components/icons/Spendly/WireframeIteration.png'
+import SpendlyFinalIteration from '../components/icons/Spendly/FinalIterations.png'
 
 const showBackToTop = ref(false)
 const iconSize = 28
@@ -463,17 +572,39 @@ interface IterationsEntry {
   image: string
 }
 
+/** Goals and Key Features – side-by-side boxes with bullet lists */
+interface GoalsAndFeaturesEntry {
+  goals: string[]
+  features: string[]
+}
+
+/** Iterations block (e.g. below wireframes) – image + description */
+interface IterationsBlockEntry {
+  title?: string
+  description: string
+  image: string
+}
+
+/** User Feedback – two side-by-side boxes (user 1 & user 2) with bullet text */
+interface UserFeedbackEntry {
+  user1: string[]
+  user2: string[]
+}
+
 interface CaseStudyContent {
   subtitle: string
   overview: { client: string; project: string; timeline: string; role: string; prototypeUrl?: string }
   challenge: { title?: string; intro: string; goals: string[] }
   research: string[]
   competitiveAnalysis?: CompetitorEntry[]
+  goalsAndFeatures?: GoalsAndFeaturesEntry
   process: { title: string; bullets: string[] }[]
   wireframeImages?: string[]
+  iterationsBelowWireframes?: IterationsBlockEntry
   galleryImages?: string[]
   uiKit?: UiKitEntry
   prototype?: UiKitEntry
+  userFeedback?: UserFeedbackEntry
   impact: string[]
   iterations?: IterationsEntry
   lessons: string[]
@@ -481,53 +612,132 @@ interface CaseStudyContent {
 
 const CASE_STUDIES: Record<number, CaseStudyContent> = {
   1: {
-    subtitle: 'An app about sharing your music taste while socializing',
+    subtitle: 'A budget tracking app for your personal finances.',
     overview: {
       client: 'Personal / Concept',
-      project: 'Interactify – social music discovery app',
-      timeline: 'Design & prototype phase',
+      project: 'Spendly',
+      timeline: '5 Days',
       role: 'UI/UX Designer (end-to-end)',
-      prototypeUrl: '#',
+      prototypeUrl: 'https://www.figma.com/proto/OPa8p9BTtOCgc77YdiIesk/Spendly---Budget-Smarter--Live-Better?page-id=114%3A1040&node-id=161-16662&viewport=-8950%2C1879%2C0.18&t=6M8H75XbB8rCTzwI-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=161%3A16662',
     },
     challenge: {
       title: 'The Challenge',
-      intro: 'Design a social app that lets people share and discover music without feeling like another feed.',
+      intro: 'Create a user-friendly budget tracking app that stands out from the competition—not just through features, but through its visual identity.',
       goals: [
-        'Balance social discovery with personal listening space',
-        'Make music taste feel expressive, not performative',
-        'Keep onboarding light so users reach “aha” moments fast',
+        '• <b>Establish a unique visual identity</b> that sets Spendly apart in a crowded market<br><br>',
+        '• <b>Create a comforting, approachable first impression</b> through thoughtful visual design<br><br>',
+        '• <b>Build an immersive "environment"</b> that puts users at ease with a clear visual hierarchy<br><br>',
+        '• <b>Use an easy-on-the-eyes color scheme</b> for long-term usability and comfort<br><br>',
+        '• <b>Deliver simple yet powerful budgeting features</b> — without hiding them behind paywalls',
       ],
     },
     research: [
-      'Users wanted to share taste without turning listening into a chore',
-      'Discovery was strongest when tied to friends’ activity, not algorithms alone',
-      'Low-friction sharing (e.g. “what I’m playing now”) beat long reviews',
+      'Before starting the design, I studied the current budget tracking market to understand what works, whats missing, and where Spendly could carve out its own space — both functionally and visually.<br><br> <b>Key insight:</b> Most apps force users to choose between simplicity without depth or power with complexity. Theres a clear opportunity for a middle ground.',
     ],
-    process: [
+    competitiveAnalysis: [
       {
-        title: 'Social-first flows',
-        bullets: [
-          'Mapped flows for “share a track,” “see what friends play,” and “discover from taste”',
-          'Used lightweight components (mini cards, one-tap reactions) to keep focus on music',
-        ],
+        name: 'Simplifi',
+        strengths: ['Excellent UX/UI', 'Innovative "Spending Plan"', ' Strong transaction rules'],
+        weaknesses: ['<b>Paywall:</b> Users must pay to access core budgeting features.'],
+        features: ['Spending Plan', 'Refund Tracker', 'Spending Watchlists'],
       },
       {
-        title: 'Visual system',
-        bullets: [
-          'Defined a component set for album art, play states, and user avatars',
-          'Kept contrast and tap targets accessible (WCAG 2.1 AA)',
-        ],
+        name: 'NerdWallet',
+        strengths: ['Completely free', 'Excellent educational content', 'Strong net worth tracking'],
+        weaknesses: ['<b>No Budgeting Tools:</b> Cannot create or manage a budget; Transaction editing is basic.'],
+        features: ['Financial education library', 'Credit score simulator', 'Integrated investing accounts'],
+      },
+      {
+        name: 'Quicken Classic',
+        strengths: ['Unmatched feature depth', 'Superior investment tools (Morningstar)', 'Integrated bill pay; Robust tax planning'],
+        weaknesses: ['<b>Cost & Complexity:</b> High subscription cost and steep learning curve exclude casual users.'],
+        features: ['Morningstar X-Ray', 'Tax Planner & Deduction Finder', 'Lifetime Planner'],
       },
     ],
+    goalsAndFeatures: {
+      goals: [
+        'Create a free budgeting tool that actually helps users spend wisely',
+        'Stand out visually in a crowded market',
+        'Offer premium-tier features without hiding essentials behind paywalls',
+        'Simplify complex budgeting into an intuitive, calming flow',
+      ],
+      features: [
+        'Wallet overview with total balance',
+        'Recent transactions',
+        'Weekly & daily spending insights',
+        'Budgeting tips',
+        'Goal tracker',
+        'Bill & subscription tracking',
+        'Daily/monthly spending limits',
+        'Card balance tracker',
+        'Monthly cost analysis',
+      ],
+    },
+    // process: [
+    //   {
+    //     title: 'Social-first flows',
+    //     bullets: [
+    //       'Mapped flows for “share a track,” “see what friends play,” and “discover from taste”',
+    //       'Used lightweight components (mini cards, one-tap reactions) to keep focus on music',
+    //     ],
+    //   },
+    //   {
+    //     title: 'Visual system',
+    //     bullets: [
+    //       'Defined a component set for album art, play states, and user avatars',
+    //       'Kept contrast and tap targets accessible (WCAG 2.1 AA)',
+    //     ],
+    //   },
+    // ],
+    wireframeImages: [],
+    iterationsBelowWireframes: {
+      title: 'Wireframes & Iterations',
+      description: 'Early wireframes were refined based on feedback: the goals tracker was changed to display a progress bar to highlight the goals percentage.',
+      image: LowMedFidelity,
+    },
+    galleryImages: [SpendlyWireframeIterations],
+    uiKit: {
+      title: 'UI Kit',
+      description: 'A scalable design system built in Figma — focused on visual comfort, clarity, and consistency.',
+      image: SpendlyUIKit,
+      buttonLabel: 'View Full UI Library',
+      buttonUrl: 'https://www.figma.com/design/OPa8p9BTtOCgc77YdiIesk/Spendly---Budget-Smarter--Live-Better?node-id=4-244&t=hzfeCK5EPIbKw6dv-1',
+    },
+    prototype: {
+      title: 'Prototype',
+      description: 'Prototype covering all screens main flows: Checking card, wallet, savings balance, adding a transaction, and viewing a budget category insights.',
+      image: SpendlyMockup2,
+      buttonLabel: 'View prototype',
+      buttonUrl: 'https://www.figma.com/proto/OPa8p9BTtOCgc77YdiIesk/Spendly---Budget-Smarter--Live-Better?page-id=114%3A1040&node-id=161-16662&viewport=-8950%2C1879%2C0.18&t=6M8H75XbB8rCTzwI-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=161%3A16662',
+    },
+    userFeedback: {
+      user1: [
+        'Add a filter option in the transaction history to separate income from expenses.<br><br>',
+        '<b>Likes:</b> The ability to track both income and expenses makes the app feel like a true all-in-one solution.',
+      ],
+      user2: [
+        'It would be nice if expenses from linked cards updated live within the app.',
+        'The "View All Goals" section could feel more engaging—right now, it looks similar to other apps.',
+        'All "View All" pages currently feel a bit bland and lack visual interest.',
+        'The inputs and success pages could also use more personality—they currently feel flat.<br><br>',
+        '<b>Likes:</b> The Home, Wallet, Insights, and Settings pages feel lively, welcoming, and well-designed.',
+      ],
+    },
     impact: [
-      'Clear user flows validated in prototype testing',
-      'Reusable design system for future social/audio features',
-      'Foundation for music + social MVP',
+      '<b>87%</b> of testers completed all key tasks without assistance',
+      '<b>100%</b> described the visual design as "inviting" or "peaceful',
+      'Users completed core actions like adding expenses in <b>under 15 seconds</b>',
     ],
+    iterations: {
+      title: 'Iterations',
+      description: 'After testing, the cards visual design was refined to be more engaging and visually appealing. The lists and goals tracker were adjusted to be more scannable and the input pages were refined to be more user-friendly.',
+      image: SpendlyFinalIteration,
+    },
     lessons: [
-      'Social and music need separate “modes” so one doesn’t overwhelm the other',
-      'Small, low-commitment actions (like a quick share) drove more engagement in tests',
-      'Familiar patterns (stories, activity) helped; novelty worked when it served clarity',
+      '• <b>Visual comfort matters—especially in finance.</b> Users responded emotionally to the calming palette, proving that aesthetics can drive engagement. <br><br>',
+      '• <b>Free doesnt mean feature-light.</b> Spendly proves you can offer genuine value without a paywall. <br><br>',
+      '• <b>Test early, test often.</b> Early feedback saved me time by redesigning pages that was unclearly designed or lacked personality. <br><br>',
+      '• <b>Balance is everything.</b> Spendlys sweet spot is between Simplifis simplicity and Quickens depth—and finding that balance required constant refinement. <br><br>',
     ],
   },
   2: {
@@ -670,7 +880,7 @@ const CASE_STUDIES: Record<number, CaseStudyContent> = {
         ],
       },
     ],
-      wireframeImages: [],
+    wireframeImages: [],
     galleryImages: [Image1],
     uiKit: {
       title: 'UI Kit',
@@ -710,13 +920,13 @@ const route = useRoute()
 
 const id = computed(() => Number(route.params.id))
 
-/** Case studies 1 and 4 are hidden for now. */
-const isHiddenCase = computed(() => id.value === 1 || id.value === 4)
+/** Case study 4 is hidden for now. */
+const isHiddenCase = computed(() => id.value === 4)
 
 const title = computed(() => {
   switch (id.value) {
     case 1:
-      return 'Interactify'
+      return 'Spendly'
     case 2:
       return 'PuckStream'
     case 3:
@@ -725,9 +935,6 @@ const title = computed(() => {
       return 'Design'
   }
 })
-
-const primary = computed(() => (id.value === 1 ? 'INTER' : title.value))
-const accent = computed(() => (id.value === 1 ? 'C TIFY' : ''))
 
 const subtitle = computed(() => CASE_STUDIES[id.value]?.subtitle ?? '')
 
@@ -744,7 +951,7 @@ watch(
 const imageSrc = computed(() => {
   switch (id.value) {
     case 1:
-      return InteractifyImage
+      return SpendlyCover
     case 2:
       return PuckStreamImage
     case 3:
@@ -843,6 +1050,17 @@ const imageSrc = computed(() => {
   }
 }
 
+.design-process-arrow-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  align-self: center;
+  margin-bottom: 1.5rem;
+}
+
 .design-process-arrow {
   display: flex;
   align-items: center;
@@ -850,6 +1068,75 @@ const imageSrc = computed(() => {
   align-self: center;
   margin-bottom: 1.5rem;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.design-process-arrow-group .design-process-arrow {
+  margin-bottom: 0;
+}
+
+.design-process-arrow-group .design-process-arrow-back {
+  margin-top: 0;
+  margin-bottom: 0.15rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Curved back arrow (above the forward arrow) */
+.design-process-arrow-curve .design-process-arrow-curve-svg {
+  width: 2.5rem;
+  height: 1.25rem;
+  display: block;
+}
+
+.design-process-arrow-curve-line {
+  stroke-dasharray: 3 2;
+}
+
+.design-process-arrow-curve {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.design-process-iterate-label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  .design-process-iterate-label {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .design-process-iterate-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .design-process-arrow-curve .design-process-arrow-curve-svg {
+    width: 3rem;
+    height: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .design-process-arrow-curve .design-process-arrow-curve-svg {
+    width: 3.5rem;
+    height: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .design-process-arrow-curve .design-process-arrow-curve-svg {
+    width: 4rem;
+    height: 2rem;
+  }
 }
 
 .design-process-arrow-svg {
@@ -887,6 +1174,98 @@ const imageSrc = computed(() => {
 /* Shared background for wireframes & gallery (dynamic per case study) */
 .case-study-media-section {
   background-color: #1f1f1f;
+}
+
+/* Goals and Key Features – side-by-side boxes */
+.goals-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .goals-features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.goals-features-box {
+  background-color: #1f1f1f;
+  border: 1px solid #2a2a2a;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.goals-features-box-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(74 222 128);
+  margin-bottom: 0.75rem;
+}
+
+.goals-features-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.goals-features-list-item {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgb(209 213 219);
+  margin-bottom: 0.375rem;
+  text-align: left;
+}
+
+.goals-features-list-item:last-child {
+  margin-bottom: 0;
+}
+
+/* User Feedback – two side-by-side boxes */
+.user-feedback-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .user-feedback-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.user-feedback-box {
+  background-color: #1f1f1f;
+  border: 1px solid #2a2a2a;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.user-feedback-box-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(74 222 128);
+  margin-bottom: 0.75rem;
+}
+
+.user-feedback-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.user-feedback-list-item {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgb(209 213 219);
+  margin-bottom: 0.375rem;
+  text-align: left;
+}
+
+.user-feedback-list-item:last-child {
+  margin-bottom: 0;
 }
 
 /* Competitive Market Analysis – 3 competitors, responsive */

@@ -113,11 +113,11 @@
           <div
             class="pt-4 w-full lg:w-screen lg:-mx-8 lg:px-8 overflow-x-auto pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] horizontal-scroll"
           >
-            <div class="flex gap-6 sm:gap-8 md:gap-10 justify-start items-stretch w-max px-2">
+            <div class="flex gap-4 sm:gap-6 md:gap-8 justify-center items-stretch w-max px-2">
               <div
                 v-for="design in visibleDesigns"
                 :key="design.id"
-                class="group flex-shrink-0 w-[320px] sm:w-[380px] md:w-[420px] lg:w-[460px] bg-[#1f1f1f] rounded-xl border border-[#2a2a2a] p-5 sm:p-6 cursor-pointer flex flex-col transition-all duration-300 ease-out hover:border-green-500/70 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 hover:bg-[#252525]"
+                class="group flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[380px] bg-[#1f1f1f] rounded-xl border border-[#2a2a2a] p-6 sm:p-5 cursor-pointer flex flex-col transition-all duration-300 ease-out hover:border-green-500/70 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 hover:bg-[#252525]"
                 @click="openDesign(design)"
               >
                 <div class="mb-4">

@@ -109,11 +109,11 @@
             </p>
           </div>
 
-          <!-- Featured design cards (centered, scroll on small screens) -->
+          <!-- Featured design cards (centered, horizontal scroll on all screens) -->
           <div
-            class=" pt-4 w-full overflow-x-auto pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            class="pt-4 w-full lg:w-screen lg:-mx-8 lg:px-8 overflow-x-auto pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] horizontal-scroll"
           >
-            <div class="flex gap-6 sm:gap-8 md:gap-10 justify-center items-stretch min-w-max px-2">
+            <div class="flex gap-6 sm:gap-8 md:gap-10 justify-start items-stretch w-max px-2">
               <div
                 v-for="design in visibleDesigns"
                 :key="design.id"

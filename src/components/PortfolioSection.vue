@@ -109,15 +109,15 @@
             </p>
           </div>
 
-          <!-- Featured design cards (centered, horizontal scroll on all screens) -->
+          <!-- Featured design cards (scroll on small screens, 3-up layout on large screens) -->
           <div
-            class="pt-4 w-full lg:w-screen lg:-mx-8 lg:px-8 overflow-x-auto pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] horizontal-scroll"
+            class="pt-4 w-full overflow-x-auto lg:overflow-visible pb-4 sm:pb-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] horizontal-scroll"
           >
-            <div class="flex gap-4 sm:gap-6 md:gap-8 justify-center items-stretch w-max px-2">
+            <div class="flex gap-4 sm:gap-6 md:gap-8 justify-center items-stretch w-max lg:w-auto lg:mx-auto px-2 lg:px-0">
               <div
                 v-for="design in visibleDesigns"
                 :key="design.id"
-                class="group flex-shrink-0 w-[280px] sm:w-[320px] md:w-[360px] lg:w-[380px] bg-[#1f1f1f] rounded-xl border border-[#2a2a2a] p-6 sm:p-5 cursor-pointer flex flex-col transition-all duration-300 ease-out hover:border-green-500/70 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 hover:bg-[#252525]"
+                class="group flex-shrink-0 w-[260px] sm:w-[260px] md:w-[280px] lg:w-[320px] xl:w-[360px] bg-[#1f1f1f] rounded-xl border border-[#2a2a2a] p-6 sm:p-5 cursor-pointer flex flex-col transition-all duration-300 ease-out hover:border-green-500/70 hover:shadow-lg hover:shadow-green-500/10 hover:-translate-y-1 hover:bg-[#252525]"
                 @click="openDesign(design)"
               >
                 <div class="mb-4">

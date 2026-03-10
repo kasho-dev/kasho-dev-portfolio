@@ -137,6 +137,14 @@
               </div>
             </div>
           </div>
+
+          <!-- Explore other designs CTA -->
+          <div class="case-study-section text-center mt-10 mb-8">
+              <p class="text-lg sm:text-xl text-gray-400 italic">
+                Explore the full collection on <a href="https://dribbble.com/kashodev"
+                  class="text-green-400 hover:text-green-300 transition-colors" target="_blank">Dribbble →</a>
+              </p>
+            </div>
         </div>
 
 

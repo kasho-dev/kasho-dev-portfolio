@@ -83,7 +83,7 @@
                 development, or a <span class="font-semibold text-green-400">developer</span> who
                 designs with the user in mind.
               </p>
-              <a href="https://drive.google.com/file/d/1RZhbRpYTKSHVCzbfGbh_M7VxVRqGV-gv/view?usp=sharing"
+              <a href="https://drive.google.com/file/d/1RZhbRpYTKSHVCzbfGbh_M7VxVRqGV-gv/view?usp=sharing" target="_blank"
                 class="inline-block border-2 border-green-400 text-green-400 px-4 sm:px-6 py-2 rounded hover:bg-green-400 hover:text-gray-900 transition-all duration-300 font-medium text-sm sm:text-base">
                 Download Resume
               </a>
